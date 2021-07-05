@@ -1,0 +1,26 @@
+
+/** ADD YOUR AWESOME CODES HERE **/
+
+p.time {
+    float: right;
+    
+}
+#imgAva {
+    width: 50px; height: 50px;clip-path: circle(20px at 50% 50%); 
+    padding-bottom: -5px;    
+}
+p.nameAva{
+    display: block; display: inline-block;
+    
+}
+div.why-text {
+    padding: 25px;
+    padding-top: 5px;
+}
+div.why-text h4 {
+    padding-bottom: 0;
+}
+img.img-fluid1 {
+    height: 250px;
+    weight: 200px;
+}
