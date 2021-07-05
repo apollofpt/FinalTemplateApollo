@@ -1,0 +1,234 @@
+.topLikePost body {
+	margin-top: 60px;
+	font-size: 14px;
+	font-family: "Helvetica Nueue",Arial,Verdana,sans-serif;
+	background-color: #E5E9ED;
+}
+.topLikePost .btn:hover,
+.topLikePost .btn:focus,
+.topLikePost .btn:active{
+    outline: 0 !important;
+}
+/* entire container, keeps perspective */
+.topLikePost .card-container {
+	  -webkit-perspective: 800px;
+   -moz-perspective: 800px;
+     -o-perspective: 800px;
+        perspective: 800px;
+        margin-bottom: 30px;
+}
+/* flip the pane when hovered */
+.topLikePost .card-container:not(.manual-flip):hover .card,
+.topLikePost .card-container.hover.manual-flip .card{
+	-webkit-transform: rotateY( 180deg );
+-moz-transform: rotateY( 180deg );
+ -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+
+
+.topLikePost .card-container.static:hover .card,
+.topLikePost .card-container.static.hover .card {
+	-webkit-transform: none;
+-moz-transform: none;
+ -o-transform: none;
+    transform: none;
+}
+/* flip speed goes here */
+.topLikePost .card {
+	 -webkit-transition: -webkit-transform .5s;
+   -moz-transition: -moz-transform .5s;
+     -o-transition: -o-transform .5s;
+        transition: transform .5s;
+-webkit-transform-style: preserve-3d;
+   -moz-transform-style: preserve-3d;
+     -o-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.topLikePost .front,.topLikePost  .back {
+	-webkit-backface-visibility: hidden;
+   -moz-backface-visibility: hidden;
+     -o-backface-visibility: hidden;
+        backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #FFF;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
+}
+
+/* front pane, placed above back */
+.topLikePost .front {
+	z-index: 2;
+}
+
+/* back, initially hidden pane */
+.topLikePost .back {
+		-webkit-transform: rotateY( 180deg );
+   -moz-transform: rotateY( 180deg );
+     -o-transform: rotateY( 180deg );
+        transform: rotateY( 180deg );
+        z-index: 3;
+}
+
+.topLikePost .back .btn-simple{
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+}
+/*        Style       */
+.topLikePost{
+    padding: 80px 0;
+}
+.topLikePost .postTitle{
+    margin: 0px 0px 24px 15px;
+    padding: 4px 15px 24px 0px;
+    border-bottom: 1px solid #e3e9ef !important;
+}
+.topLikePost .postTitle h2{
+    font-size:27px;
+    font-weight:700;
+    margin: 0px 8px 0px 0px;
+    padding: 0 0 0;
+}
+.topLikePost .card{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 4px;
+    color: #444444;
+   
+}
+.topLikePost .card-container,.topLikePost  .front,.topLikePost  .back {
+	width: 100%;
+	height: 420px;
+	border-radius: 15px;
+}
+.topLikePost .front, .topLikePost  .back{
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+.topLikePost .avatar{
+    width:150px;
+    height:150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 7px solid #fff;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+}
+.topLikePost .avatar img{
+    width: auto;
+    height: 100%;
+    margin-left: -10%;
+}
+.topLikePost .main-text{
+    padding: 10px 0;
+    text-align: center;
+    
+}
+.topLikePost .main-text h2{
+    text-transform: uppercase;
+   font-weight:900;
+   font-size: 25px;
+   margin: 0 0 5px;
+}
+
+.topLikePost .main-text i{
+    color: #f2561d;
+}
+.topLikePost .like{
+    margin-top: 5%;
+}
+.topLikePost .front .footer {
+    border-top: 1px solid #EEEEEE;
+    color: #999999;
+    margin: 20px 0 0;
+    padding: 10px 0 0;
+    text-align: center;
+}
+/* style front background */
+.topLikePost .front {
+    background-image: url('../img-test-lastest-post/abstract-bg.png');
+    background-size: 500px;
+}
+/* style back product image */
+.topLikePost .product-img {
+    display: inline-block;
+    height: 200px;
+    width: auto;
+    position: relative;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+  }
+.topLikePost .product-img img{
+    width: 100%;
+    height: auto;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+/* style back main-text title Nhat Quang LNN */
+.topLikePost .back .main-text-title{
+    height: 58px;
+    width: auto;
+    align-items: center;
+    overflow: hidden;
+    display: flex;
+  justify-content: center;
+}
+.topLikePost .back .main-text-title  h3{
+    font-weight:600;    
+    font-size: 20px;
+    padding: 0;
+}
+/* style back desciption */
+.topLikePost .back .description{
+    text-align: left;
+    font-size: 12px;
+    padding: 0 35px;
+    height: 90px;
+    overflow: hidden;
+}
+/* style back footer*/
+.topLikePost .back .footer {
+    border-top: 1px solid #EEEEEE;
+    color: #999999;
+    /* margin: 20px 0 0; */
+    /* padding: 10px; */
+    display: flex;
+    text-align: center;
+    height: 39.4px;
+    overflow: hidden;
+}
+.topLikePost .back .footer-to-align-center{
+    margin: auto;
+}
+.topLikePost .back .footer span{
+     font-size: 12px;
+}
+
+/*       Fix bug for IE      */
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .topLikePost .front, .back{
+        -ms-backface-visibility: visible;
+        backface-visibility: visible;
+    }
+
+    .topLikePost  .back {
+        visibility: hidden;
+        /* -ms-transition: all 0.2s cubic-bezier(.92,.01,.83,.67); */
+        /* -ms-transform: all 0.2s cubic-bezier(.92,.01,.83,.67); */
+    }
+    .topLikePost  .front{
+        z-index: 4;
+    }
+    .topLikePost  .card-container:not(.manual-flip):hover .back,
+    .topLikePost  .card-container.manual-flip.hover .back{
+        z-index: 5;
+        visibility: visible;
+    }
+}
