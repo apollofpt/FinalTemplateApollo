@@ -13,7 +13,10 @@ import java.sql.ResultSet;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Account;
+import model.Category;
 
 /**
  *
@@ -61,6 +64,18 @@ public class DAO {
         } catch (Exception e) {
         }
         return false;
+    }
+    public List<Category> getAllCategory (){
+        List<Category> list = new ArrayList<>();
+        String query = "select * from Category";
+        try {
+            con = DBUtils.makeConnection();
+            stm = con.prepareStatement(query);
+            rs = stm.executeQuery();
+        } catch (Exception ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
     }
     
     public static void main(String[] args) {

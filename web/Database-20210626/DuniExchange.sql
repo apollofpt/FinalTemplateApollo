@@ -1,6 +1,4 @@
-﻿create database Day2_Page
-
-use Day2_Page
+﻿
 ------------------------------------------------------------------Khởi tạo cơ sở dữ liệu---------------------------------------------
 create database DuniExchange
 go
