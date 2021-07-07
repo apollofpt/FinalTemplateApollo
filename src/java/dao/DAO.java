@@ -17,38 +17,41 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Account;
 import model.Category;
+import model.Post;
 
 /**
  *
  * @author truon
  */
 public class DAO {
+
     private Connection con = null;
     private PreparedStatement stm = null;
     private ResultSet rs = null;
-    public List<Account> getAllAccount(){
+
+    public List<Account> getAllAccount() {
         List<Account> ls = new ArrayList<>();
         try {
             String query = "select * from Account";
             con = DBUtils.makeConnection();
             stm = con.prepareStatement(query);
             rs = stm.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 //int accountID, String username, String userPassword, String userEmail,
                 //String userFullname, boolean isAdmin, Date createDate, String facebookURL, String userImage
-                ls.add(new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)
-                        , rs.getString(5), rs.getBoolean(6), rs.getDate(7), rs.getString(8), rs.getString(9)));
+                ls.add(new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+                        rs.getString(5), rs.getBoolean(6), rs.getDate(7), rs.getString(8), rs.getString(9)));
             }
         } catch (Exception e) {
-            System.out.println("Error: "+e.toString());
+            System.out.println("Error: " + e.toString());
         }
         return ls;
-    } 
-    
-    public boolean insertAccount(String username, String email,String fullname, String password){
+    }
+
+    public boolean insertAccount(String username, String email, String fullname, String password) {
         try {
             con = DBUtils.makeConnection();
-            if (con!= null) {
+            if (con != null) {
                 String sql = "insert into "
                         + "Account(username,userPassword,userEmail,userFullname,isAdmin,createDate,facebookURL,userImage)"
                         + " values(?,?,?,?,0,?,'','')";
@@ -65,7 +68,8 @@ public class DAO {
         }
         return false;
     }
-    public List<Category> getAllCategory (){
+
+    public List<Category> getAllCategory() {
         List<Category> list = new ArrayList<>();
         String query = "select * from Category";
         try {
@@ -77,8 +81,117 @@ public class DAO {
         }
         return list;
     }
-    
-    public static void main(String[] args) {
+
+    public Account getAccountByUserName(String username) throws Exception {
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+                String sql = "select * from [Account] where username = ?";
+
+                stm = con.prepareStatement(sql);
+                stm.setString(1, username);
+
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    return new Account(rs.getInt(1),
+                            rs.getString(2),
+                            rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(5),
+                            rs.getBoolean(6),
+                            rs.getDate(7),
+                            rs.getString(8),
+                            rs.getString(9));
+                }
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+
+        return null;
+    }
+
+    public List<Post> getPostByID(int accountID) throws Exception {
+        List<Post> listPostByID = new ArrayList<>();
+
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+                String sql = "select * from Post where accountID = ?";
+
+                stm = con.prepareStatement(sql);
+                stm.setInt(1, accountID);
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    listPostByID.add(new Post(rs.getInt(1),
+                            rs.getInt(2),
+                            rs.getString(3),
+                            rs.getDate(4),
+                            rs.getString(5),
+                            rs.getInt(6),
+                            rs.getString(7)));
+                }
+                return listPostByID;
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+
+        return null;
+
+    }
+
+    public int getMostLike() throws Exception {
+        try {
+            con = DBUtils.makeConnection();
+            if (con != null) {
+                String sql = "select top 1* from (\n" +
+                            "select [postLike] from [dbo].[Post]) a\n" +
+                            "order by  a.[postLike] desc";
+
+                stm = con.prepareStatement(sql);
+
+                rs = stm.executeQuery();
+                if (rs.next()) {
+                    return rs.getInt(1);
+                }
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return 0;
+    }
+
+    public static void main(String[] args) throws Exception {
 //        String username = "trang";
 //        String password = "banana";
 //        DAO dao = new DAO();
@@ -99,11 +212,14 @@ public class DAO {
 //            System.out.println(find.toString());          
 //        }
         DAO dao = new DAO();
-        dao.insertAccount("HELLO", "TEST", "CHUOI", "132");
-        List<Account> list = dao.getAllAccount();
-        for (Account account : list) {
-            System.out.println(account.toString());
-        }
+//        dao.insertAccount("HELLO", "TEST", "CHUOI", "132");
+//        List<Account> list = dao.getAllAccount();
+//        for (Account account : list) {
+//            System.out.println(account.toString());
+//        }
+//        System.out.println(dao.getPostByID(1));
+//            System.out.println(dao.getAccountByUserName("quang"));
+        System.out.println(dao.getMostLike());
     }
-    
+
 }

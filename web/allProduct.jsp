@@ -18,7 +18,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Site Metas -->
-        <title>List product - DuniExchange</title>
+        <title>List all products - DuniExchange</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -71,7 +71,7 @@
                                     <!-- <li><a href="shop-detail.html">Shop Detail</a></li> -->
                                     <li><a href="cart.html">Cart</a></li>
                                     <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="my-account.html">My Account</a></li>
+                                    <li><a href="myAccount.jsp">My Account</a></li>
                                     <li><a href="wishlist.html">Wishlist</a></li>
                                 </ul>
                             </li>
