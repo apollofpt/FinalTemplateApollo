@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import model.Account;
 import model.Category;
 import model.Post;
+import model.postFullList;
 
 /**
  *
@@ -67,19 +68,6 @@ public class DAO {
         } catch (Exception e) {
         }
         return false;
-    }
-
-    public List<Category> getAllCategory() {
-        List<Category> list = new ArrayList<>();
-        String query = "select * from Category";
-        try {
-            con = DBUtils.makeConnection();
-            stm = con.prepareStatement(query);
-            rs = stm.executeQuery();
-        } catch (Exception ex) {
-            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list;
     }
 
     public Account getAccountByUserName(String username) throws Exception {
@@ -165,9 +153,9 @@ public class DAO {
         try {
             con = DBUtils.makeConnection();
             if (con != null) {
-                String sql = "select top 1* from (\n" +
-                            "select [postLike] from [dbo].[Post]) a\n" +
-                            "order by  a.[postLike] desc";
+                String sql = "select top 1* from (\n"
+                        + "select [postLike] from [dbo].[Post]) a\n"
+                        + "order by  a.[postLike] desc";
 
                 stm = con.prepareStatement(sql);
 
@@ -190,7 +178,101 @@ public class DAO {
         }
         return 0;
     }
+//slideshop
 
+    public List<Category> getAllCategory() {
+        List<Category> list = new ArrayList<>();
+        String query = "select * from Category";
+        try {
+            con = DBUtils.makeConnection();
+            stm = con.prepareStatement(query);
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                list.add(new Category(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3)));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    public List<postFullList> getAllPost() throws Exception {
+        List<postFullList> list = new ArrayList<>();
+
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+                String sql = "select * from [dbo].[Post] a, [dbo].[Account] b where a.accountID = b.accountID";
+
+                stm = con.prepareStatement(sql);
+
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    list.add(new postFullList(rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(5),
+                            rs.getInt(6),
+                            rs.getString(7),
+                            rs.getString(9),
+                            rs.getString(16)));
+                }
+                return list;
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return null;
+    }
+
+    public postFullList getlastPost() throws Exception {
+
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+                String sql = "select * from [dbo].[Post] a, [dbo].[Account] b where a.accountID = b.accountID order by postID desc";
+
+                stm = con.prepareStatement(sql);
+
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    return(new postFullList(rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(5),
+                            rs.getInt(6),
+                            rs.getString(7),
+                            rs.getString(9),
+                            rs.getString(16)));
+                }
+                return null;
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return null;
+    }
+/////////////////////////////////////////////////////////////
     public static void main(String[] args) throws Exception {
 //        String username = "trang";
 //        String password = "banana";
@@ -219,7 +301,9 @@ public class DAO {
 //        }
 //        System.out.println(dao.getPostByID(1));
 //            System.out.println(dao.getAccountByUserName("quang"));
-        System.out.println(dao.getMostLike());
+//        System.out.println(dao.getMostLike());
+//        System.out.println(dao.getAllCategory());
+        System.out.println(dao.getlastPost());
     }
 
 }
