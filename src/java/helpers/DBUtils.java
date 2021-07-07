@@ -15,12 +15,12 @@ import java.sql.DriverManager;
 public class DBUtils {
     public static Connection makeConnection() throws Exception{
         String connectionUrl = "jdbc:sqlserver://localhost:1433;"
-                +"databaseName=Day2_Page;User=sa;Password=123456";
+                +"databaseName=DuniExchange;User=sa;Password=admin";
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         Connection con = DriverManager.getConnection(connectionUrl);
         return con;
     }
-//    public static void main(String[] args) throws Exception {
-//        System.out.println(DBUtils.makeConnection());
-//    }
+    public static void main(String[] args) throws Exception {
+        System.out.println(DBUtils.makeConnection());
+    }
 }
