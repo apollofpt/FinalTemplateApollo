@@ -17,7 +17,7 @@
             <url-pattern>/php/*</url-pattern>
             <url-pattern>/scss/*</url-pattern>
             <url-pattern>/webfonts/*</url-pattern>
-            <url-pattern>/font/*</url-pattern>
+            <url-pattern>/fonts/*</url-pattern>
             <url-pattern>/img-test-lastest-post/*</url-pattern>
             <url-pattern>/fontawesome-free-5.15.3-web/*</url-pattern>
         </servlet-mapping>    

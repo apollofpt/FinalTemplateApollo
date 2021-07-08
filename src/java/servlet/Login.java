@@ -32,7 +32,18 @@ public class Login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.getRequestDispatcher("Login.jsp").forward(request, response);
+        String previous = request.getHeader("referer"); //Lấy trang gửi request trước đó, ex: "/PreviousPage/subpath1/subpath2/"
+        System.out.println(previous);
+        if(previous == null){
+            request.getRequestDispatcher("Login.jsp").forward(request, response);
+            return;
+        }   
+        
+        if (previous.endsWith("DemoProject/Login")){
+            request.getRequestDispatcher("LoginServlet").forward(request, response);
+        } else {
+            request.getRequestDispatcher("Login.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

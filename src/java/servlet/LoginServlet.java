@@ -8,6 +8,7 @@ package servlet;
 import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -74,18 +75,30 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String username = request.getParameter("username").trim();
+        String password = request.getParameter("password").trim();
+        
         DAO dao = new DAO();
-        List<Account> list = dao.getAllAccount();
         boolean flag = true;
-        for (int i = 0; i < list.size() && flag; i++) {
-            if(list.get(i).getUsername().trim().equals(username.trim()) && list.get(i).getUserPassword().trim().equals(password.trim())){
-                flag = false;
-            }
+        
+//        List<Account> list = dao.getAllAccount();
+//        for (int i = 0; i < list.size() && flag; i++) {
+//            if(list.get(i).getUsername().trim().equals(username.trim()) && list.get(i).getUserPassword().trim().equals(password.trim())){
+//                flag = false;
+//            }
+//        }
+        
+        //line 91-94 tương tự như line 83-88, nhưng sẽ nhanh hơn vì không có vòng lặp
+        HashMap<String, String> accounts = dao.getAllAccountUserPass();
+        System.out.println(accounts);
+        if(accounts.containsKey(username) && accounts.get(username).equals(password)){
+            flag = false;
         }
+        
+        
         if(flag){
-            request.setAttribute("MESSAGE", "Username and password not exist");
+            request.setAttribute("MESSAGE", "username or password is wrong!");
+            request.setAttribute("USERNAME", username);
             RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
             rd.forward(request, response);              
         }else{
