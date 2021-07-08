@@ -98,7 +98,7 @@
                                     <a class="namesp" href="#" style=""> 
                                         ${o.postTitle}</a>
                                     <p class="author">
-                                        posted by: <a href="">${currentAccount.userFullname}</a>
+                                        Posted by: <a href="">${currentAccount.userFullname}</a>
                                     </p>
                                     <p>${o.postDescription}</p>
                                     <p class="time">
@@ -115,13 +115,11 @@
                                 </div>
                             </div>
                         </c:forEach>
-
                     </div>
 
 
                     <div id="seen" class="tabcontent">
                         <h3 style="text-align: center;color: rgb(219, 169, 94);"">Đã xem</h3>
-                        <p>
                         <div class="post" >
                             <div class="imgp">
                                 <img src="https://dienmaythienhoa.vn/static/images/4.%20hinh%20sp/3.%20Hinh%20SP%202/laptop-asus-s330fn-ey037t-1.png" style="" alt="anh san pham">
@@ -129,7 +127,7 @@
                             <div class="contentp">
                                 <a class="namesp" href="#" style="font-size: 30px;font-weight: bold ;"> laptop-asus-s330fn-ey037t-1</a>
                                 <p class="author">
-                                    posted by: <a href="">Uyen Trang</a>
+                                    Posted by: <a href="">Uyen Trang</a>
                                 </p>
                                 <p>CPU core i51135G7; Graphic card: Intel Iris XE; Ram 8GB</p>
                                 <p class="time">
@@ -139,10 +137,10 @@
                                     <div class="progress w-75" style="height: 5px">
                                         <div class="progress-bar bg-danger" style="width: 36%"
                                              role="progressbar" style="width: 100%" aria-valuenow="50"
-                                             aria-valuemin="0" aria-valuemax="100"></div>
+                                            aria-valuemin="0" aria-valuemax="100">
+                                        </div>
                                     </div>
                                 </div>
-                                </p>
                             </div>
                         </div>
                         <!--post 2-->
@@ -153,7 +151,7 @@
                             <div class="contentp">
                                 <a class="namesp" href="#" > laptop-dell</a>
                                 <p class="author">
-                                    posted by: <a href="">Nhat Quang</a>
+                                    Posted by: <a href="">Nhat Quang</a>
                                 </p>
                                 <p>CPU core i51135G7; Graphic card: Intel Iris XE; Ram 8GB</p>
                                 <p class="time">

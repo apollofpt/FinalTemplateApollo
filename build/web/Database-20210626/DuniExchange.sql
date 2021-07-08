@@ -23,8 +23,8 @@ go
 create table Category
 (
 categoryID int identity(1,1) NOT NULL,
-categoryName nvarchar(30) NOT NULL,
-categoryIcon nvarchar(20) NULL,
+categoryName nvarchar(50) NOT NULL,
+categoryIcon nvarchar(50) NULL,
 constraint pk_Category primary key(categoryID)
 )
 go
@@ -96,10 +96,10 @@ select * from Account
 
 ---------------------------------------------------Bắt đầu thêm một vài bản ghi cho bảng Category------------------------
 insert into Category(categoryName,categoryIcon) values
-(N'Thời trang','fa-shopping-bag'),
-(N'Điện tử','fa-television'),
-(N'Đồ gia dụng','fa-shopping-basket'),
-(N'Giải trí','fa-gamepad'),
+(N'Thời trang','fa fa-shopping-bag'),
+(N'Điện tử','fas fa-tv'),
+(N'Đồ gia dụng','fa fa-shopping-basket'),
+(N'Giải trí','fa fa-gamepad'),
 (N'Thực phẩm','fa fa-cutlery'),
 (N'Sách','fa fa-book'),
 (N'Mỹ phẩm','fa fa-cosmetic'),
@@ -118,7 +118,7 @@ insert into Post(accountID,postTitle,postDate,postDescription,postLike,thumbnail
 ,N'Đây là chiếc áo có màu sắc sặc sỡ, được các chuyên gia Trung Quốc lấy cảm hứng từ các thương hiệu nổi tiếng như Gu Sì, Chà Neo,Luonvuituoi , bla bla (giới thiệu sản phẩm)',
 0,'images/Product-images/AoNhieuMau.jfif'),
 (2,N'Combo sách làm giàu chưa đọc, còn nguyên tem',GETDATE(),
-N'Bộ sách "Dạy con làm giàu" gồm 13 cuốn được viết bởi Robert T.Kiyosaki được tái bản bằng tiếng Việt hướng dẫn cách làm giàu nhưng chưa đọc ',3,'images/Apollo-images/Big-images-D.png'),
+N'Bộ sách "Dạy con làm giàu" gồm 13 cuốn được viết bởi Robert T.Kiyosaki được tái bản bằng tiếng Việt hướng dẫn cách làm giàu nhưng chưa đọc ',3,'images/Apollo-images/Big-images-C.png'),
 (3,N'Gói kẹo Chipchip ',GETDATE(),N'Gói kẹo Chipchip mới ăn được một nửa, còn HSD, rất ngon',2,'images/Product-images/SachLamGiau.jpg'),
 (4,N'Điện thoại siêu nhân Cuồng phong ',GETDATE(),N'Điện thoại để dành 10 năm nhưng vẫn còn mới không còn phát nhạc được nữa nhưng còn khả năng bắn đĩa',
 2,'images/Product-images/DongHoSieuNhan.jfif'),
