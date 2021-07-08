@@ -192,7 +192,7 @@
 
 <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
 
-<script src="fontawesome-free-5.15.3-web/js/all.js"></script>
+<!--<script src="fontawesome-free-5.15.3-web/js/all.js"></script>-->
 
 <!-- ALL JS FILES -->
 <script src="js/jquery-3.2.1.min.js"></script>
