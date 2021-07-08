@@ -97,7 +97,7 @@ select * from Account
 ---------------------------------------------------Bắt đầu thêm một vài bản ghi cho bảng Category------------------------
 insert into Category(categoryName,categoryIcon) values
 (N'Thời trang','fa fa-shopping-bag'),
-(N'Điện tử','fa fa-television'),
+(N'Điện tử','fas fa-tv'),
 (N'Đồ gia dụng','fa fa-shopping-basket'),
 (N'Giải trí','fa fa-gamepad'),
 (N'Thực phẩm','fa fa-cutlery'),

@@ -1,0 +1,922 @@
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.34
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Apr 3 2020 12:02:52 UTC
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.34.0
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_111\jre
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_111-b14
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Netbean 8.2 rc\apache-tomcat-9.0.34
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Netbean 8.2 rc\apache-tomcat-9.0.34
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\logging.properties
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\Netbean 8.2 rc\apache-tomcat-9.0.34
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\Netbean 8.2 rc\apache-tomcat-9.0.34
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\Netbean 8.2 rc\apache-tomcat-9.0.34\temp
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+03-Jun-2021 09:15:13.009 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+03-Jun-2021 09:15:13.071 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+03-Jun-2021 09:15:13.279 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+03-Jun-2021 09:15:13.556 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [882] milliseconds
+03-Jun-2021 09:15:13.606 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+03-Jun-2021 09:15:13.606 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.34]
+03-Jun-2021 09:15:13.610 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Day1_Calculator.xml]
+03-Jun-2021 09:15:13.626 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/Day1_Calculator] in deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Day1_Calculator.xml] has been ignored
+03-Jun-2021 09:15:13.975 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:15:14.006 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Day1_Calculator.xml] has finished in [396] ms
+03-Jun-2021 09:15:14.006 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Day1_MVC.xml]
+03-Jun-2021 09:15:14.006 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/Day1_MVC] in deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Day1_MVC.xml] has been ignored
+03-Jun-2021 09:15:14.069 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:15:14.084 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Day1_MVC.xml] has finished in [78] ms
+03-Jun-2021 09:15:14.084 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Hello.xml]
+03-Jun-2021 09:15:14.084 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/Hello] in deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Hello.xml] has been ignored
+03-Jun-2021 09:15:14.147 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:15:14.147 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Hello.xml] has finished in [63] ms
+03-Jun-2021 09:15:14.147 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Hello_JSP.xml]
+03-Jun-2021 09:15:14.147 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/Hello_JSP] in deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Hello_JSP.xml] has been ignored
+03-Jun-2021 09:15:14.225 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:15:14.225 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Hello_JSP.xml] has finished in [78] ms
+03-Jun-2021 09:15:14.225 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Page_Directive.xml]
+03-Jun-2021 09:15:14.225 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/Page_Directive] in deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Page_Directive.xml] has been ignored
+03-Jun-2021 09:15:14.506 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:15:14.506 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Page_Directive.xml] has finished in [281] ms
+03-Jun-2021 09:15:14.506 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\SimpleD.xml]
+03-Jun-2021 09:15:14.506 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/SimpleD] in deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\SimpleD.xml] has been ignored
+03-Jun-2021 09:15:14.569 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:15:14.569 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\SimpleD.xml] has finished in [63] ms
+03-Jun-2021 09:15:14.569 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\SimpleDate.xml]
+03-Jun-2021 09:15:14.569 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/SimpleDate] in deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\SimpleDate.xml] has been ignored
+03-Jun-2021 09:15:14.631 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:15:14.631 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\SimpleDate.xml] has finished in [62] ms
+03-Jun-2021 09:15:14.631 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\webapps\docs]
+03-Jun-2021 09:15:14.694 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:15:14.694 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\webapps\docs] has finished in [63] ms
+03-Jun-2021 09:15:14.694 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\webapps\examples]
+03-Jun-2021 09:15:15.280 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:15:15.311 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\webapps\examples] has finished in [617] ms
+03-Jun-2021 09:15:15.311 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\webapps\host-manager]
+03-Jun-2021 09:15:15.361 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:15:15.377 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\webapps\host-manager] has finished in [66] ms
+03-Jun-2021 09:15:15.377 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\webapps\manager]
+03-Jun-2021 09:15:15.427 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:15:15.429 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\webapps\manager] has finished in [52] ms
+03-Jun-2021 09:15:15.430 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\webapps\ROOT]
+03-Jun-2021 09:15:15.464 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:15:15.464 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\webapps\ROOT] has finished in [34] ms
+03-Jun-2021 09:15:15.464 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+03-Jun-2021 09:15:15.480 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [1,921] milliseconds
+03-Jun-2021 09:15:17.904 INFO [http-nio-8080-exec-8] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Login_DoGet_DoPost.xml]
+03-Jun-2021 09:15:17.904 WARNING [http-nio-8080-exec-8] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/Login_DoGet_DoPost] in deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Login_DoGet_DoPost.xml] has been ignored
+03-Jun-2021 09:15:17.998 INFO [http-nio-8080-exec-8] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:15:17.998 INFO [http-nio-8080-exec-8] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Login_DoGet_DoPost.xml] has finished in [94] ms
+03-Jun-2021 09:15:18.013 INFO [http-nio-8080-exec-8] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/Login_DoGet_DoPost]] after start() had already been called. The second call will be ignored.
+03-Jun-2021 09:16:46.977 INFO [http-nio-8080-exec-9] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:16:47.149 INFO [http-nio-8080-exec-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:16:47.353 INFO [http-nio-8080-exec-2] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:16:55.602 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.reload Reloading context [/Login_DoGet_DoPost]
+03-Jun-2021 09:16:55.602 INFO [Catalina-utility-2] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/Login_DoGet_DoPost] has started
+03-Jun-2021 09:16:55.622 INFO [Catalina-utility-2] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:16:55.622 INFO [Catalina-utility-2] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/Login_DoGet_DoPost] is completed
+03-Jun-2021 09:21:15.231 INFO [http-nio-8080-exec-15] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:21:15.435 INFO [http-nio-8080-exec-14] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:21:26.070 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.reload Reloading context [/Login_DoGet_DoPost]
+03-Jun-2021 09:21:26.070 INFO [Catalina-utility-2] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/Login_DoGet_DoPost] has started
+03-Jun-2021 09:21:26.112 INFO [Catalina-utility-2] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:21:26.133 INFO [Catalina-utility-2] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/Login_DoGet_DoPost] is completed
+03-Jun-2021 09:21:32.991 INFO [http-nio-8080-exec-25] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:21:33.181 INFO [http-nio-8080-exec-17] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:21:36.148 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.reload Reloading context [/Login_DoGet_DoPost]
+03-Jun-2021 09:21:36.148 INFO [Catalina-utility-2] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/Login_DoGet_DoPost] has started
+03-Jun-2021 09:21:36.179 INFO [Catalina-utility-2] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:21:36.195 INFO [Catalina-utility-2] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/Login_DoGet_DoPost] is completed
+03-Jun-2021 09:21:43.817 INFO [http-nio-8080-exec-25] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:21:43.989 INFO [http-nio-8080-exec-24] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:21:46.202 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.reload Reloading context [/Login_DoGet_DoPost]
+03-Jun-2021 09:21:46.202 INFO [Catalina-utility-1] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/Login_DoGet_DoPost] has started
+03-Jun-2021 09:21:46.237 INFO [Catalina-utility-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:21:46.244 INFO [Catalina-utility-1] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/Login_DoGet_DoPost] is completed
+03-Jun-2021 09:22:16.470 INFO [http-nio-8080-exec-30] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/Login_DoGet_DoPost] has started
+03-Jun-2021 09:22:16.502 INFO [http-nio-8080-exec-30] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:22:16.517 INFO [http-nio-8080-exec-30] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/Login_DoGet_DoPost] is completed
+03-Jun-2021 09:22:16.595 INFO [http-nio-8080-exec-29] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/Login_DoGet_DoPost] has started
+03-Jun-2021 09:22:16.627 INFO [http-nio-8080-exec-29] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:22:16.642 INFO [http-nio-8080-exec-29] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/Login_DoGet_DoPost] is completed
+03-Jun-2021 09:22:36.972 INFO [http-nio-8080-exec-30] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/Login_DoGet_DoPost] has started
+03-Jun-2021 09:22:37.003 INFO [http-nio-8080-exec-30] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:22:37.019 INFO [http-nio-8080-exec-30] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/Login_DoGet_DoPost] is completed
+03-Jun-2021 09:22:37.112 INFO [http-nio-8080-exec-23] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/Login_DoGet_DoPost] has started
+03-Jun-2021 09:22:37.143 INFO [http-nio-8080-exec-23] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 09:22:37.143 INFO [http-nio-8080-exec-23] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/Login_DoGet_DoPost] is completed
+03-Jun-2021 11:30:34.651 INFO [http-nio-8080-exec-41] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Login_Register_Apollo.xml]
+03-Jun-2021 11:30:34.666 WARNING [http-nio-8080-exec-41] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/Login_Register_Apollo] in deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Login_Register_Apollo.xml] has been ignored
+03-Jun-2021 11:30:38.414 INFO [http-nio-8080-exec-41] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 11:30:38.617 INFO [http-nio-8080-exec-41] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\Login_Register_Apollo.xml] has finished in [4,014] ms
+03-Jun-2021 11:30:38.742 INFO [http-nio-8080-exec-41] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/Login_Register_Apollo]] after start() had already been called. The second call will be ignored.
+03-Jun-2021 15:11:13.710 INFO [http-nio-8080-exec-36] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\MVC2Java_Database.xml]
+03-Jun-2021 15:11:13.994 WARNING [http-nio-8080-exec-36] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/MVC2Java_Database] in deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\MVC2Java_Database.xml] has been ignored
+03-Jun-2021 15:11:17.710 INFO [http-nio-8080-exec-36] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:11:17.783 INFO [http-nio-8080-exec-36] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\MVC2Java_Database.xml] has finished in [4,140] ms
+03-Jun-2021 15:11:17.835 INFO [http-nio-8080-exec-36] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/MVC2Java_Database]] after start() had already been called. The second call will be ignored.
+03-Jun-2021 15:16:15.083 INFO [http-nio-8080-exec-35] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 15:16:15.272 WARNING [http-nio-8080-exec-35] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [MVC2Java_Database] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+03-Jun-2021 15:16:15.352 SEVERE [http-nio-8080-exec-35] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [MVC2Java_Database] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@63af3078]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [7b15ae12-d343-4df0-9e24-3eae07e7ec8a-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+03-Jun-2021 15:16:15.354 SEVERE [http-nio-8080-exec-35] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [MVC2Java_Database] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@63af3078]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [a07105f5-47a0-4641-800a-d8dbe04960e1-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+03-Jun-2021 15:16:15.354 SEVERE [http-nio-8080-exec-35] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [MVC2Java_Database] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@63af3078]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [35c126de-87ec-4a5a-9645-ed9add98567f-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+03-Jun-2021 15:16:15.354 SEVERE [http-nio-8080-exec-35] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [MVC2Java_Database] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@63af3078]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [50dcd846-9cdb-4f25-a73d-66c66861691c-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+03-Jun-2021 15:16:15.354 SEVERE [http-nio-8080-exec-35] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [MVC2Java_Database] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@63af3078]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [b771666c-ed28-46dd-b1f3-58fe31b8bcef-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+03-Jun-2021 15:16:15.354 SEVERE [http-nio-8080-exec-35] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [MVC2Java_Database] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@63af3078]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [cc45a0ad-4a66-4d74-8885-c38b80b0bb3a-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+03-Jun-2021 15:16:15.841 INFO [http-nio-8080-exec-35] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:16:15.901 INFO [http-nio-8080-exec-35] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 15:16:18.834 INFO [http-nio-8080-exec-45] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/MVC2Java_Database]
+03-Jun-2021 15:16:23.740 INFO [http-nio-8080-exec-44] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\MVC2Java_Database.xml]
+03-Jun-2021 15:16:23.741 WARNING [http-nio-8080-exec-44] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/MVC2Java_Database] in deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\MVC2Java_Database.xml] has been ignored
+03-Jun-2021 15:16:23.884 INFO [http-nio-8080-exec-44] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:16:23.884 INFO [http-nio-8080-exec-44] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [D:\Netbean 8.2 rc\apache-tomcat-9.0.34\conf\Catalina\localhost\MVC2Java_Database.xml] has finished in [144] ms
+03-Jun-2021 15:16:23.904 INFO [http-nio-8080-exec-44] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/MVC2Java_Database]] after start() had already been called. The second call will be ignored.
+03-Jun-2021 15:24:05.474 INFO [http-nio-8080-exec-48] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 15:24:06.233 WARNING [http-nio-8080-exec-48] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [MVC2Java_Database] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+03-Jun-2021 15:24:06.241 SEVERE [http-nio-8080-exec-48] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [MVC2Java_Database] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@731ab04b]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [29acb648-a433-441b-a5fb-8eea7b1a1427-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+03-Jun-2021 15:24:06.241 SEVERE [http-nio-8080-exec-48] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [MVC2Java_Database] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@731ab04b]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [a02577e8-f71e-452c-a34b-b06c73364036-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+03-Jun-2021 15:24:06.241 SEVERE [http-nio-8080-exec-48] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [MVC2Java_Database] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@731ab04b]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [aa82df90-3c23-4092-bf16-a66e69b1616a-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+03-Jun-2021 15:24:06.241 SEVERE [http-nio-8080-exec-48] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [MVC2Java_Database] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@731ab04b]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [adf6d335-efee-4121-ab15-22876a9eaa6a-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+03-Jun-2021 15:24:06.479 INFO [http-nio-8080-exec-48] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:24:06.487 INFO [http-nio-8080-exec-48] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 15:24:11.254 INFO [http-nio-8080-exec-57] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 15:24:11.254 WARNING [http-nio-8080-exec-57] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [MVC2Java_Database] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+03-Jun-2021 15:24:11.254 SEVERE [http-nio-8080-exec-57] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [MVC2Java_Database] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@388a8103]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [52d2f03e-9642-4787-9b14-d8a79887ac94-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+03-Jun-2021 15:24:11.501 INFO [http-nio-8080-exec-57] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:24:11.509 INFO [http-nio-8080-exec-57] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 15:24:46.144 INFO [http-nio-8080-exec-64] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 15:24:46.154 WARNING [http-nio-8080-exec-64] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [MVC2Java_Database] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+03-Jun-2021 15:24:46.294 INFO [http-nio-8080-exec-64] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:24:46.319 INFO [http-nio-8080-exec-64] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 15:26:41.074 INFO [http-nio-8080-exec-61] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 15:26:41.334 INFO [http-nio-8080-exec-61] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:26:41.338 INFO [http-nio-8080-exec-61] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 15:29:04.024 INFO [http-nio-8080-exec-70] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 15:29:04.024 WARNING [http-nio-8080-exec-70] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [MVC2Java_Database] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+03-Jun-2021 15:29:04.154 INFO [http-nio-8080-exec-70] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:29:04.176 INFO [http-nio-8080-exec-70] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 15:29:04.894 INFO [http-nio-8080-exec-71] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 15:29:05.009 INFO [http-nio-8080-exec-71] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:29:05.016 INFO [http-nio-8080-exec-71] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 15:29:27.189 INFO [http-nio-8080-exec-83] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 15:29:27.189 WARNING [http-nio-8080-exec-83] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [MVC2Java_Database] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+03-Jun-2021 15:29:27.532 INFO [http-nio-8080-exec-83] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:29:27.534 INFO [http-nio-8080-exec-83] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 15:30:06.614 INFO [http-nio-8080-exec-77] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 15:30:06.732 INFO [http-nio-8080-exec-77] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:30:06.740 INFO [http-nio-8080-exec-77] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 15:37:04.806 INFO [http-nio-8080-exec-97] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 15:37:04.814 WARNING [http-nio-8080-exec-97] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [MVC2Java_Database] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+03-Jun-2021 15:37:05.355 INFO [http-nio-8080-exec-97] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:37:05.355 INFO [http-nio-8080-exec-97] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 15:37:05.745 INFO [http-nio-8080-exec-93] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 15:37:05.888 INFO [http-nio-8080-exec-93] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:37:05.888 INFO [http-nio-8080-exec-93] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 15:40:01.820 INFO [http-nio-8080-exec-93] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 15:40:02.079 INFO [http-nio-8080-exec-93] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:40:02.085 INFO [http-nio-8080-exec-93] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 15:40:02.229 INFO [http-nio-8080-exec-88] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 15:40:02.455 INFO [http-nio-8080-exec-88] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:40:02.464 INFO [http-nio-8080-exec-88] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 15:47:19.079 INFO [http-nio-8080-exec-88] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 15:47:19.165 INFO [http-nio-8080-exec-88] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:47:19.167 INFO [http-nio-8080-exec-88] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 15:50:02.494 INFO [http-nio-8080-exec-107] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 15:50:02.584 INFO [http-nio-8080-exec-107] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:50:02.586 INFO [http-nio-8080-exec-107] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 15:52:58.131 INFO [http-nio-8080-exec-107] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 15:52:58.521 INFO [http-nio-8080-exec-107] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:52:58.542 INFO [http-nio-8080-exec-107] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 15:53:50.793 INFO [http-nio-8080-exec-107] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 15:53:50.890 INFO [http-nio-8080-exec-107] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:53:50.981 INFO [http-nio-8080-exec-107] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 15:53:51.156 INFO [http-nio-8080-exec-113] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 15:53:51.299 INFO [http-nio-8080-exec-113] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 15:53:51.302 INFO [http-nio-8080-exec-113] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 16:35:29.287 INFO [http-nio-8080-exec-118] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 16:35:29.951 INFO [http-nio-8080-exec-118] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 16:35:29.954 INFO [http-nio-8080-exec-118] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 16:42:00.209 INFO [http-nio-8080-exec-118] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 16:42:00.323 INFO [http-nio-8080-exec-118] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 16:42:00.324 INFO [http-nio-8080-exec-118] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 16:42:00.396 INFO [http-nio-8080-exec-131] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 16:42:00.471 INFO [http-nio-8080-exec-131] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 16:42:00.472 INFO [http-nio-8080-exec-131] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:06:49.361 INFO [http-nio-8080-exec-142] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:06:50.051 INFO [http-nio-8080-exec-142] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:06:50.051 INFO [http-nio-8080-exec-142] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:07:36.510 INFO [http-nio-8080-exec-142] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:07:36.706 INFO [http-nio-8080-exec-142] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:07:36.707 INFO [http-nio-8080-exec-142] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:07:36.743 INFO [http-nio-8080-exec-142] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:07:36.900 INFO [http-nio-8080-exec-142] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:07:36.900 INFO [http-nio-8080-exec-142] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:07:41.700 SEVERE [http-nio-8080-exec-140] servlet.LoginServlet.doPost null
+	org.apache.jasper.JasperException: The absolute uri: [http://java.sun.com/jsp/jstl/core] cannot be resolved in either web.xml or the jar files deployed with this application
+		at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:55)
+		at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:294)
+		at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:81)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.generateTldResourcePath(TagLibraryInfoImpl.java:251)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.<init>(TagLibraryInfoImpl.java:122)
+		at org.apache.jasper.compiler.Parser.parseTaglibDirective(Parser.java:431)
+		at org.apache.jasper.compiler.Parser.parseDirective(Parser.java:489)
+		at org.apache.jasper.compiler.Parser.parseElements(Parser.java:1445)
+		at org.apache.jasper.compiler.Parser.parse(Parser.java:144)
+		at org.apache.jasper.compiler.ParserController.doParse(ParserController.java:244)
+		at org.apache.jasper.compiler.ParserController.parse(ParserController.java:105)
+		at org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:206)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:386)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:362)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:346)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:400)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:385)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:329)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+		at servlet.LoginServlet.doPost(LoginServlet.java:80)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+		at servlet.ProcessServlet.doPost(ProcessServlet.java:73)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Thread.java:745)
+03-Jun-2021 17:08:33.571 SEVERE [http-nio-8080-exec-141] servlet.LoginServlet.doPost null
+	org.apache.jasper.JasperException: The absolute uri: [http://java.sun.com/jsp/jstl/core] cannot be resolved in either web.xml or the jar files deployed with this application
+		at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:55)
+		at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:294)
+		at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:81)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.generateTldResourcePath(TagLibraryInfoImpl.java:251)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.<init>(TagLibraryInfoImpl.java:122)
+		at org.apache.jasper.compiler.Parser.parseTaglibDirective(Parser.java:431)
+		at org.apache.jasper.compiler.Parser.parseDirective(Parser.java:489)
+		at org.apache.jasper.compiler.Parser.parseElements(Parser.java:1445)
+		at org.apache.jasper.compiler.Parser.parse(Parser.java:144)
+		at org.apache.jasper.compiler.ParserController.doParse(ParserController.java:244)
+		at org.apache.jasper.compiler.ParserController.parse(ParserController.java:105)
+		at org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:206)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:386)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:362)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:346)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:400)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:385)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:329)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+		at servlet.LoginServlet.doPost(LoginServlet.java:80)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+		at servlet.ProcessServlet.doPost(ProcessServlet.java:73)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Thread.java:745)
+03-Jun-2021 17:08:56.160 INFO [http-nio-8080-exec-149] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:08:56.174 WARNING [http-nio-8080-exec-149] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [MVC2Java_Database] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+03-Jun-2021 17:08:56.377 INFO [http-nio-8080-exec-149] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:08:56.384 INFO [http-nio-8080-exec-149] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:08:56.778 INFO [http-nio-8080-exec-153] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:08:56.987 INFO [http-nio-8080-exec-153] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:08:56.990 INFO [http-nio-8080-exec-153] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:09:05.229 INFO [http-nio-8080-exec-153] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:09:05.322 INFO [http-nio-8080-exec-153] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:09:05.335 INFO [http-nio-8080-exec-153] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:09:05.458 INFO [http-nio-8080-exec-151] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:09:05.569 INFO [http-nio-8080-exec-151] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:09:05.571 INFO [http-nio-8080-exec-151] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:09:06.266 INFO [http-nio-8080-exec-147] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:09:06.432 INFO [http-nio-8080-exec-147] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:09:06.435 INFO [http-nio-8080-exec-147] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:09:22.353 SEVERE [http-nio-8080-exec-146] servlet.LoginServlet.doPost null
+	org.apache.jasper.JasperException: The absolute uri: [http://java.sun.com/jsp/jstl/core] cannot be resolved in either web.xml or the jar files deployed with this application
+		at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:55)
+		at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:294)
+		at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:81)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.generateTldResourcePath(TagLibraryInfoImpl.java:251)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.<init>(TagLibraryInfoImpl.java:122)
+		at org.apache.jasper.compiler.Parser.parseTaglibDirective(Parser.java:431)
+		at org.apache.jasper.compiler.Parser.parseDirective(Parser.java:489)
+		at org.apache.jasper.compiler.Parser.parseElements(Parser.java:1445)
+		at org.apache.jasper.compiler.Parser.parse(Parser.java:144)
+		at org.apache.jasper.compiler.ParserController.doParse(ParserController.java:244)
+		at org.apache.jasper.compiler.ParserController.parse(ParserController.java:105)
+		at org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:206)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:386)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:362)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:346)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:400)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:385)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:329)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+		at servlet.LoginServlet.doPost(LoginServlet.java:80)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+		at servlet.ProcessServlet.doPost(ProcessServlet.java:73)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Thread.java:745)
+03-Jun-2021 17:11:54.580 SEVERE [http-nio-8080-exec-158] servlet.LoginServlet.doPost null
+	org.apache.jasper.JasperException: The absolute uri: [http://java.sun.com/jsp/jstl/core] cannot be resolved in either web.xml or the jar files deployed with this application
+		at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:55)
+		at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:294)
+		at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:81)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.generateTldResourcePath(TagLibraryInfoImpl.java:251)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.<init>(TagLibraryInfoImpl.java:122)
+		at org.apache.jasper.compiler.Parser.parseTaglibDirective(Parser.java:431)
+		at org.apache.jasper.compiler.Parser.parseDirective(Parser.java:489)
+		at org.apache.jasper.compiler.Parser.parseElements(Parser.java:1445)
+		at org.apache.jasper.compiler.Parser.parse(Parser.java:144)
+		at org.apache.jasper.compiler.ParserController.doParse(ParserController.java:244)
+		at org.apache.jasper.compiler.ParserController.parse(ParserController.java:105)
+		at org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:206)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:386)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:362)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:346)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:400)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:385)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:329)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+		at servlet.LoginServlet.doPost(LoginServlet.java:80)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+		at servlet.ProcessServlet.doPost(ProcessServlet.java:73)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Thread.java:745)
+03-Jun-2021 17:16:25.241 SEVERE [http-nio-8080-exec-161] servlet.LoginServlet.doPost null
+	org.apache.jasper.JasperException: The absolute uri: [http://java.sun.com/jsp/jstl/core] cannot be resolved in either web.xml or the jar files deployed with this application
+		at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:55)
+		at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:294)
+		at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:81)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.generateTldResourcePath(TagLibraryInfoImpl.java:251)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.<init>(TagLibraryInfoImpl.java:122)
+		at org.apache.jasper.compiler.Parser.parseTaglibDirective(Parser.java:431)
+		at org.apache.jasper.compiler.Parser.parseDirective(Parser.java:489)
+		at org.apache.jasper.compiler.Parser.parseElements(Parser.java:1445)
+		at org.apache.jasper.compiler.Parser.parse(Parser.java:144)
+		at org.apache.jasper.compiler.ParserController.doParse(ParserController.java:244)
+		at org.apache.jasper.compiler.ParserController.parse(ParserController.java:105)
+		at org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:206)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:386)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:362)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:346)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:400)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:385)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:329)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+		at servlet.LoginServlet.doPost(LoginServlet.java:80)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+		at servlet.ProcessServlet.doPost(ProcessServlet.java:73)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Thread.java:745)
+03-Jun-2021 17:17:26.940 INFO [http-nio-8080-exec-162] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:17:26.977 WARNING [http-nio-8080-exec-162] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [MVC2Java_Database] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+03-Jun-2021 17:17:27.083 SEVERE [http-nio-8080-exec-162] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [MVC2Java_Database] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@1c1a74e]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [f4bef59e-6817-4582-a50b-84cbf37b0236-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+03-Jun-2021 17:17:27.084 SEVERE [http-nio-8080-exec-162] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [MVC2Java_Database] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@1c1a74e]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [19587654-f520-4a2b-9259-3e3d1aa4debc-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+03-Jun-2021 17:17:27.169 INFO [http-nio-8080-exec-162] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:17:27.175 INFO [http-nio-8080-exec-162] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:20:30.363 INFO [http-nio-8080-exec-169] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:20:30.477 INFO [http-nio-8080-exec-169] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:20:30.479 INFO [http-nio-8080-exec-169] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:20:36.629 SEVERE [http-nio-8080-exec-161] servlet.LoginServlet.doPost null
+	org.apache.jasper.JasperException: The absolute uri: [http://java.sun.com/jsp/jstl/core] cannot be resolved in either web.xml or the jar files deployed with this application
+		at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:55)
+		at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:294)
+		at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:81)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.generateTldResourcePath(TagLibraryInfoImpl.java:251)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.<init>(TagLibraryInfoImpl.java:122)
+		at org.apache.jasper.compiler.Parser.parseTaglibDirective(Parser.java:431)
+		at org.apache.jasper.compiler.Parser.parseDirective(Parser.java:489)
+		at org.apache.jasper.compiler.Parser.parseElements(Parser.java:1445)
+		at org.apache.jasper.compiler.Parser.parse(Parser.java:144)
+		at org.apache.jasper.compiler.ParserController.doParse(ParserController.java:244)
+		at org.apache.jasper.compiler.ParserController.parse(ParserController.java:105)
+		at org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:206)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:386)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:362)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:346)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:400)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:385)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:329)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+		at servlet.LoginServlet.doPost(LoginServlet.java:80)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+		at servlet.ProcessServlet.doPost(ProcessServlet.java:73)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Thread.java:745)
+03-Jun-2021 17:21:57.673 SEVERE [http-nio-8080-exec-175] servlet.LoginServlet.doPost null
+	org.apache.jasper.JasperException: The absolute uri: [http://java.sun.com/jsp/jstl/core] cannot be resolved in either web.xml or the jar files deployed with this application
+		at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:55)
+		at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:294)
+		at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:81)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.generateTldResourcePath(TagLibraryInfoImpl.java:251)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.<init>(TagLibraryInfoImpl.java:122)
+		at org.apache.jasper.compiler.Parser.parseTaglibDirective(Parser.java:431)
+		at org.apache.jasper.compiler.Parser.parseDirective(Parser.java:489)
+		at org.apache.jasper.compiler.Parser.parseElements(Parser.java:1445)
+		at org.apache.jasper.compiler.Parser.parse(Parser.java:144)
+		at org.apache.jasper.compiler.ParserController.doParse(ParserController.java:244)
+		at org.apache.jasper.compiler.ParserController.parse(ParserController.java:105)
+		at org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:206)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:386)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:362)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:346)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:400)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:385)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:329)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+		at servlet.LoginServlet.doPost(LoginServlet.java:80)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+		at servlet.ProcessServlet.doPost(ProcessServlet.java:73)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Thread.java:745)
+03-Jun-2021 17:25:04.631 WARNING [http-nio-8080-exec-182] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [MVC2Java_Database] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+03-Jun-2021 17:25:04.631 SEVERE [http-nio-8080-exec-182] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [MVC2Java_Database] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@179a136b]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [e0af4c50-3072-4910-987e-3bafc00b7ef7-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+03-Jun-2021 17:25:04.631 SEVERE [http-nio-8080-exec-182] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [MVC2Java_Database] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@179a136b]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [7bf2aadb-3578-46aa-9a0b-e8b90a2de8d6-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+03-Jun-2021 17:25:04.631 SEVERE [http-nio-8080-exec-182] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [MVC2Java_Database] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@179a136b]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [950b8f61-8869-4e80-aa7a-333b915c80e0-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+03-Jun-2021 17:25:04.804 INFO [http-nio-8080-exec-182] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:25:05.025 INFO [http-nio-8080-exec-182] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:25:12.651 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.reload Reloading context [/MVC2Java_Database]
+03-Jun-2021 17:25:12.651 INFO [Catalina-utility-1] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:25:12.774 INFO [Catalina-utility-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:25:12.780 INFO [Catalina-utility-1] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:25:34.183 INFO [http-nio-8080-exec-177] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:25:34.360 INFO [http-nio-8080-exec-173] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:25:42.815 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.reload Reloading context [/MVC2Java_Database]
+03-Jun-2021 17:25:42.815 INFO [Catalina-utility-1] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:25:42.989 INFO [Catalina-utility-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:25:43.006 INFO [Catalina-utility-1] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:25:43.895 INFO [http-nio-8080-exec-182] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:25:44.326 INFO [http-nio-8080-exec-186] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:25:53.019 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.reload Reloading context [/MVC2Java_Database]
+03-Jun-2021 17:25:53.019 INFO [Catalina-utility-2] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:25:53.150 INFO [Catalina-utility-2] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:25:53.180 INFO [Catalina-utility-2] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:29:19.959 INFO [http-nio-8080-exec-188] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:29:20.149 INFO [http-nio-8080-exec-189] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:29:23.445 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.reload Reloading context [/MVC2Java_Database]
+03-Jun-2021 17:29:23.445 INFO [Catalina-utility-1] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:29:23.671 INFO [Catalina-utility-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:29:23.677 INFO [Catalina-utility-1] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:29:27.496 SEVERE [http-nio-8080-exec-194] servlet.LoginServlet.doPost null
+	org.apache.jasper.JasperException: The absolute uri: [http://java.sun.com/jsp/jstl/core] cannot be resolved in either web.xml or the jar files deployed with this application
+		at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:55)
+		at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:294)
+		at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:81)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.generateTldResourcePath(TagLibraryInfoImpl.java:251)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.<init>(TagLibraryInfoImpl.java:122)
+		at org.apache.jasper.compiler.Parser.parseTaglibDirective(Parser.java:431)
+		at org.apache.jasper.compiler.Parser.parseDirective(Parser.java:489)
+		at org.apache.jasper.compiler.Parser.parseElements(Parser.java:1445)
+		at org.apache.jasper.compiler.Parser.parse(Parser.java:144)
+		at org.apache.jasper.compiler.ParserController.doParse(ParserController.java:244)
+		at org.apache.jasper.compiler.ParserController.parse(ParserController.java:105)
+		at org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:206)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:386)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:362)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:346)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:605)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:400)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:385)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:329)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+		at servlet.LoginServlet.doPost(LoginServlet.java:80)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+		at servlet.ProcessServlet.doPost(ProcessServlet.java:73)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.netbeans.modules.web.monitor.server.MonitorFilter.doFilter(MonitorFilter.java:368)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Thread.java:745)
+03-Jun-2021 17:31:13.634 INFO [http-nio-8080-exec-200] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:31:13.634 WARNING [http-nio-8080-exec-200] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [MVC2Java_Database] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+03-Jun-2021 17:31:13.743 INFO [http-nio-8080-exec-200] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:31:13.775 INFO [http-nio-8080-exec-200] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:33:51.947 INFO [http-nio-8080-exec-196] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:33:52.886 INFO [http-nio-8080-exec-203] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:33:53.998 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.reload Reloading context [/MVC2Java_Database]
+03-Jun-2021 17:33:53.998 INFO [Catalina-utility-2] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:33:54.078 INFO [Catalina-utility-2] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:33:54.094 INFO [Catalina-utility-2] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:35:54.746 INFO [http-nio-8080-exec-208] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:35:55.433 INFO [http-nio-8080-exec-208] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:35:55.449 INFO [http-nio-8080-exec-208] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:35:55.855 INFO [http-nio-8080-exec-206] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:35:56.107 INFO [http-nio-8080-exec-206] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:35:56.123 INFO [http-nio-8080-exec-206] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:35:58.617 INFO [http-nio-8080-exec-210] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:35:58.771 INFO [http-nio-8080-exec-210] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:35:58.781 INFO [http-nio-8080-exec-210] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:36:19.890 INFO [http-nio-8080-exec-214] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:36:20.053 INFO [http-nio-8080-exec-214] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:36:20.069 INFO [http-nio-8080-exec-214] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:36:20.756 INFO [http-nio-8080-exec-212] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:36:20.881 INFO [http-nio-8080-exec-212] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:36:20.897 INFO [http-nio-8080-exec-212] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:36:21.867 INFO [http-nio-8080-exec-202] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] has started
+03-Jun-2021 17:36:22.059 INFO [http-nio-8080-exec-202] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Jun-2021 17:36:22.063 INFO [http-nio-8080-exec-202] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/MVC2Java_Database] is completed
+03-Jun-2021 17:36:45.681 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+03-Jun-2021 17:36:45.712 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+03-Jun-2021 17:36:45.954 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+03-Jun-2021 17:36:46.110 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+03-Jun-2021 17:36:46.110 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]

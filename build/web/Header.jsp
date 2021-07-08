@@ -23,14 +23,14 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                    <li class="nav-item active"><a class="nav-link" href="index.html">Trang chủ</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="home.jsp">Trang chủ</a></li>
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                             <p>SHOP</p>
                             <i class="fas fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu">
-                                <li><a href="allProduct.jsp">All Product</a></li>
+                                <li><a href="AllProductServlet">All Product</a></li>
                                 <!-- <li><a href="shop-detail.html">Shop Detail</a></li> -->
                                 <li><a href="cart.html">Cart</a></li>
                                 <li><a href="checkout.html">Checkout</a></li>
