@@ -81,9 +81,10 @@
             <div class="mainPage">
 
                 <div class="container1">
-                    <div class="tab">
+                    <div class="tab d-flex">
                         <button class="tablinks active">posted</button>
                         <button class="tablinks">seen</button>
+                        <button class="tablinks">create</button>
                     </div>
 
                     <div id="posted" class="tabcontent">
@@ -109,7 +110,8 @@
                                         <div class="progress w-75" style="height: 5px">
                                             <div class="progress-bar bg-danger" style="width: ${o.postLike*100/mostLike}%"
                                                  role="progressbar" style="width: 100%" aria-valuenow="50"
-                                                 aria-valuemin="0" aria-valuemax="100"></div>
+                                                 aria-valuemin="0" aria-valuemax="100">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
