@@ -144,7 +144,7 @@
                                         <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
                                             <table border="0" cellspacing="0" cellpadding="0">
                                                 <form action="validateEmail" method="POST">
-                                                            <input type="email" name="emailA"  style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: black; text-decoration: none; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;"/>
+                                                            <input type="email" name="emailA"  style="  font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: black; text-decoration: none; text-decoration: none; padding: 15px 60px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;"/>
                                                             <br><br><input type="submit" name="Confirm" bgcolor="#FFA73B" style="background-color:#FFA73B; font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: black; text-decoration: none; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;"/>
                                                 </form>                                                       
                                                  
@@ -176,19 +176,8 @@
         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
             <tr>
                 <td bgcolor="#FFECD1" align="center" style="padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                    <h2 style="font-size: 20px; font-weight: 400; color: #111111; margin: 0;">Need more help?</h2>
-                    <p style="margin: 0;"><a href="#" target="_blank" style="color: #FFA73B;">We&rsquo;re here to help you out</a></p>
-                </td>
-            </tr>
-        </table>
-    </td>
-</tr>
-<tr>
-    <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
-        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-            <tr>
-                <td bgcolor="#f4f4f4" align="left" style="padding: 0px 30px 30px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 18px;"> <br>
-                    <p style="margin: 0;">If these emails get annoying, please feel free to <a href="#" target="_blank" style="color: #111111; font-weight: 700;">unsubscribe</a>.</p>
+                    <h2 style="font-size: 20px; font-weight: 400; color: #111111; margin: 0;">Quay trở lại trang chủ</h2>
+                    <p style="margin: 0;"><a href="home" style="color: #FFA73B;">Trang chủ</a></p>
                 </td>
             </tr>
         </table>
