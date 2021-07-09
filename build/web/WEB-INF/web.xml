@@ -10,21 +10,6 @@
         </session-timeout>
     </session-config>
     <servlet-mapping>
-            <servlet-name>default</servlet-name>
-            <url-pattern>/css/*</url-pattern>
-            <url-pattern>/js/*</url-pattern>
-            <url-pattern>/images/*</url-pattern>
-            <url-pattern>/php/*</url-pattern>
-            <url-pattern>/scss/*</url-pattern>
-            <url-pattern>/webfonts/*</url-pattern>
-            <url-pattern>/fonts/*</url-pattern>
-            <url-pattern>/img-test-lastest-post/*</url-pattern>
-            <url-pattern>/fontawesome-free-5.15.3-web/*</url-pattern>
-        </servlet-mapping>    
-        <welcome-file-list>
-            <welcome-file>home.jsp</welcome-file>
-                 <!--<welcome-file>myAccount.jsp</welcome-file>-->
-        </welcome-file-list>
         <servlet-name>default</servlet-name>
         <url-pattern>/css/*</url-pattern>
         <url-pattern>/js/*</url-pattern>
@@ -41,8 +26,8 @@
              
     </servlet-mapping>    
     <welcome-file-list>
-        <!--<welcome-file>home.jsp</welcome-file>-->
-        <welcome-file>AddPost.jsp</welcome-file>
+        <welcome-file>home.jsp</welcome-file>
+        <!--<welcome-file>AddPost.jsp</welcome-file>-->
              
     </welcome-file-list>
 </web-app>
