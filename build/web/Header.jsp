@@ -16,14 +16,14 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html"><img src="images/logo2.png" width="314px" class="logo" alt=""></a>
+                <a class="navbar-brand" href="HomeServlet"><img src="images/logo2.png" width="314px" class="logo" alt=""></a>
             </div>
             <!-- End Header Navigation -->
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                    <li class="nav-item active"><a class="nav-link" href="home.jsp">Trang chủ</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="HomeServlet">Trang chủ</a></li>
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                             <p>SHOP</p>
@@ -34,7 +34,9 @@
                                 <!-- <li><a href="shop-detail.html">Shop Detail</a></li> -->
                                 <li><a href="cart.html">Cart</a></li>
                                 <li><a href="checkout.html">Checkout</a></li>
+                                <c:if test="${currentAccount != null}">
                                 <li><a href="MyAccountServlet">My Account</a></li>
+                                </c:if>
                                 <li><a href="wishlist.html">Wishlist</a></li>
                         </ul>
                     </li>
