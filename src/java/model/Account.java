@@ -37,6 +37,11 @@ public class Account {
         this.userImage = userImage;
     }
 
+    public Account(String username, String userPassword) {
+        this.username = username;
+        this.userPassword = userPassword;
+    }
+    
     public int getAccountID() {
         return accountID;
     }
