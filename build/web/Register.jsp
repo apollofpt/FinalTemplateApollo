@@ -29,7 +29,7 @@
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Sign up</h2>
-                        <form class="register-form" id="register-form" action="RegisterServlet">
+                        <form class="register-form" id="register-form" action="RegisterServlet" method="POST">
                             <div class="form-group">
                                 <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="username" id="username" placeholder="Tên tài khoản"/>
