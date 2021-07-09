@@ -22,11 +22,13 @@
 /* style the left-card */
 .theAllPost .the-left-card .product-img{
     width:100%; 
-    height:100%;
+    max-height: 240px;
+    object-fit: cover;
 }
 .theAllPost .the-left-card .product-img img{
     width:100%; 
     height:100%;
+    object-fit: cover;
 }
 .theAllPost .the-left-card .card-body h3{
     font-weight:600;
@@ -58,10 +60,12 @@
 .theAllPost .the-right-card .product-img{
     width:100%; 
     height: 200px;
+    object-fit: cover;
 }
 .theAllPost .the-right-card .product-img img{
     width:100%; 
     height:100%;
+    object-fit: cover;
 }
 .theAllPost .the-right-card .card-body h2{
     font-size: 20px;

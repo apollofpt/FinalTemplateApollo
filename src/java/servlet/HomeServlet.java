@@ -16,15 +16,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Category;
 import model.postFullList;
 
 /**
  *
- * @author acer
+ * @author ADMIN
  */
-@WebServlet(name = "AllProductServlet", urlPatterns = {"/AllProductServlet"})
-public class AllProductServlet extends HttpServlet {
+@WebServlet(name = "HomeServlet", urlPatterns = {"/HomeServlet"})
+public class HomeServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,16 +38,18 @@ public class AllProductServlet extends HttpServlet {
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         DAO dao = new DAO();
-        List<Category> listC = dao.getAllCategory();
-        List<postFullList> listP = dao.getAllPost();
-        postFullList last = dao.getlastPost();
-
-        request.setAttribute("listC", listC);
-        request.setAttribute("listP", listP);
-        request.setAttribute("last", last);
-        System.out.println(last);
-//        request.getRequestDispatcher("AllProduct.jsp").forward(request, response);
-        request.getRequestDispatcher("allProduct.jsp").forward(request, response);
+        List<postFullList> listL = dao.getLatestPost();
+        List<postFullList> listTo = dao.getTopLikePost();
+        List<postFullList> listAl = dao.getAllPost();
+        List<postFullList> listAr = dao.getAllRightPost();
+        int mostLike = dao.getMostLike();
+        
+        request.setAttribute("mostLike", mostLike);
+        request.setAttribute("listL", listL);
+        request.setAttribute("listTo", listTo);
+        request.setAttribute("listAl", listAl);
+        request.setAttribute("listAr", listAr);
+        request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -66,7 +67,7 @@ public class AllProductServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(AllProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HomeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -84,7 +85,7 @@ public class AllProductServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(AllProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HomeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -97,13 +98,5 @@ public class AllProductServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-//    public static void main(String[] args) throws Exception {
-//        DAO dao = new DAO();
-//         List<postFullList> listP = dao.getAllPost();
-//        for (postFullList p : listP){
-//            System.out.println(p.toString());
-//        }
-//        postFullList last = dao.getlastPost();
-//        System.out.println(last);
-//    }
+
 }
