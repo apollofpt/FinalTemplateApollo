@@ -102,12 +102,13 @@ insert into Category(categoryName,categoryIcon) values
 (N'Giải trí','fa fa-gamepad'),
 (N'Thực phẩm','fa fa-cutlery'),
 (N'Sách','fa fa-book'),
-(N'Mỹ phẩm','fa fa-cosmetic'),
 (N'Đồng hồ','fa fa-clock'),
 (N'Cây, hạt giống & củ' , 'fa fa-tree'),
 (N'Phụ kiện' , 'fas fa-gem'),
 (N'Người yêu' , 'fas fa-heart'),
 (N'Thú cưng' , 'fas fa-paw')
+
+delete from Category
 
 select * from Category
 ---------------------------------------------------Kết thúc thêm một vài bản ghi cho bảng Category------------------------
