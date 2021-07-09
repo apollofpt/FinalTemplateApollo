@@ -6,14 +6,14 @@
 package test;
 
 import java.util.Arrays;
-import model.Editor;
+//import model.Editor;
 
 /**
  *
  * @author Minky
  */
 public class test {
-    public static void main(String[] args) {
-        System.out.println(Editor.sliptPath("http://localhost:8080/DemoProject/hello"));
-    }
+//    public static void main(String[] args) {
+//        System.out.println(Editor.sliptPath("http://localhost:8080/DemoProject/hello"));
+//    }
 }
