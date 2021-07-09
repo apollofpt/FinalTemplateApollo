@@ -70,7 +70,7 @@
                 </c:if>
 
                 <c:if test="${empty USER}">
-                    <a class="nav-link" href="Login">Đăng nhập</a>/<a class="nav-link" href="validate">Đăng ký</a>
+                    <a class="nav-link" href="Login">Đăng nhập</a>/<a class="nav-link" href="Register">Đăng ký</a>
                 </c:if>
             </div>
         </div>

@@ -41,7 +41,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="Email" value="${requestScope.email}"/>
+                                <input type="email" name="email" id="email" placeholder="Email"/>
                                 <c:if test="${not empty errors.emailLengthErr}">
                                     <font color="red">${errors.emailLengthErr}</font><br><br>
                                 </c:if>    
