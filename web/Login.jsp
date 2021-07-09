@@ -30,7 +30,7 @@
                 <div class="signin-content">
                     <div class="signin-image">
                         <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
-                        <a href="Register" class="signup-image-link">Tạo tài khoản</a>
+                        <a href="validate" class="signup-image-link">Tạo tài khoản</a>
                     </div>
 
                     <div class="signin-form">
