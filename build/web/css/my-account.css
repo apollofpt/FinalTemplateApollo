@@ -7,8 +7,7 @@
     /* định dạng thẻ div chưa các button tab */
     div.tab {
         overflow: hidden; 
-        border: 1px solid #ccc; 
-        background-color: rgba(201, 132, 86, 0.473); 
+        background-color: #d38b2d; 
         width: 100%;
     }
     div.info button {
@@ -29,18 +28,23 @@
         padding: 14px 16px;
         transition: 0.3s;
         font-size: 17px;
-        color: rgb(92, 86, 86);
+        color: white;
+        flex: 1 1 0;
     }
 
     /* đổi màu khi một button tab được hover */
     div.tab button:hover {
-        background-color: rgb(189, 154, 115);
+        background-color: white;
+        color: #d38b2d;
+    }
+    
+    div.tab button.active:hover {
+        color: white;
     }
 
     /* đổi màu nền cho tab đang được hiển thị nội dung */
     div.tab button.active {
         background-color: rgb(73, 72, 72);
-        color: rgb(197, 197, 197);
     }
 
     /* định dạng nội dung hiển thị */
@@ -88,3 +92,8 @@
     p.time {
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
+    
+/*--------------------------------------- Tình 9/7/2021 ---------------------------------------*/
+/*start add css for MyAccountServlet*/
+/*finish add css for MyAccountServlet*/
+/*--------------------------------------- Tình 9/7/2021 ---------------------------------------*/

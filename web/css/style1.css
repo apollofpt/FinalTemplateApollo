@@ -591,3 +591,23 @@ label.valid {
     margin-bottom: 10px; } }
 
 /*# sourceMappingURL=style.css.map */
+
+/*--------------------------------------- Tình 8/72021 ---------------------------------------*/
+/*start add css for Login*/
+.form-group .icon{
+    position: relative;
+    transform: none;
+    height: 33px;
+    width: 33px;
+    display: flex;
+}
+
+.form-group label i{
+    margin: auto;
+}
+
+.input-container{
+    display: flex;
+}
+/*finish add css for Login*/
+/*--------------------------------------- Tình 8/72021 ---------------------------------------*/

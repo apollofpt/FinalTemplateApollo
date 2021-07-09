@@ -46,7 +46,8 @@
 
     <body>
         
-          <jsp:include page="Header.jsp"></jsp:include>
+        <jsp:include page="Header.jsp"></jsp:include>
+
 
         <!-- Start All Title Box -->
         <div class="all-title-box">

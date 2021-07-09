@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix ="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,19 +31,24 @@
                 <div class="signin-content">
                     <div class="signin-image">
                         <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
-                        <a href="Register" class="signup-image-link">Tạo tài khoản</a>
+                        <a href="validate" class="signup-image-link">Tạo tài khoản</a>
                     </div>
 
                     <div class="signin-form">
                         <h2 class="form-title">Login</h2>
-                        <form method="POST" class="register-form" id="login-form" action="LoginServlet">
+                        <form method="POST" class="register-form" id="login-form" action="Login">
                             <div class="form-group">
-                                <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="username" id="username" placeholder="Tên tài khoản"/>
+                                <div class="input-container">
+                                    <label for="username" class="icon"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                    <input type="text" name="username" id="username" placeholder="Tên tài khoản" value="${requestScope.USERNAME}"/>
+                                </div>
+                                <font color="red">${not empty requestScope.MESSAGE ? requestScope.MESSAGE : ""}</font>
                             </div>
                             <div class="form-group">
-                                <label for="password"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="password" id="password" placeholder="Mật khẩu"/>
+                                <div class="input-container">
+                                    <label for="password" class="icon"><i class="zmdi zmdi-lock"></i></label>
+                                    <input type="password" name="password" id="password" placeholder="Mật khẩu"/>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />

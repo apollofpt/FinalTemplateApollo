@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,6 +48,23 @@ public class DAO {
             System.out.println("Error: " + e.toString());
         }
         return ls;
+    }
+    
+    public HashMap<String, String> getAllAccountUserPass() {
+        HashMap<String, String> hm = new HashMap();
+        try {
+            con = DBUtils.makeConnection();
+            stm = con.prepareStatement("select * from Account");
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                //int accountID, String username, String userPassword, String userEmail,
+                //String userFullname, boolean isAdmin, Date createDate, String facebookURL, String userImage
+                hm.put(rs.getString(2).trim()/*username*/,rs.getString(3).trim()/*password*/);
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.toString());
+        }
+        return hm;
     }
 
     public boolean insertAccount(String username, String email, String fullname, String password) {
