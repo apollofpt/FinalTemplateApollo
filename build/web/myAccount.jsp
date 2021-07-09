@@ -82,9 +82,9 @@
 
                 <div class="container1">
                     <div class="tab d-flex">
-                        <button class="tablinks active">posted</button>
+                        <button class="tablinks">posted</button>
                         <button class="tablinks">seen</button>
-                        <button class="tablinks">create</button>
+                        <button class="tablinks active">create</button>
                     </div>
 
                     <div id="posted" class="tabcontent">
@@ -173,6 +173,21 @@
                     </div>
 
 
+                    <div id="create" class="tabcontent">
+                        <h3 style="text-align: center;color: rgb(219, 169, 94);">Đăng bài</h3>
+                        <div id="form-container" class="form-container">
+                            <form action="action" class="form-group">
+                                <label for="title" size="16px" class="create-lable">Tiêu đề:</label>
+                                <input type="text" id="id" class="form-control">
+                                <label for="custom-file" size="16px" class="create-lable">Ảnh đính kèm:</label>
+                                <div class="custom-file">
+                                  <input accept="image/*" type="file" class="custom-file-input" id="inputGroupFile01" multiple>
+                                  <label class="custom-file-label" for="inputGroupFile01">Chọn tệp</label>
+                                  <div id="preview-upload" class="class"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div> 
             </div>
         </div>
@@ -231,7 +246,7 @@
             showContent(id);
         });
     }
-    showContent('posted');
+    showContent('create');
 </script>
 <!-- Hữu Tình - 1208.03062021 - searchbar script -->
 <script src="js/searchbar.js"></script>
