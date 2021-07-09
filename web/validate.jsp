@@ -143,9 +143,9 @@
                                     <tr>
                                         <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
                                             <table border="0" cellspacing="0" cellpadding="0">
-                                                <form action="validateCode">
-                                                    <input type="email" name="emailA" value="${requestScope.emailA}" readonly="" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: black; text-decoration: none; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;"/>
-                                                    <br><input type="text" name="code" value="${param.code}" placeholder="Code" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: black; text-decoration: none; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;">
+                                                <form action="validateCode" method="POST">
+                                                    <input type="email" name="emailA" value="${requestScope.emailA}" readonly="" style=" width: 70%; font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: black; text-decoration: none; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;"/>
+                                                    <br><br><input type="text" name="code" value="${param.code}" placeholder="Code" style="text-align: center; width: 14%;font-size:20px; font-family: Helvetica, Arial, sans-serif; color: black; text-decoration: none; text-decoration: none; padding: 15px 20px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;">
                                                     <p style="color: #FFA73B">${MESSAGE}</p>
                                                             <br><br><input type="submit" name="Confirm" bgcolor="#FFA73B" style="background-color:#FFA73B; font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: black; text-decoration: none; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;"/>
                                                 </form>                                                       
@@ -167,7 +167,7 @@
             </tr>
             <tr>
                 <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                    <p style="margin: 0;">Cheers,<br>BBB Team</p>
+                    <p style="margin: 0;">Cheers,<br>Apollo Team</p>
                 </td>
             </tr>
         </table>
