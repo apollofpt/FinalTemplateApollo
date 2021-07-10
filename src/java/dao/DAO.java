@@ -18,8 +18,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Account;
 import model.Category;
+import model.Exchange;
 import model.Post;
 import model.postFullList;
+
 
 /**
  *
@@ -290,28 +292,29 @@ public class DAO {
         }
         return null;
     }
-     public List<postFullList> getLatestPost() throws Exception {
-        List<postFullList> list = new ArrayList<>();
+//    home page ussing this method
+    public List<Post> getLatestPostInHomePage() throws Exception {
+        List<Post> listLastestPostInHomePage = new ArrayList<>();
 
         try {
             con = DBUtils.makeConnection();
 
             if (con != null) {
-                String sql = "select top 4 * from [dbo].[Post] a, [dbo].[Account] b where a.accountID = b.accountID order by postID desc";
+                String sql = "select * from [dbo].[Post] order by postID desc";
 
                 stm = con.prepareStatement(sql);
 
                 rs = stm.executeQuery();
                 while (rs.next()) {
-                    list.add(new postFullList(rs.getString(3),
-                            rs.getString(4),
+                    listLastestPostInHomePage.add(new Post(rs.getInt(1),
+                            rs.getInt(2),
+                            rs.getString(3),
+                            rs.getDate(4),
                             rs.getString(5),
                             rs.getInt(6),
-                            rs.getString(7),
-                            rs.getString(9),
-                            rs.getString(16)));
+                            rs.getString(7)));
                 }
-                return list;
+                return listLastestPostInHomePage;
             }
         } catch (Exception e) {
         } finally {
@@ -327,28 +330,28 @@ public class DAO {
         }
         return null;
     }
-    public List<postFullList> getTopLikePost() throws Exception {
-        List<postFullList> list = new ArrayList<>();
+     public List<Post> getTopLikePostInHomePage() throws Exception {
+        List<Post> listTopLikePostInHomePage = new ArrayList<>();
 
         try {
             con = DBUtils.makeConnection();
 
             if (con != null) {
-                String sql = "select top 3 * from [dbo].[Post] a, [dbo].[Account] b where a.accountID = b.accountID order by postLike desc";
+                String sql = "select * from [dbo].[Post] order by postLike desc";
 
                 stm = con.prepareStatement(sql);
 
                 rs = stm.executeQuery();
-                while (rs.next()) {
-                    list.add(new postFullList(rs.getString(3),
-                            rs.getString(4),
+                 while (rs.next()) {
+                    listTopLikePostInHomePage.add(new Post(rs.getInt(1),
+                            rs.getInt(2),
+                            rs.getString(3),
+                            rs.getDate(4),
                             rs.getString(5),
                             rs.getInt(6),
-                            rs.getString(7),
-                            rs.getString(9),
-                            rs.getString(16)));
+                            rs.getString(7)));
                 }
-                return list;
+                return listTopLikePostInHomePage;
             }
         } catch (Exception e) {
         } finally {
@@ -364,28 +367,28 @@ public class DAO {
         }
         return null;
     }
-    public List<postFullList> getAllRightPost() throws Exception {
-        List<postFullList> list = new ArrayList<>();
+    public List<Post> getAllPostInHomePage() throws Exception {
+        List<Post> listAllPostInHomePage = new ArrayList<>();
 
         try {
             con = DBUtils.makeConnection();
 
             if (con != null) {
-                String sql = "select top 1 * from [dbo].[Post] a, [dbo].[Account] b where a.accountID = b.accountID";
+                String sql = "select * from Post";
 
                 stm = con.prepareStatement(sql);
 
                 rs = stm.executeQuery();
-                while (rs.next()) {
-                    list.add(new postFullList(rs.getString(3),
-                            rs.getString(4),
+                 while (rs.next()) {
+                    listAllPostInHomePage.add(new Post(rs.getInt(1),
+                            rs.getInt(2),
+                            rs.getString(3),
+                            rs.getDate(4),
                             rs.getString(5),
                             rs.getInt(6),
-                            rs.getString(7),
-                            rs.getString(9),
-                            rs.getString(16)));
+                            rs.getString(7)));
                 }
-                return list;
+                return listAllPostInHomePage;
             }
         } catch (Exception e) {
         } finally {
@@ -401,7 +404,40 @@ public class DAO {
         }
         return null;
     }
-    
+    public List<Exchange> getAllExchangeInHomePage() throws Exception {
+        List<Exchange> listAllExchangeInHomePage = new ArrayList<>();
+
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+                String sql = "select * from Exchange";
+
+                stm = con.prepareStatement(sql);
+
+                rs = stm.executeQuery();
+                 while (rs.next()) {
+                    listAllExchangeInHomePage.add(new Exchange(rs.getInt(1),
+                            rs.getDate(2),
+                            rs.getInt(3),
+                            rs.getInt(4)));
+                }
+                return listAllExchangeInHomePage;
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return null;
+    }
 /////////////////////////////////////////////////////////////
     public static void main(String[] args) throws Exception {
 //        String username = "trang";
@@ -433,7 +469,9 @@ public class DAO {
 //            System.out.println(dao.getAccountByUserName("quang"));
 //        System.out.println(dao.getMostLike());
 //        System.out.println(dao.getAllCategory());
-        System.out.println(dao.getlastPost());
+//        System.out.println(dao.getlastPost());
+        System.out.println(dao.getAllExchangeInHomePage());
+        
     }
 
 }

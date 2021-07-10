@@ -6,6 +6,7 @@
 package model;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -18,7 +19,7 @@ public class Post {
     private String postDescription;
     private int postLike;
     private String thumbnailURL;
-
+    private final  SimpleDateFormat ft = new SimpleDateFormat ("dd-MM-yyyy  hh:mm  a");
     public Post() {
     }
 
@@ -56,8 +57,8 @@ public class Post {
         this.postTitle = postTitle;
     }
 
-    public Date getPostDate() {
-        return postDate;
+    public String getPostDate() {
+        return ft.format(postDate);
     }
 
     public void setPostDate(Date postDate) {
