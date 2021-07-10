@@ -44,6 +44,7 @@ public class DAO {
                 ls.add(new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
                         rs.getString(5), rs.getBoolean(6), rs.getDate(7), rs.getString(8), rs.getString(9)));
             }
+            con.close();
         } catch (Exception e) {
             System.out.println("Error: " + e.toString());
         }
@@ -61,6 +62,7 @@ public class DAO {
                 //String userFullname, boolean isAdmin, Date createDate, String facebookURL, String userImage
                 hm.put(rs.getString(2).trim()/*username*/,rs.getString(3).trim()/*password*/);
             }
+            con.close();
         } catch (Exception e) {
             System.out.println("Error: " + e.toString());
         }
@@ -83,6 +85,7 @@ public class DAO {
                 int row = stm.executeUpdate();
                 return row > 0;
             }
+            con.close();
         } catch (Exception e) {
         }
         return false;
@@ -210,6 +213,7 @@ public class DAO {
                         rs.getString(2),
                         rs.getString(3)));
             }
+            con.close();
         } catch (Exception ex) {
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
         }

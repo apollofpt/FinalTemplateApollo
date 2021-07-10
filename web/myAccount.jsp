@@ -3,7 +3,10 @@
     Created on : Jul 7, 2021, 4:54:06 PM
     Author     : ADMIN
 --%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%> 
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>  
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,7 +15,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-        <script src="js/my-account.js"></script>
+        <!--<script src="js/my-account.js"></script>-->
         <!-- Mobile Metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -177,14 +180,30 @@
                         <h3 style="text-align: center;color: rgb(219, 169, 94);">Đăng bài</h3>
                         <div id="form-container" class="form-container">
                             <form action="action" class="form-group">
-                                <label for="title" size="16px" class="create-lable">Tiêu đề:</label>
+                                <label for="title" class="create-label">Tiêu đề:</label>
                                 <input type="text" id="id" class="form-control">
-                                <label for="custom-file" size="16px" class="create-lable">Ảnh đính kèm:</label>
+                                <label for="custom-file" class="create-label">Ảnh đính kèm:</label>
                                 <div class="custom-file">
-                                  <input accept="image/*" type="file" class="custom-file-input" id="inputGroupFile01" multiple>
-                                  <label class="custom-file-label" for="inputGroupFile01">Chọn tệp</label>
-                                  <div id="preview-upload" class="class"></div>
+                                  <input accept="image/*" type="file" class="custom-file-input" id="inputGroupFile01" multiple onchange="loadFile(event)">
+                                  <label class="custom-file-label" for="inputGroupFile01" id="custom-file-label">Chọn tệp</label>
+                                  <div id="preview-upload" class="preview-upload"></div>
                                 </div>
+                                <label for="category-items" class="create-label">Phân loại:</label>
+                                <div id="category-items" class="category-items">
+                                    <sql:setDataSource var="db" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"  
+                                        url="jdbc:sqlserver://localhost:1433;databaseName=DuniExchange"  
+                                        user="sa"  password="admin"/>  
+                                    <sql:query dataSource="${db}" var="rs">  
+                                    select * from Category;  
+                                    </sql:query>
+                                    <c:forEach var="cat" items="${rs.rows}" varStatus="count">  
+                                        <div id="category-item-${count.index + 1}" class="category-item">
+                                            <label for="category">${cat.categoryName}</label>
+                                            <input type="checkbox" name="category" value="${cat.categoryName}">
+                                        </div>
+                                    </c:forEach>  
+                                </div>
+                                
                             </form>
                         </div>
                     </div>
@@ -217,7 +236,7 @@
 <script src="js/jquery.superslides.min.js"></script>
 <script src="js/bootstrap-select.js"></script>
 <script src="js/inewsticker.js"></script>
-<script src="js/bootsnav.js."></script>
+<script src="js/bootsnav.js"></script>
 <script src="js/images-loded.min.js"></script>
 <script src="js/isotope.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
@@ -230,6 +249,7 @@
     var buttons = document.getElementsByClassName('tablinks');
     var contents = document.getElementsByClassName('tabcontent');
     function showContent(id) {
+        if(id == null) return;
         for (var i = 0; i < contents.length; i++) {
             contents[i].style.display = 'none';
         }
@@ -247,6 +267,28 @@
         });
     }
     showContent('create');
+</script>
+
+<script>
+    var loadFile = function(event) {
+        var preview = document.getElementById('preview-upload');
+        preview.innerHTML = "";
+        var files = event.target.files;
+        var fileNames = "";
+        var n = 0;
+        for(const file of files){
+            n++;
+            fileNames += file.name + ", ";
+            preview.innerHTML += '<img id="output-'+ n +'"></img>';
+            var output = document.getElementById("output-" + n);
+            output.src = URL.createObjectURL(file);
+        }
+        fileNames = fileNames.substring(0, fileNames.length-2);
+        document.getElementById("custom-file-label").innerHTML = fileNames;
+        output.onload = function() {
+           URL.revokeObjectURL(output.src) // free memory
+        }
+    };
 </script>
 <!-- Hữu Tình - 1208.03062021 - searchbar script -->
 <script src="js/searchbar.js"></script>
