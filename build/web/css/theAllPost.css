@@ -65,7 +65,7 @@
 .theAllPost .the-right-card .product-img img{
     width:100%; 
     height:100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 .theAllPost .the-right-card .card-body h2{
     font-size: 20px;
@@ -76,6 +76,8 @@
 .theAllPost .the-right-card .card-title{
     font-weight:600;
     text-align: center;
+    height: 43px;
+    overflow: hidden;
 }
 
 /* style right card footer*/

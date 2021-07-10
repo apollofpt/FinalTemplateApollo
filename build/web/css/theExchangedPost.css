@@ -35,6 +35,7 @@
     display: block;
     width: 100%; 
     height:100%;
+    object-fit: cover;
 }
 .theExchangedPost .username{
     margin-right: auto;
@@ -61,8 +62,8 @@
     margin-bottom: 30px;
 } */
 .theExchangedPost .left-card .card-title{
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 5%;
+    margin-right: 5%;
     margin-top: 50px;
     text-align: center;
 }
@@ -85,6 +86,7 @@
     height:200px;
     margin: 10px;
     border: 7px solid #e3e9ef;
+    object-fit: cover;
 }
 /* when hover to card, change boder color of product image */
 .theExchangedPost .left-card:hover img{
@@ -95,6 +97,10 @@
 .theExchangedPost .left-card:hover .username{
     color: #f2561d;
     transition:0.7s;
+}
+.theExchangedPost .left-card:hover .productName{
+    color: #f2561d;
+    font-weight: bold;
 }
 .theExchangedPost .card{
     width: 100%;
@@ -115,4 +121,5 @@
     margin-left: 12.3%;
     line-height: 25px;
     font-size: 14px;
+    overflow: hidden;
 }

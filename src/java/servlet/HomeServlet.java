@@ -7,7 +7,6 @@ package servlet;
 
 import dao.DAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,7 +15,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.postFullList;
+import model.Account;
+import model.Exchange;
+import model.Post;
 
 /**
  *
@@ -38,17 +39,22 @@ public class HomeServlet extends HttpServlet {
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         DAO dao = new DAO();
-        List<postFullList> listL = dao.getLatestPost();
-        List<postFullList> listTo = dao.getTopLikePost();
-        List<postFullList> listAl = dao.getAllPost();
-        List<postFullList> listAr = dao.getAllRightPost();
         int mostLike = dao.getMostLike();
-        
+
+        List<Post> listLastestPostInHomePage = dao.getLatestPostInHomePage();
+        List<Post> listTopLikePostInHomePage = dao.getTopLikePostInHomePage();
+        List<Post> listAllPostInHomePage = dao.getAllPostInHomePage();
+        List<Exchange> listAllExchangeInHomePage = dao.getAllExchangeInHomePage();
+        List<Account> listAccount = dao.getAllAccount();
+
+        request.setAttribute("listLastestPostInHomePage", listLastestPostInHomePage);
+        request.setAttribute("listTopLikePostInHomePage", listTopLikePostInHomePage);
+        request.setAttribute("listAllPostInHomePage", listAllPostInHomePage);
+        request.setAttribute("listAllExchangeInHomePage", listAllExchangeInHomePage);
+        System.out.println(listAllExchangeInHomePage);
+        request.setAttribute("listAccount", listAccount);
         request.setAttribute("mostLike", mostLike);
-        request.setAttribute("listL", listL);
-        request.setAttribute("listTo", listTo);
-        request.setAttribute("listAl", listAl);
-        request.setAttribute("listAr", listAr);
+//        System.out.println(listAllPostInHomePage);
         request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 
