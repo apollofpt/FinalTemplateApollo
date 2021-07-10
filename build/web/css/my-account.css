@@ -93,12 +93,49 @@
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
     
-/*--------------------------------------- Tình 9/7/2021 ---------------------------------------*/
+/*--------------------------------------- Tình 9-10/7/2021 ---------------------------------------*/
 /*start add css for MyAccountServlet*/
 .create-lable{
     font-size: 20px;
 }
 
+.preview-upload img{
+    width: 100px;
+    margin-right: 10px;
+}
 
+.preview-upload{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.category-items{
+    display: flex;
+    flex-wrap: wrap;
+    height: 100px;
+    width: 900px;
+    margin: auto;
+}
+
+.category-item{
+    display: flex;
+    /*margin-right: 1rem;*/
+    flex: 0 0 25%;
+    align-items: center;
+}
+
+.category-item input{
+    display: block;
+    padding: 5px;
+}
+
+.category-item label{
+    right: 80%;
+    margin: auto;
+}
+
+.create-label{
+    font-size: 20px;
+}
 /*finish add css for MyAccountServlet*/
-/*--------------------------------------- Tình 9/7/2021 ---------------------------------------*/
+/*--------------------------------------- Tình 9-10/7/2021 ---------------------------------------*/
