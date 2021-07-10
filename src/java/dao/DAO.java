@@ -21,7 +21,7 @@ import model.Category;
 import model.Exchange;
 import model.Post;
 import model.postFullList;
-
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -52,7 +52,7 @@ public class DAO {
         }
         return ls;
     }
-    
+
     public HashMap<String, String> getAllAccountUserPass() {
         HashMap<String, String> hm = new HashMap();
         try {
@@ -62,7 +62,7 @@ public class DAO {
             while (rs.next()) {
                 //int accountID, String username, String userPassword, String userEmail,
                 //String userFullname, boolean isAdmin, Date createDate, String facebookURL, String userImage
-                hm.put(rs.getString(2).trim()/*username*/,rs.getString(3).trim()/*password*/);
+                hm.put(rs.getString(2).trim()/*username*/, rs.getString(3).trim()/*password*/);
             }
             con.close();
         } catch (Exception e) {
@@ -73,6 +73,7 @@ public class DAO {
 
     public boolean insertAccount(String username, String email, String fullname, String password) {
         try {
+            String hash = BCrypt.hashpw(password, BCrypt.gensalt(12));
             con = DBUtils.makeConnection();
             if (con != null) {
                 String sql = "insert into "
@@ -80,7 +81,7 @@ public class DAO {
                         + " values(?,?,?,?,0,?,'','')";
                 stm = con.prepareStatement(sql);
                 stm.setString(1, username);
-                stm.setString(2, password);
+                stm.setString(2, hash);
                 stm.setString(3, email);
                 stm.setString(4, fullname);
                 stm.setString(5, LocalDateTime.now().toString());
@@ -272,7 +273,7 @@ public class DAO {
 
                 rs = stm.executeQuery();
                 while (rs.next()) {
-                    return(new postFullList(rs.getString(3),
+                    return (new postFullList(rs.getString(3),
                             rs.getString(4),
                             rs.getString(5),
                             rs.getInt(6),
@@ -297,6 +298,7 @@ public class DAO {
         return null;
     }
 //    home page ussing this method
+
     public List<Post> getLatestPostInHomePage() throws Exception {
         List<Post> listLastestPostInHomePage = new ArrayList<>();
 
@@ -334,7 +336,8 @@ public class DAO {
         }
         return null;
     }
-     public List<Post> getTopLikePostInHomePage() throws Exception {
+
+    public List<Post> getTopLikePostInHomePage() throws Exception {
         List<Post> listTopLikePostInHomePage = new ArrayList<>();
 
         try {
@@ -346,7 +349,7 @@ public class DAO {
                 stm = con.prepareStatement(sql);
 
                 rs = stm.executeQuery();
-                 while (rs.next()) {
+                while (rs.next()) {
                     listTopLikePostInHomePage.add(new Post(rs.getInt(1),
                             rs.getInt(2),
                             rs.getString(3),
@@ -371,6 +374,7 @@ public class DAO {
         }
         return null;
     }
+
     public List<Post> getAllPostInHomePage() throws Exception {
         List<Post> listAllPostInHomePage = new ArrayList<>();
 
@@ -383,7 +387,7 @@ public class DAO {
                 stm = con.prepareStatement(sql);
 
                 rs = stm.executeQuery();
-                 while (rs.next()) {
+                while (rs.next()) {
                     listAllPostInHomePage.add(new Post(rs.getInt(1),
                             rs.getInt(2),
                             rs.getString(3),
@@ -408,6 +412,7 @@ public class DAO {
         }
         return null;
     }
+
     public List<Exchange> getAllExchangeInHomePage() throws Exception {
         List<Exchange> listAllExchangeInHomePage = new ArrayList<>();
 
@@ -420,7 +425,7 @@ public class DAO {
                 stm = con.prepareStatement(sql);
 
                 rs = stm.executeQuery();
-                 while (rs.next()) {
+                while (rs.next()) {
                     listAllExchangeInHomePage.add(new Exchange(rs.getInt(1),
                             rs.getDate(2),
                             rs.getInt(3),
@@ -443,6 +448,7 @@ public class DAO {
         return null;
     }
 /////////////////////////////////////////////////////////////
+
     public static void main(String[] args) throws Exception {
 //        String username = "trang";
 //        String password = "banana";
@@ -475,7 +481,7 @@ public class DAO {
 //        System.out.println(dao.getAllCategory());
 //        System.out.println(dao.getlastPost());
         System.out.println(dao.getAllExchangeInHomePage());
-        
+
     }
 
 }
