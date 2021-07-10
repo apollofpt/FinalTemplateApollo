@@ -294,6 +294,118 @@ public class DAO {
         }
         return null;
     }
+     public List<postFullList> getLatestPost() throws Exception {
+        List<postFullList> list = new ArrayList<>();
+
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+                String sql = "select top 4 * from [dbo].[Post] a, [dbo].[Account] b where a.accountID = b.accountID order by postID desc";
+
+                stm = con.prepareStatement(sql);
+
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    list.add(new postFullList(rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(5),
+                            rs.getInt(6),
+                            rs.getString(7),
+                            rs.getString(9),
+                            rs.getString(16)));
+                }
+                return list;
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return null;
+    }
+    public List<postFullList> getTopLikePost() throws Exception {
+        List<postFullList> list = new ArrayList<>();
+
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+                String sql = "select top 3 * from [dbo].[Post] a, [dbo].[Account] b where a.accountID = b.accountID order by postLike desc";
+
+                stm = con.prepareStatement(sql);
+
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    list.add(new postFullList(rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(5),
+                            rs.getInt(6),
+                            rs.getString(7),
+                            rs.getString(9),
+                            rs.getString(16)));
+                }
+                return list;
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return null;
+    }
+    public List<postFullList> getAllRightPost() throws Exception {
+        List<postFullList> list = new ArrayList<>();
+
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+                String sql = "select top 1 * from [dbo].[Post] a, [dbo].[Account] b where a.accountID = b.accountID";
+
+                stm = con.prepareStatement(sql);
+
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    list.add(new postFullList(rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(5),
+                            rs.getInt(6),
+                            rs.getString(7),
+                            rs.getString(9),
+                            rs.getString(16)));
+                }
+                return list;
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return null;
+    }
+    
 /////////////////////////////////////////////////////////////
     public static void main(String[] args) throws Exception {
 //        String username = "trang";

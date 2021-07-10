@@ -29,7 +29,7 @@
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Sign up</h2>
-                        <form class="register-form" id="register-form" action="RegisterServlet">
+                        <form class="register-form" id="register-form" action="RegisterServlet" method="POST">
                             <div class="form-group">
                                 <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="username" id="username" placeholder="Tên tài khoản"/>
@@ -41,7 +41,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="Email" value="${requestScope.email}"/>
+                                <input type="email" name="email" id="email" placeholder="Email" value="${requestScope.email}" readonly=""/>
                                 <c:if test="${not empty errors.emailLengthErr}">
                                     <font color="red">${errors.emailLengthErr}</font><br><br>
                                 </c:if>    

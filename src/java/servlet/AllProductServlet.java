@@ -46,8 +46,9 @@ public class AllProductServlet extends HttpServlet {
         request.setAttribute("listC", listC);
         request.setAttribute("listP", listP);
         request.setAttribute("last", last);
+        System.out.println(last);
 //        request.getRequestDispatcher("AllProduct.jsp").forward(request, response);
-        request.getRequestDispatcher("AllProduct.jsp").forward(request, response);
+        request.getRequestDispatcher("allProduct.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
