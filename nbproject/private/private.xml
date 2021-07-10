@@ -17,16 +17,17 @@
             <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/web/css/lastestPost.css</file>
 =======
             <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/web/home.jsp</file>
-            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/src/java/dao/DAO.java</file>
+            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/src/java/model/Post.java</file>
             <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/src/java/test/test.java</file>
-            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/web/WEB-INF/web.xml</file>
             <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/src/java/servlet/HomeServlet.java</file>
             <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/web/css/theAllPost.css</file>
-            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/web/myAccount.jsp</file>
             <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/src/java/servlet/ValidateEmailServlet.java</file>
+<<<<<<< HEAD
             <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/web/Header.jsp</file>
             <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/src/java/servlet/MyAccountServlet.java</file>
 >>>>>>> f0b191823c2615875104e5674d0acea19632759b
+=======
+>>>>>>> bb7e9d78e89e7833bdbe10249de38bd00dba6917
         </group>
     </open-files>
 </project-private>
