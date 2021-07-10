@@ -10,7 +10,7 @@ create table Account
 (
 accountID int identity(1,1) not null,
 username varchar(20) NOT NULL,
-userPassword char(MAX) NOT NULL,
+userPassword nvarchar(MAX) NOT NULL,
 userEmail char(50) NOT NULL,
 userFullname nvarchar(70) NOT NULL,
 isAdmin bit NULL,
