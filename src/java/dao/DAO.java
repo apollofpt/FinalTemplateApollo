@@ -10,12 +10,14 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.naming.NamingException;
 import model.Account;
 import model.Category;
 import model.Exchange;
@@ -71,10 +73,31 @@ public class DAO {
         return hm;
     }
 
-    public boolean insertAccount(String username, String email, String fullname, String password) {
+    public boolean insertAccount(String username, String email, String fullname, String password) throws SQLException, NamingException, Exception {
+//        try {
+//            
+//            con = DBUtils.makeConnection();
+//            if (con != null) {
+//                String sql = "insert into "
+//                        + "Account(username,userPassword,userEmail,userFullname,isAdmin,createDate,facebookURL,userImage)"
+//                        + " values(?,?,?,?,0,?,'','')";
+//                stm = con.prepareStatement(sql);
+//                stm.setString(1, username);
+//                stm.setString(2, hash);
+//                stm.setString(3, email);
+//                stm.setString(4, fullname);
+//                stm.setString(5, LocalDateTime.now().toString());
+//                int row = stm.executeUpdate();
+//                System.out.println(row);
+////                return row;
+//            }
+//            con.close();
+//        } catch (Exception e) {
+//        }
+//        return -5;
         try {
-            String hash = BCrypt.hashpw(password, BCrypt.gensalt(12));
             con = DBUtils.makeConnection();
+            String hash = BCrypt.hashpw(password, BCrypt.gensalt(12));
             if (con != null) {
                 String sql = "insert into "
                         + "Account(username,userPassword,userEmail,userFullname,isAdmin,createDate,facebookURL,userImage)"
@@ -86,11 +109,22 @@ public class DAO {
                 stm.setString(4, fullname);
                 stm.setString(5, LocalDateTime.now().toString());
                 int row = stm.executeUpdate();
-                return row > 0;
+//                System.out.println(row);
+                if (row > 0) {
+                    return true;
+                }
+
             }
-            con.close();
         } catch (Exception e) {
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
         }
+
         return false;
     }
 
@@ -218,7 +252,8 @@ public class DAO {
             }
             con.close();
         } catch (Exception ex) {
-            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAO.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
@@ -480,8 +515,9 @@ public class DAO {
 //        System.out.println(dao.getMostLike());
 //        System.out.println(dao.getAllCategory());
 //        System.out.println(dao.getlastPost());
-        System.out.println(dao.getAllExchangeInHomePage());
-
+//        System.out.println(dao.getAllExchangeInHomePage());
+        System.out.println(dao.insertAccount("quang123", "rollroyce230501@gmail.com", "Tôi abcded", "123456789"));
+//dao.insertAccount("quang41551",  "quanglnnde150066@fpt.edu.vn", "Tôi abcded", "123456789");
     }
 
 }
