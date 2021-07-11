@@ -18,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Account;
 import model.RegisterInsertErr;
 
 /**
@@ -26,8 +27,10 @@ import model.RegisterInsertErr;
  */
 @WebServlet(name = "RegisterServlet", urlPatterns = {"/RegisterServlet"})
 public class RegisterServlet extends HttpServlet {
+
     private final String showInsertErr = "Register.jsp";
     private final String loginPage = "Login.jsp";
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -38,61 +41,72 @@ public class RegisterServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException , Exception{
+            throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         System.out.println("Co vao RegisterServlet");
         PrintWriter out = response.getWriter();
         RegisterInsertErr errors = new RegisterInsertErr();
-        
+
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String re_password = request.getParameter("re_password");
         String fullname = request.getParameter("fullname");
-        String url = showInsertErr;
+        
+        Account lastInputAccount = new Account(username, password, fullname);
+        request.setAttribute("lastInputAccount", lastInputAccount);
+        request.setAttribute("re_password", re_password);
+        request.setAttribute("email", email);
+//        String url = showInsertErr;
+        boolean registerMess;
         try {
             boolean error = false;
-            if(username.trim().length()<3 ||username.trim().length()>20 ){
+            if (username.trim().length() < 3 || username.trim().length() > 20) {
                 error = true;
                 errors.setUsernameLengthErr("Username must be between 3-20 characters");
-            }      
-            if(password.trim().length()<3 ||password.trim().length()>20 ){
+            }
+            if (password.trim().length() < 3 || password.trim().length() > 20) {
                 error = true;
                 errors.setPasswordLengthErr("Password must be between 3-20 characters");
-            }else  if(!re_password.trim().equals(password.trim())){
+            } else if (!re_password.trim().equals(password.trim())) {
                 error = true;
                 errors.setRe_passwordNoMatch("Password and confirm must match");
             }
-            if(fullname.trim().length()<5||fullname.trim().length()>70 ){
+            if (fullname.trim().length() < 5 || fullname.trim().length() > 70) {
                 error = true;
                 errors.setFullnameLengthErr("Fullname must be between 5-70 characters");
-            }               
-            if(email.trim().length()<1||email.trim().length()>50 ){
+            }
+            if (email.trim().length() < 1 || email.trim().length() > 50) {
                 error = true;
                 errors.setEmailLengthErr("email must be between 1-50 characters");
-            }                        
+            }
             if (error) {
                 request.setAttribute("INSERTERR", errors);
-                request.getRequestDispatcher(url).forward(request, response);
-            } else{
+                request.getRequestDispatcher("Register").forward(request, response);
+            } else {
                 DAO dao = new DAO();
                 boolean result = dao.insertAccount(username, email, fullname, password);
-                if (result) {
-                    url = loginPage;
-                    System.out.println("URL: "+url);
-                }
-                response.sendRedirect("Login.jsp");
+                registerMess = result;//                    url = loginPage;
+                System.out.println(result);
+//                    System.out.println("URL: "+url);
+                request.setAttribute("registerMess", registerMess);
+                request.getRequestDispatcher("Register").forward(request, response);
             }
-            
-        }catch(Exception ex){
-            log("CreateAccountServlet_SQL "+ex.getMessage());
-            errors.setUsernameIsExist(username+" da ton tai!!"+ex.getMessage());
-            request.setAttribute("INSERTERR", errors);
-            RequestDispatcher rd = request.getRequestDispatcher(url);
-            rd.forward(request, response);
+
+        } catch (IOException | ServletException ex) {
+
+            boolean registerException = true;
+            request.setAttribute("registerException", registerException);
+            request.getRequestDispatcher("Register").forward(request, response);
+//            log("CreateAccountServlet_SQL "+ex.getMessage());
+//            errors.setUsernameIsExist(username+" da ton tai!!"+ex.getMessage());
+//            request.setAttribute("INSERTERR", errors);
+//            RequestDispatcher rd = request.getRequestDispatcher(url);
+//            rd.forward(request, response);
         }
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

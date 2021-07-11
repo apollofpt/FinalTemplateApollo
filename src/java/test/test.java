@@ -5,24 +5,21 @@
  */
 package test;
 
-<<<<<<< HEAD
-=======
+
 import java.util.Arrays;
 //import model.Editor;
 
->>>>>>> f0b191823c2615875104e5674d0acea19632759b
-/**
- *
+/*
  * @author Minky
  */
 public class test {
-<<<<<<< HEAD
+
     public static void main(String[] args) {
         
     }
-=======
+
 //    public static void main(String[] args) {
 //        System.out.println(Editor.sliptPath("http://localhost:8080/DemoProject/hello"));
 //    }
->>>>>>> f0b191823c2615875104e5674d0acea19632759b
+
 }

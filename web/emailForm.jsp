@@ -145,45 +145,45 @@
                                             <table border="0" cellspacing="0" cellpadding="0">
                                                 <form action="validateEmail" method="POST">
                                                     <input required="" type="email" name="emailA"  style="width: 70%; font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: black; text-decoration: none; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;"/>
-                                                            <br><br><input type="submit" name="Confirm" bgcolor="#FFA73B" style="background-color:#FFA73B; font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: black; text-decoration: none; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;"/>
+                                                    <br><br><input type="submit" name="Confirm" bgcolor="#FFA73B" style="background-color:#FFA73B; font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: black; text-decoration: none; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;"/>
                                                 </form>                                                       
-                                                 
+                                            </table> 
                                         </td>
-<!--                                    <tr>
-                                        <td align="center" style="border-radius: 3px;" bgcolor="#FFA73B"><a href="#" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;">Confirm Account</a></td>
-                                    </tr>-->
+                                        <!--                                    <tr>
+                                                                                <td align="center" style="border-radius: 3px;" bgcolor="#FFA73B"><a href="#" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;">Confirm Account</a></td>
+                                                                            </tr>-->
+
+                                        <!--</td>-->
+                                    </tr>
                                 </table>
+                            </td>
+                        </tr> <!-- COPY -->
+                        <tr>
+                            <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 20px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                                <p style="margin: 0;">Một đoạn mã 6 kí tự sẽ được gửi về mail của bạn, hãy kiểm tra email của bạn.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                                <p style="margin: 0;">Cheers,<br>Apollo Team</p>
                             </td>
                         </tr>
                     </table>
                 </td>
-            </tr> <!-- COPY -->
-            <tr>
-                <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 20px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                    <p style="margin: 0;">Một đoạn mã 6 kí tự sẽ được gửi về mail của bạn, hãy kiểm tra email của bạn.</p>
-                </td>
             </tr>
             <tr>
-                <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                    <p style="margin: 0;">Cheers,<br>Apollo Team</p>
-                </td>
-            </tr>
-        </table>
-    </td>
-</tr>
-<tr>
-    <td bgcolor="#f4f4f4" align="center" style="padding: 30px 10px 0px 10px;">
-        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-            <tr>
-                <td bgcolor="#FFECD1" align="center" style="padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                    <h2 style="font-size: 20px; font-weight: 400; color: #111111; margin: 0;">Quay trở lại trang chủ</h2>
-                    <p style="margin: 0;"><a href="home" style="color: #FFA73B;">Trang chủ</a></p>
+                <td bgcolor="#f4f4f4" align="center" style="padding: 30px 10px 0px 10px;">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                        <tr>
+                            <td bgcolor="#FFECD1" align="center" style="padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                                <h2 style="font-size: 20px; font-weight: 400; color: #111111; margin: 0;">Quay trở lại trang chủ</h2>
+                                <p style="margin: 0;"><a href="home" style="color: #FFA73B;">Trang chủ</a></p>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>
-    </td>
-</tr>
-</table>
-</body>
+    </body>
 
 </html>
