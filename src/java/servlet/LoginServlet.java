@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Account;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -91,7 +92,7 @@ public class LoginServlet extends HttpServlet {
         //line 91-94 tương tự như line 83-88, nhưng sẽ nhanh hơn vì không có vòng lặp
         HashMap<String, String> accounts = dao.getAllAccountUserPass();
         System.out.println(accounts);
-        if(accounts.containsKey(username) && accounts.get(username).equals(password)){
+        if(accounts.containsKey(username) && BCrypt.checkpw(password, accounts.get(username))){
             flag = false;
         }
         

@@ -5,6 +5,7 @@
  */
 package test;
 
+<<<<<<< HEAD
 
 import dao.DAO;
 import java.util.Date;
@@ -36,4 +37,23 @@ public class test {
     }
     
     
+=======
+
+import java.util.Arrays;
+//import model.Editor;
+
+/*
+ * @author Minky
+ */
+public class test {
+
+    public static void main(String[] args) {
+        
+    }
+
+//    public static void main(String[] args) {
+//        System.out.println(Editor.sliptPath("http://localhost:8080/DemoProject/hello"));
+//    }
+
+>>>>>>> 6787fb49b975b41b3e009ed221343805a3389d2d
 }

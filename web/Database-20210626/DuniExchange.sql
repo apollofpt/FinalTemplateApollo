@@ -9,8 +9,8 @@ go
 create table Account
 (
 accountID int identity(1,1) not null,
-username varchar(20) NOT NULL,
-userPassword char(20) NOT NULL,
+username varchar(20) NOT NULL unique,
+userPassword nvarchar(MAX) NOT NULL,
 userEmail char(50) NOT NULL,
 userFullname nvarchar(70) NOT NULL,
 isAdmin bit NULL
@@ -216,7 +216,7 @@ select * from Exchange
 
 -----------------------------------------P1-------View cho Post và category----------P1--------
 create view ViewPostAndCategory as
-select a.postID, accountID,postTitle,postDate,postDescription,color,size,postLike,thumbnailURL,categoryName 
+select a.postID, accountID,postTitle,postDate,postDescription,postLike,thumbnailURL,categoryName 
 from Post a,CategoryPost b,Category c where a.postID = b.postID and b.categoryID = c.categoryID
 
 select * from ViewPostAndCategory

@@ -24,7 +24,7 @@ public class Account {
 
     public Account() {
     }
-
+    
     public Account(int accountID, String username, String userPassword, String userEmail, String userFullname, boolean isAdmin, Date createDate, String facebookURL, String userImage) {
         this.accountID = accountID;
         this.username = username;
@@ -37,6 +37,12 @@ public class Account {
         this.userImage = userImage;
     }
 
+    public Account(String username, String userPassword, String userFullname) {
+        this.username = username;
+        this.userPassword = userPassword;
+        this.userFullname = userFullname;
+    }
+    
     public Account(String username, String userPassword) {
         this.username = username;
         this.userPassword = userPassword;

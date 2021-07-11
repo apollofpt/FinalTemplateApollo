@@ -134,7 +134,7 @@
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                         <tr>
                             <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                                <p style="margin: 0;">Rất vui khi được gặp bạn tại dự án của Team Apollo. Đầu tiên, hãy điền email của bạn vào ô bên dưới nhé</p>
+                                <p style="margin: 0;">Rất vui khi được gặp bạn tại dự án của Team Apollo. Điền mã mà bạn nhận được ở ô Code:</p>
                             </td>
                         </tr>
                         <tr>
@@ -144,6 +144,7 @@
                                         <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
                                             <table border="0" cellspacing="0" cellpadding="0">
                                                 <form action="validateCode" method="POST">
+                                                    <p style="color: #FFA73B">Vui lòng chờ từ 1-2 phút</p>
                                                     <input type="email" name="emailA" value="${requestScope.emailA}" readonly="" style=" width: 70%; font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: black; text-decoration: none; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;"/>
                                                     <br><br><input type="text" name="code" value="${param.code}" placeholder="Code" style="text-align: center; width: 14%;font-size:20px; font-family: Helvetica, Arial, sans-serif; color: black; text-decoration: none; text-decoration: none; padding: 15px 20px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;">
                                                     <p style="color: #FFA73B">${MESSAGE}</p>

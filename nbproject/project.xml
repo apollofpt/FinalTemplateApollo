@@ -23,11 +23,15 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
+<<<<<<< HEAD
                     <file>${file.reference.commons-fileupload-1.4.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
                     <file>${file.reference.commons-io-2.6.jar}</file>
+=======
+                    <file>${file.reference.jbcrypt-0.4.jar}</file>
+>>>>>>> 6787fb49b975b41b3e009ed221343805a3389d2d
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
