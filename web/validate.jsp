@@ -144,6 +144,7 @@
                                         <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
                                             <table border="0" cellspacing="0" cellpadding="0">
                                                 <form action="validateCode" method="POST">
+                                                    <p style="color: #FFA73B">Vui lòng chờ từ 1-2 phút</p>
                                                     <input type="email" name="emailA" value="${requestScope.emailA}" readonly="" style=" width: 70%; font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: black; text-decoration: none; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;"/>
                                                     <br><br><input type="text" name="code" value="${param.code}" placeholder="Code" style="text-align: center; width: 14%;font-size:20px; font-family: Helvetica, Arial, sans-serif; color: black; text-decoration: none; text-decoration: none; padding: 15px 20px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;">
                                                     <p style="color: #FFA73B">${MESSAGE}</p>
