@@ -179,31 +179,41 @@
                     <div id="create" class="tabcontent">
                         <h3 style="text-align: center;color: rgb(219, 169, 94);">Đăng bài</h3>
                         <div id="form-container" class="form-container">
-                            <form action="action" class="form-group">
-                                <label for="title" class="create-label">Tiêu đề:</label>
-                                <input type="text" id="id" class="form-control">
-                                <label for="custom-file" class="create-label">Ảnh đính kèm:</label>
-                                <div class="custom-file">
-                                  <input accept="image/*" type="file" class="custom-file-input" id="inputGroupFile01" multiple onchange="loadFile(event)">
-                                  <label class="custom-file-label" for="inputGroupFile01" id="custom-file-label">Chọn tệp</label>
-                                  <div id="preview-upload" class="preview-upload"></div>
+                            <form action="AddPostServlet" method="post" enctype='multipart/form-data' onsubmit="return validate()">
+                                <div id="title-container" class="form-group input-container">
+                                    <label for="title" class="create-label">Tiêu đề:</label>
+                                    <input type="text" name="title" id="title" class="form-control">                                    
                                 </div>
-                                <label for="category-items" class="create-label">Phân loại:</label>
-                                <div id="category-items" class="category-items">
-                                    <sql:setDataSource var="db" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"  
-                                        url="jdbc:sqlserver://localhost:1433;databaseName=DuniExchange"  
-                                        user="sa"  password="admin"/>  
-                                    <sql:query dataSource="${db}" var="rs">  
-                                    select * from Category;  
-                                    </sql:query>
-                                    <c:forEach var="cat" items="${rs.rows}" varStatus="count">  
-                                        <div id="category-item-${count.index + 1}" class="category-item">
-                                            <label for="category">${cat.categoryName}</label>
-                                            <input type="checkbox" name="category" value="${cat.categoryName}">
-                                        </div>
-                                    </c:forEach>  
+                                <div id="img-container" class="form-group input-container">
+                                    <label for="custom-file" class="create-label">Ảnh đính kèm:</label>
+                                    <div class="custom-file">
+                                        <input accept="image/*" type="file" class="custom-file-input" id="img" name="img" id="img" multiple onchange="loadFile(event)">
+                                        <label class="custom-file-label" for="img" id="custom-file-label">Chọn tệp</label>
+                                    </div>
+                                    <div id="preview-upload" class="preview-upload"></div>
                                 </div>
-                                
+                                <div id="category-container" class="form-group input-container">
+                                    <label for="category-items" class="create-label">Phân loại:</label>
+                                    <div id="category-items" class="category-items">
+                                        <sql:setDataSource var="db" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"  
+                                            url="jdbc:sqlserver://localhost:1433;databaseName=DuniExchange"  
+                                            user="sa"  password="admin"/>  
+                                        <sql:query dataSource="${db}" var="rs">  
+                                        select * from Category;  
+                                        </sql:query>
+                                        <c:forEach var="cat" items="${rs.rows}" varStatus="count">  
+                                            <div id="category-item-${count.index + 1}" class="category-item">
+                                                <label for="category">${cat.categoryName}</label>
+                                                <input type="checkbox" name="category" value="${cat.categoryID}">
+                                            </div>
+                                        </c:forEach>  
+                                    </div>
+                                </div>
+                                <div id="decription-container" class="form-group input-container">
+                                    <label for="decription" class="create-label">Mô tả:</label>
+                                    <input type="text" id="decription" name="decription" id="decription" class="form-control">
+                                </div>
+                                <input type="submit" value="Đăng" class="mr-auto btn btn-primary">
                             </form>
                         </div>
                     </div>
@@ -249,7 +259,7 @@
     var buttons = document.getElementsByClassName('tablinks');
     var contents = document.getElementsByClassName('tabcontent');
     function showContent(id) {
-        if(id == null) return;
+        if(id === null) return;
         for (var i = 0; i < contents.length; i++) {
             contents[i].style.display = 'none';
         }
@@ -269,26 +279,94 @@
     showContent('create');
 </script>
 
-<script>
+<script type="text/javascript">
     var loadFile = function(event) {
         var preview = document.getElementById('preview-upload');
+        var label = document.getElementById("custom-file-label");
         preview.innerHTML = "";
         var files = event.target.files;
         var fileNames = "";
         var n = 0;
+        
+        if(files.length > 0){
+            destroyError("img-container");
+        } else {
+            label.innerHTML = "Chọn tệp";
+            return;
+        }
         for(const file of files){
             n++;
-            fileNames += file.name + ", ";
+            fileNames += '"' +  file.name + '"' + ', ';
             preview.innerHTML += '<img id="output-'+ n +'"></img>';
             var output = document.getElementById("output-" + n);
             output.src = URL.createObjectURL(file);
         }
         fileNames = fileNames.substring(0, fileNames.length-2);
-        document.getElementById("custom-file-label").innerHTML = fileNames;
+        label.innerHTML = fileNames;
         output.onload = function() {
-           URL.revokeObjectURL(output.src) // free memory
+           URL.revokeObjectURL(output.src); // free memory
         }
     };
+</script>
+
+<script type="text/javascript">
+    var isError = false;
+    
+    function insertError(container, msg){
+        isError = true;
+        console.log(container.getAttribute("id"));
+        var font = document.createElement('font');                       
+        font.innerHTML = msg;
+        font.setAttribute("color", "red");
+        font.setAttribute("id", container.id +"-error");
+        container.appendChild(font);
+    }
+    
+    function destroyError(containerID){
+        var container = document.getElementById(containerID);
+        
+        console.log("container: " + container.id);
+        
+        var error = document.getElementById(container.id + "-error");
+        if(error === null) return;
+        console.log("remove " + error.id + " at "  + container.tagName + " id="+ container.id);
+        container.removeChild(error);
+    }
+    
+    function destroyAllError(){
+        var inputContainers = document.getElementsByClassName("input-container");
+        
+        console.log("eLen: " + inputContainers.length);
+        
+        for(const ip of inputContainers){
+            var error = document.getElementById(ip.id + "-error");
+            if(error === null) continue;
+            console.log("remove " + error.id + " at "  + ip.tagName + " id="+ ip.id);
+            ip.removeChild(error);
+        }
+    }
+    
+    function validate(){
+        destroyAllError();
+        isError = false;
+        var title = document.getElementById("title");
+        var img = document.getElementById("img");
+        var descr = document.getElementById("decription");
+       
+        if(title.value === "" || title.value === null){
+            insertError(document.getElementById("title-container"), "Must fill this field");
+        }
+        
+        if(img.files.length === 0){
+            insertError(document.getElementById("img-container"), "Must choose file");
+        }
+        
+        if(descr.value === "" || descr.value === null){
+            insertError(document.getElementById("decription-container"), "Must fill this field");
+        }
+        
+        return !isError;
+    }
 </script>
 <!-- Hữu Tình - 1208.03062021 - searchbar script -->
 <script src="js/searchbar.js"></script>

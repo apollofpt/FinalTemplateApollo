@@ -13,7 +13,7 @@ username varchar(20) NOT NULL,
 userPassword char(20) NOT NULL,
 userEmail char(50) NOT NULL,
 userFullname nvarchar(70) NOT NULL,
-isAdmin bit NULL,
+isAdmin bit NULL
 createDate datetime NOT NULL,
 facebookURL nvarchar(50) NULL,
 userImage nvarchar(50) NULL 
@@ -60,8 +60,11 @@ imageURL nvarchar(50) NOT NULL,
 constraint fk_PostImage foreign key (postID) references Post(postID),
 constraint pk_ProductImage primary key (postID,imageURL)
 )
+
+alter table ProductImage
+alter column imageURL
 go
-create table Exchange
+create table Exchange nvarchar(100) NOT NULL
 (
 exchangeID int identity(1,1) NOT NULL,
 postExchangeDate datetime NOT NULL,

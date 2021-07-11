@@ -2732,22 +2732,26 @@
 }
 /*--------------------------------------- Tình 5/6/2021 ---------------------------------------*/
 
+/*--------------------------------------- Tình 10/7/2021 ---------------------------------------*/
+.form-group input:focus{
+    border-color: #d38b2d;
+    box-shadow: 0 0 0 0.2rem rgb(211,139,45,0.5);
+}
 
+.form-group input{
+}
 
+.btn-primary{
+    background-color: #d38b2d;
+    color: #ffffff;
+    border-color: #d38b2d;
+    border-width: 3px;
+    border-radius: 0;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.btn-primary:hover{
+    background-color: #ffffff;
+    color: #d38b2d;
+}
+/*--------------------------------------- Tình 10/7/2021 ---------------------------------------*/
 
