@@ -64,7 +64,7 @@ public class uploadMethod extends HttpServlet {
                 FileItem item = iter.next();
                 if(item.isFormField()){
                     String itemFieldName = item.getFieldName();
-                    String itemValue = item.getString();
+                    String itemValue = item.getString("UTF-8");
                     System.out.println(itemFieldName + ": " + itemValue);
                     if(!formField.containsKey(itemFieldName)){
                         formField.put(itemFieldName, new ArrayList());

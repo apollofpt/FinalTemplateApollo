@@ -61,7 +61,10 @@ public class AddPostServlet extends HttpServlet {
         String postDescription = formFields.get("decription").get(0);
         String thumbnailURL = imgURLs[0]; //for thumbnail
         List<String> cateList = formFields.get("category");
-        String[] categories = cateList.toArray(new String[cateList.size()]);
+        String[] categories = {};
+        if(!cateList.isEmpty()){
+            categories = cateList.toArray(new String[cateList.size()]);
+        }
         
         System.out.println("accountID: " + accountID + " postTitle: " + postTitle + " postDate: " + postDate + " postDescription: " + postDescription + " postLike: " + " thumbnailURL: " + thumbnailURL + "\n");
         System.out.println("categories:" + Arrays.toString(categories));
@@ -75,7 +78,7 @@ public class AddPostServlet extends HttpServlet {
             //update ProductImage
             dao.insertProductImage(postID, imgURLs);
             //update CategoryPost
-            dao.insertCategoryPost(postID, categories);
+            if(categories.length != 0) dao.insertCategoryPost(postID, categories);
         }
         
         response.sendRedirect("MyAccountServlet");

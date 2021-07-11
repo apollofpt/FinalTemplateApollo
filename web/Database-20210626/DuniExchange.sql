@@ -13,10 +13,10 @@ username varchar(20) NOT NULL unique,
 userPassword nvarchar(MAX) NOT NULL,
 userEmail char(50) NOT NULL,
 userFullname nvarchar(70) NOT NULL,
-isAdmin bit NULL
+isAdmin bit NULL,
 createDate datetime NOT NULL,
 facebookURL nvarchar(50) NULL,
-userImage nvarchar(50) NULL 
+userImage nvarchar(50) NULL,
 constraint pk_Account primary key (accountID)
 )
 go
@@ -56,15 +56,13 @@ go
 create table ProductImage
 (
 postID int NOT NULL,
-imageURL nvarchar(50) NOT NULL,
+imageURL nvarchar(200) NOT NULL,
 constraint fk_PostImage foreign key (postID) references Post(postID),
 constraint pk_ProductImage primary key (postID,imageURL)
 )
 
-alter table ProductImage
-alter column imageURL
-go
-create table Exchange nvarchar(100) NOT NULL
+drop table ProductImage
+create table Exchange
 (
 exchangeID int identity(1,1) NOT NULL,
 postExchangeDate datetime NOT NULL,
