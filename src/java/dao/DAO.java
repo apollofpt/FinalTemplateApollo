@@ -11,11 +11,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-<<<<<<< HEAD
 import java.sql.Statement;
 import java.sql.Timestamp;
-=======
->>>>>>> 6787fb49b975b41b3e009ed221343805a3389d2d
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -121,9 +118,7 @@ public class DAO {
 
             }
         } catch (Exception e) {
-<<<<<<< HEAD
             e.printStackTrace();
-=======
         } finally {
             if (stm != null) {
                 stm.close();
@@ -131,7 +126,6 @@ public class DAO {
             if (con != null) {
                 con.close();
             }
->>>>>>> 6787fb49b975b41b3e009ed221343805a3389d2d
         }
 
         return false;
