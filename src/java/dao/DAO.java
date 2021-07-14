@@ -644,8 +644,10 @@ public class DAO {
 //        System.out.println(dao.getAllCategory());
 //        System.out.println(dao.getlastPost());
 //        System.out.println(dao.getAllExchangeInHomePage());
-        System.out.println(dao.insertAccount("quang123", "rollroyce230501@gmail.com", "Tôi abcded", "123456789"));
+//        System.out.println(dao.insertAccount("quang123", "rollroyce230501@gmail.com", "Tôi abcded", "123456789"));
 //dao.insertAccount("quang41551",  "quanglnnde150066@fpt.edu.vn", "Tôi abcded", "123456789");
+//        String hash = BCrypt.hashpw("123", BCrypt.gensalt(12));
+//        System.out.println(hash);
     }
 
 }

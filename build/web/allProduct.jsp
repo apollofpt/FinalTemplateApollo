@@ -171,7 +171,7 @@
                                                             <p class="time">
                                                                 ${lp.date}
                                                             </p>
-                                                            <a class="btn hvr-hover" href="#showYourListProductToExchange" data-toggle="modal">Exchange now!!</a>
+                                                            <a class="btn hvr-hover" href="#">Exchange now!!</a>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -16,7 +16,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Account;
 import model.Category;
+import model.Post;
 import model.postFullList;
 
 /**
@@ -39,10 +42,17 @@ public class AllProductServlet extends HttpServlet {
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         DAO dao = new DAO();
+        HttpSession session = request.getSession();
+        Account currentAccount = (Account) session.getAttribute("currentAccount");
+        
+        List<Post> listPostByID = dao.getPostByID(currentAccount.getAccountID());
         List<Category> listC = dao.getAllCategory();
         List<postFullList> listP = dao.getAllPost();
         postFullList last = dao.getlastPost();
+        int mostLike = dao.getMostLike();
 
+        request.setAttribute("listPostByID", listPostByID);
+        request.setAttribute("mostLike", mostLike);
         request.setAttribute("listC", listC);
         request.setAttribute("listP", listP);
         request.setAttribute("last", last);
