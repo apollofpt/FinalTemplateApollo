@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/src/java/servlet/RegisterServlet.java</file>
-            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/src/java/dao/DAO.java</file>
-            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/src/java/test/test.java</file>
-            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/web/Register.jsp</file>
-            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/src/java/test/test2.java</file>
+            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/web/allProduct.jsp</file>
+            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/web/home.jsp</file>
+            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/src/java/servlet/AllProductServlet.java</file>
+            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/web/css/showYourListProductToExchange.css</file>
+            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/web/css/theAllPost.css</file>
         </group>
     </open-files>
 </project-private>

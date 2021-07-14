@@ -9,7 +9,7 @@ go
 create table Account
 (
 accountID int identity(1,1) not null,
-username varchar(20) unique NOT NULL,
+username varchar(20) NOT NULL unique,
 userPassword nvarchar(MAX) NOT NULL,
 userEmail char(50) NOT NULL,
 userFullname nvarchar(70) NOT NULL,
@@ -93,6 +93,8 @@ insert into Account(username,userPassword,userEmail,userFullname,isAdmin,createD
 
 select * from Account
 
+update Account
+set userPassword = '$2a$12$h5ig0gmoeE13KBu8Ji4wguSp1diqUKFytj5bVjJpdZom/RFNxQe4K'
 ---------------------------------------------------Kết thúc thêm một vài bản ghi cho bảng User------------------------
 
 ---------------------------------------------------Bắt đầu thêm một vài bản ghi cho bảng Category------------------------
@@ -173,6 +175,7 @@ N'Bộ sách "Dạy con làm giàu" gồm 13 cuốn được viết bởi Robert
 269,'images/Product-images/tui-deo-cheo-di-choi-03.jpg')
 
 select * from Post
+
 ---------------------------------------------------Kết thúc thêm một vài bản ghi cho bảng Post------------------------
 
 ------------------------------Bắt đầu thêm một vài bản ghi cho bảng ProductImage------------------------

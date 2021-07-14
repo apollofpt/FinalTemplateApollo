@@ -27,7 +27,7 @@
     </servlet-mapping>    
     <welcome-file-list>
         <welcome-file>HomeServlet</welcome-file>
-        <!--<welcome-file>Register.jsp</welcome-file>-->
+        <!--<welcome-file>AllProductServlet</welcome-file>-->
              
     </welcome-file-list>
 </web-app>

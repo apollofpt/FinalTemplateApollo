@@ -25,7 +25,6 @@
         <!-- Site Icons -->
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
         <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- Site CSS -->
@@ -36,7 +35,8 @@
         <link rel="stylesheet" href="css/custom.css">
         <!-- Custom CSS icon category -->
         <link rel="stylesheet" href="fontawesome-free-5.15.3-web/css/all.css">
-
+        <!--ShowYourListProductToExchange-->
+        <link rel="stylesheet" href="css/showYourListProductToExchange.css">
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -45,62 +45,62 @@
     </head>
 
     <body>
-        
+
         <jsp:include page="Header.jsp"></jsp:include>
 
 
-        <!-- Start All Title Box -->
-        <div class="all-title-box">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2>Shop</h2>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Shop</li>
-                        </ul>
+            <!-- Start All Title Box -->
+            <div class="all-title-box">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h2>Shop</h2>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Shop</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- End All Title Box -->
+            <!-- End All Title Box -->
 
-        <!-- Start Shop Page  -->
-        <div class="shop-box-inner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-9 col-lg-9 col-sm-12 col-xs-12 shop-content-right">
-                        <div class="right-product-box">
-                            <div class="product-item-filter row">
-                                <div class="col-12 col-sm-8 text-center text-sm-left">
-                                    <div class="toolbar-sorter-right">
-                                        <span>Sort by </span>
-                                        <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
-                                            <option data-display="Select">Nothing</option>
-                                            <option value="1">Popularity</option>
-                                            <option value="2">A → Z</option>
-                                            <option value="3">Z → A</option>
-                                            <option value="4">Best Trading</option>
-                                        </select>
+            <!-- Start Shop Page  -->
+            <div class="shop-box-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-9 col-lg-9 col-sm-12 col-xs-12 shop-content-right">
+                            <div class="right-product-box">
+                                <div class="product-item-filter row">
+                                    <div class="col-12 col-sm-8 text-center text-sm-left">
+                                        <div class="toolbar-sorter-right">
+                                            <span>Sort by </span>
+                                            <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
+                                                <option data-display="Select">Nothing</option>
+                                                <option value="1">Popularity</option>
+                                                <option value="2">A → Z</option>
+                                                <option value="3">Z → A</option>
+                                                <option value="4">Best Trading</option>
+                                            </select>
+                                        </div>
+                                        <p>Showing all 4 results</p>
                                     </div>
-                                    <p>Showing all 4 results</p>
+                                    <div class="col-12 col-sm-4 text-center text-sm-right">
+                                        <ul class="nav nav-tabs ml-auto">
+                                            <li>
+                                                <a class="nav-link active" href="#grid-view" data-toggle="tab"> <i class="fa fa-th"></i> </a>
+                                            </li>
+                                            <li>
+                                                <a class="nav-link" href="#list-view" data-toggle="tab"> <i class="fa fa-list-ul"></i> </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="col-12 col-sm-4 text-center text-sm-right">
-                                    <ul class="nav nav-tabs ml-auto">
-                                        <li>
-                                            <a class="nav-link active" href="#grid-view" data-toggle="tab"> <i class="fa fa-th"></i> </a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link" href="#list-view" data-toggle="tab"> <i class="fa fa-list-ul"></i> </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
 
-                            <div class="product-categorie-box">
-                                <div class="tab-content">
-                                    <div role="tabpanel" class="tab-pane fade show active" id="grid-view">
-                                        <div class="row">
+                                <div class="product-categorie-box">
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade show active" id="grid-view">
+                                            <div class="row">
                                             <c:forEach items="${listP}" var="lp">
                                                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                                     <div class="products-single fix">
@@ -115,7 +115,7 @@
                                                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
                                                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Like"><i class="far fa-heart"></i></a></li>
                                                                 </ul>
-                                                                <a class="cart" href="#">Exchange now!!</a>
+                                                                <a class="cart" href="#showYourListProductToExchange" data-toggle="modal">Exchange now!!</a>
                                                             </div>
                                                         </div>
                                                         <div class="why-text">
@@ -230,6 +230,77 @@
     </div>
     <!-- End Shop Page -->
 
+    <!--Modal show exchange list-->
+
+    <div id="showYourListProductToExchange" class="modal fade">
+        <div class="modal-dialog mw-100 w-50">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">						
+                        <h4 class="modal-title w-100 text-center">Your Product</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body ">					
+                        <c:forEach items="${listPostByID}" var="o" varStatus="count">
+                            <%-- <c:if test="${count.index == 1}" >
+                                 <div class="card no-gutters offer-box-products" style="position: absolute; left: 0; bottom: 0;" >
+                                 </c:if>--%>
+                            <%--<c:if test="${count.index == 0}">--%>
+                            <div class="card no-gutters offer-box-products mb-5" >
+                                <%--</c:if>--%>
+                                <div class="row">
+                                    <div class="col-md-4 px-0">
+                                        <div class="product-img">
+                                            <img class="card-img img-fluid1" src="${o.thumbnailURL}" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 px-0">
+                                        <div class="card-body">
+                                            <h3 class="card-title mb-0 pb-0">${o.postTitle}</h3>
+                                            <p class="card-text">
+                                                <small><i class="fas fa-clock icon-clock"></i>${o.postDate}</small>
+                                            </p>
+                                            <div class="like-progress">
+                                                <div class="icon-heart"><i class="fas fa-heart"></i></div>
+                                                <div class="progress w-75" style="height: 5px">
+                                                    <div class="progress-bar bg-danger" style="width: ${o.postLike*100/mostLike}%"
+                                                         role="progressbar" style="width: 100%" aria-valuenow="36"
+                                                         aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+
+                                            <p class="card-text">
+                                                <span class="badge badge-pill badge-primary"><i class="fab fa-facebook"></i>
+                                                    Phụ
+                                                    kiện điện tử</span>
+                                                <span class="badge badge-pill badge-primary"><i class="fab fa-linkedin"></i>
+                                                    Đồ
+                                                    điện tử</span>
+                                                <span class="badge badge-pill badge-primary"><i class="fab fa-linkedin"></i>
+                                                    Laptop</span>
+                                            </p>
+                                            <p class="card-text description">${o.postDescription}</p>
+                                            <input type="button" class="btn btn-danger" data-dismiss="modal" value="Exchange">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>            
+                        </c:forEach>                        		
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                        <input type="submit" class="btn btn-info" value="Save">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
     <!-- Start Instagram Feed  -->
     <div class="instagram-box">
         <div class="main-instagram owl-carousel owl-theme">
@@ -318,7 +389,7 @@
     <!-- End Instagram Feed  -->
 
 
-   <jsp:include page="Footer.jsp"></jsp:include>
+    <jsp:include page="Footer.jsp"></jsp:include>
 
 
     <!-- Start copyright  -->
