@@ -11,6 +11,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -50,7 +52,7 @@ public class DAO {
             }
             con.close();
         } catch (Exception e) {
-            System.out.println("Error: " + e.toString());
+            e.printStackTrace();
         }
         return ls;
     }
@@ -68,7 +70,7 @@ public class DAO {
             }
             con.close();
         } catch (Exception e) {
-            System.out.println("Error: " + e.toString());
+            e.printStackTrace();
         }
         return hm;
     }
@@ -116,6 +118,7 @@ public class DAO {
 
             }
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             if (stm != null) {
                 stm.close();
@@ -152,6 +155,7 @@ public class DAO {
                 }
             }
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             if (rs != null) {
                 rs.close();
@@ -191,6 +195,7 @@ public class DAO {
                 return listPostByID;
             }
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             if (rs != null) {
                 rs.close();
@@ -223,6 +228,7 @@ public class DAO {
                 }
             }
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             if (rs != null) {
                 rs.close();
@@ -282,6 +288,7 @@ public class DAO {
                 return list;
             }
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             if (rs != null) {
                 rs.close();
@@ -319,6 +326,7 @@ public class DAO {
                 return null;
             }
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             if (rs != null) {
                 rs.close();
@@ -358,6 +366,7 @@ public class DAO {
                 return listLastestPostInHomePage;
             }
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             if (rs != null) {
                 rs.close();
@@ -396,6 +405,7 @@ public class DAO {
                 return listTopLikePostInHomePage;
             }
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             if (rs != null) {
                 rs.close();
@@ -434,6 +444,7 @@ public class DAO {
                 return listAllPostInHomePage;
             }
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             if (rs != null) {
                 rs.close();
@@ -469,6 +480,7 @@ public class DAO {
                 return listAllExchangeInHomePage;
             }
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             if (rs != null) {
                 rs.close();
@@ -482,6 +494,122 @@ public class DAO {
         }
         return null;
     }
+    
+    public int insertPost(int accountID, String postTitle, Timestamp postDate, String postDescription, String thumbnailURL) throws Exception{
+        try {
+            con = DBUtils.makeConnection();
+            if (con != null) {
+                String sql = "insert into "
+                        + "Post(accountID,postTitle,postDate,postDescription,postLike,thumbnailURL)"
+                        + " values(?,?,?,?,0,?)";
+                stm = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+                stm.setInt(1, accountID);
+                stm.setString(2, postTitle);
+                stm.setTimestamp(3, postDate);
+                stm.setString(4, postDescription);
+                stm.setString(5, thumbnailURL);
+                
+                int row = stm.executeUpdate();
+                
+                if(row == 0) return 0;
+                
+                ResultSet generatedKeys = stm.getGeneratedKeys();
+                
+                if(generatedKeys.next()){
+                    int postID = generatedKeys.getInt(1); //get the key of the row after inserting
+                    System.out.println("postID: " + postID);
+                    return postID;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return -1;
+    }
+    
+    public int insertCategoryPost(int PostID, String[] categoriesID) throws Exception{
+        try {   
+            int successCounter = 0;
+            con = DBUtils.makeConnection();
+            if (con != null) {
+                for(String catID : categoriesID){
+                    String sql = "insert into "
+                        + "CategoryPost(PostID,categoryID)"
+                        + " values (?,?)";
+                    stm = con.prepareStatement(sql);
+                    stm.setInt(1, PostID);
+                    stm.setInt(2, Integer.parseInt(catID));
+                    if(stm.executeUpdate() > 0) successCounter++;
+                }
+                return successCounter;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return 0;
+    }
+    
+    public int insertProductImage(int PostID, String[] imageURL) throws Exception{
+        try {
+            int successCounter = 0;
+            con = DBUtils.makeConnection();
+            if (con != null) {
+                for(String imgURL : imageURL){
+                    String sql = "insert into "
+                            + "ProductImage(PostID,imageURL)"
+                            + " values(?,?)";
+                    stm = con.prepareStatement(sql);
+                    stm.setInt(1, PostID);
+                    stm.setString(2, imgURL);
+                    if(stm.executeUpdate() > 0) successCounter++;
+            }
+            return successCounter;
+//            con = DBUtils.makeConnection();
+//            if (con != null) {
+//                String sql = "insert into "
+//                        + "ProductImage(PostID,imageURL)"
+//                        + " values(?,?)";
+//                stm = con.prepareStatement(sql);
+//                stm.setInt(1, PostID);
+//                stm.setString(2, imageURL);
+//                return stm.executeUpdate() > 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return 0;
+    }
+
 /////////////////////////////////////////////////////////////
 
     public static void main(String[] args) throws Exception {
