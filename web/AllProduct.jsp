@@ -75,15 +75,11 @@
                                     <div class="col-12 col-sm-8 text-center text-sm-left">
                                         <div class="toolbar-sorter-right">
                                             <span>Sort by </span>
-                                            <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
-                                                <option data-display="Select">Nothing</option>
-                                                <option value="1">Popularity</option>
-                                                <option value="2">A → Z</option>
-                                                <option value="3">Z → A</option>
-                                                <option value="4">Best Trading</option>
-                                            </select>
+                                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="AllProductServlet">Nothing</a></p>
+                                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="sortPostServlet?value=popularity">Popularity</a></p>
+                                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="sortPostServlet?value=AtoZ">A → Z</a></p>
+                                            <p><a href="sortPostServlet?value=ZtoA">Z → A</a></p>
                                         </div>
-                                        <p>Showing all 4 results</p>
                                     </div>
                                     <div class="col-12 col-sm-4 text-center text-sm-right">
                                         <ul class="nav nav-tabs ml-auto">
@@ -115,11 +111,11 @@
                                                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
                                                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Like"><i class="far fa-heart"></i></a></li>
                                                                 </ul>
-                                                                <a class="cart" href="#showYourListProductToExchange" data-toggle="modal">Exchange now!!</a>
+                                                                <a class="cart" href="#showYourListProductToExchange" data-toggle="modal"> Exchange now!!</a>
                                                             </div>
                                                         </div>
                                                         <div class="why-text">
-                                                            <h4><a href="product-detail.html">  ${lp.title}</a></h4>
+                                                            <h4><a href="PostDetailServlet?postid=${lp.postid}">  ${lp.title}</a></h4>
                                                             <p style="float: right;"><i class="fas fa-heart" ></i> ${lp.like} </p>
                                                             <div class="Avatar">
                                                                 <img src="${lp.avatar}" id="imgAva" 
@@ -160,7 +156,7 @@
                                                     </div>
                                                     <div class="col-sm-6 col-md-6 col-lg-8 col-xl-8">
                                                         <div class="why-text full-width">
-                                                            <h4>${lp.title}</h4>
+                                                            <h4><a href="PostDetailServlet?postid=${lp.postid}" style="color: rgb(219, 169, 94);">${lp.title}</a></h4>
                                                             <p>${lp.description}</p>
                                                             <p style="float: right;"><i class="fas fa-heart" ></i> ${lp.like} </p>
                                                             <div class="Avatar">
@@ -185,8 +181,8 @@
                     <div class="col-xl-3 col-lg-3 col-sm-12 col-xs-12 sidebar-shop-left">
                         <div class="product-categori">
                             <div class="search-product">
-                                <form action="#">
-                                    <input class="form-control" placeholder="Search here..." type="text">
+                                <form action="searchServlet" method="post">
+                                    <input name="searchtxt" class="form-control" placeholder="Search here..." type="text" value="${txtSe}">
                                     <button type="submit"> <i class="fa fa-search"></i> </button>
                                 </form>
                             </div>
@@ -196,7 +192,7 @@
                                 </div>
                                 <c:forEach items="${listC}" var="c">
                                     <div class="list-group list-group-collapse list-group-sm list-group-tree" id="list-group-men" data-children=".sub-men">
-                                        <a href="#" class="list-group-item list-group-item-action"> ${c.cname}  <i class=" ${c.cic}" aria-hidden="true"></i></a>
+                                        <a href="categoryServlet?caid=${c.cid}" class="list-group-item list-group-item-action ${tag == c.cid ? "active":""}"> ${c.cname}  <i class=" ${c.cic}" aria-hidden="true"></i></a>
                                     </div>
                                 </c:forEach>
                             </div>
@@ -206,7 +202,7 @@
 
                                 <div class="card-body">
                                     <img class="img-fluid" src="${last.thumbnail}" />
-                                    <h5 class="card-title">${last.title}</h5>
+                                    <h2 class="card-title"><a href="PostDetailServlet?postid=${last.postid}" style="font: bolder">${last.title}</a></h2>
                                     <p class="card-text">${last.description}</p>
                                     <div class="like-progress">
                                         <div class="icon-heart"><i class="fas fa-heart"></i> ${last.like} </div>
@@ -229,7 +225,6 @@
         </div>
     </div>
     <!-- End Shop Page -->
-
     <!--Modal show exchange list-->
 
     <div id="showYourListProductToExchange" class="modal fade">
@@ -240,7 +235,10 @@
                         <h4 class="modal-title w-100 text-center">Your Product</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
-                    <div class="modal-body ">					
+                    <div class="modal-body ">		
+                        <c:if test="${empty listPostByID}">
+                            <h1 class="w-100 text-center">Please login to select your product then exchange!</h1>
+                        </c:if>
                         <c:forEach items="${listPostByID}" var="o" varStatus="count">
                             <%-- <c:if test="${count.index == 1}" >
                                  <div class="card no-gutters offer-box-products" style="position: absolute; left: 0; bottom: 0;" >
@@ -425,4 +423,4 @@
 </body>
 
 </html>
-</html>
+

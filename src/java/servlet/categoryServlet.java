@@ -26,8 +26,8 @@ import model.postFullList;
  *
  * @author acer
  */
-@WebServlet(name = "AllProductServlet", urlPatterns = {"/AllProductServlet"})
-public class AllProductServlet extends HttpServlet {
+@WebServlet(name = "categoryServlet", urlPatterns = {"/categoryServlet"})
+public class categoryServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,6 +41,7 @@ public class AllProductServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
+        String cid = request.getParameter("caid");
         DAO dao = new DAO();
         List<Post> listPostByID = null;
         HttpSession session = request.getSession(true);
@@ -54,24 +55,22 @@ public class AllProductServlet extends HttpServlet {
             
             // Already created.
         }
-//        HttpSession session = request.getSession();
-
-        
-//        System.out.println(currentAccount);
-       
+        List<postFullList> listCA = dao.getPostByCategory(cid);
+        //get all cate
         List<Category> listC = dao.getAllCategory();
-        List<postFullList> listP = dao.getAllPost();
+        //get last post
         postFullList last = dao.getlastPost();
+        
         int mostLike = dao.getMostLike();
 
         request.setAttribute("listPostByID", listPostByID);
         request.setAttribute("mostLike", mostLike);
-        request.setAttribute("listC", listC);
-        request.setAttribute("listP", listP);
+        request.setAttribute("listP", listCA);
         request.setAttribute("last", last);
-        System.out.println(last);
-//        request.getRequestDispatcher("AllProduct.jsp").forward(request, response);
+        request.setAttribute("listC", listC);
+        request.setAttribute("tag", cid);
         request.getRequestDispatcher("allProduct.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -89,7 +88,7 @@ public class AllProductServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(AllProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(categoryServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -107,7 +106,7 @@ public class AllProductServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(AllProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(categoryServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -120,13 +119,11 @@ public class AllProductServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-//    public static void main(String[] args) throws Exception {
-//        DAO dao = new DAO();
-//         List<postFullList> listP = dao.getAllPost();
-//        for (postFullList p : listP){
-//            System.out.println(p.toString());
-//        }
-//        postFullList last = dao.getlastPost();
-//        System.out.println(last);
-//    }
+    public static void main(String[] args) throws Exception {
+        DAO dao = new DAO();
+        List<postFullList> listCA = dao.getPostByCategory("1");
+        for ( postFullList l : listCA){
+            System.out.println(l.toString());
+        }
+    }
 }
