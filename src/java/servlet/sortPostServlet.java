@@ -47,12 +47,12 @@ public class sortPostServlet extends HttpServlet {
         HttpSession session = request.getSession(true);
         if (session.isNew()) {
             // Not created yet. Now do so yourself.
+            
+            
+        } else {
             session = request.getSession();
             Account currentAccount = (Account) session.getAttribute("currentAccount");
             listPostByID = dao.getPostByID(currentAccount.getAccountID());
-            
-        } else {
-            
             // Already created.
         }
         List<postFullList> orderList = new ArrayList<>();

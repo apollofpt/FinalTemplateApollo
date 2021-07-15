@@ -77,7 +77,7 @@
                                 <div class="col-md-12">
                                     <h1 class="m-b-20"><strong>Welcome To <br> DuniExchange</strong></h1>
                                     <p class="m-b-40">Hope you have best time with us <br>Click button below.</p>
-                                    <p><a class="btn hvr-hover" href="#">Exchange Now</a></p>
+                                    <p><a class="btn hvr-hover" href="AllProductServlet">Exchange Now</a></p>
                                 </div>
                             </div>
                         </div>
