@@ -26,8 +26,8 @@ import model.postFullList;
  *
  * @author acer
  */
-@WebServlet(name = "AllProductServlet", urlPatterns = {"/AllProductServlet"})
-public class AllProductServlet extends HttpServlet {
+@WebServlet(name = "searchServlet", urlPatterns = {"/searchServlet"})
+public class searchServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,6 +41,7 @@ public class AllProductServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         DAO dao = new DAO();
         List<Post> listPostByID = null;
         HttpSession session = request.getSession(true);
@@ -54,23 +55,23 @@ public class AllProductServlet extends HttpServlet {
             
             // Already created.
         }
-//        HttpSession session = request.getSession();
+        String txt = request.getParameter("searchtxt");
+        List<postFullList> txtListS = dao.getAllPostSearch(txt);
 
-        
-//        System.out.println(currentAccount);
-       
-        List<Category> listC = dao.getAllCategory();
-        List<postFullList> listP = dao.getAllPost();
+        //get last post
         postFullList last = dao.getlastPost();
+
+        //get all cate
+        List<Category> listC = dao.getAllCategory();
+
         int mostLike = dao.getMostLike();
 
         request.setAttribute("listPostByID", listPostByID);
         request.setAttribute("mostLike", mostLike);
+        request.setAttribute("listP", txtListS);
         request.setAttribute("listC", listC);
-        request.setAttribute("listP", listP);
         request.setAttribute("last", last);
-        System.out.println(last);
-//        request.getRequestDispatcher("AllProduct.jsp").forward(request, response);
+        request.setAttribute("txtSe", txt);
         request.getRequestDispatcher("allProduct.jsp").forward(request, response);
     }
 
@@ -89,7 +90,7 @@ public class AllProductServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(AllProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(searchServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -107,7 +108,7 @@ public class AllProductServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(AllProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(searchServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -120,13 +121,12 @@ public class AllProductServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-//    public static void main(String[] args) throws Exception {
+//public static void main(String[] args) throws Exception {
 //        DAO dao = new DAO();
-//         List<postFullList> listP = dao.getAllPost();
-//        for (postFullList p : listP){
-//            System.out.println(p.toString());
-//        }
-//        postFullList last = dao.getlastPost();
-//        System.out.println(last);
+//        List<postFullList> listP = dao.getAllPostSearch("áo");
+////        System.out.println(dao.getAllPostSearch("a"));
+//    for(postFullList p : listP){
+//        System.out.println(p.toString());
+//    }
 //    }
 }
