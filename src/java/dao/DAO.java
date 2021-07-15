@@ -987,6 +987,7 @@ public postFullList showPostDetail(String id) throws SQLException {
 //dao.insertAccount("quang41551",  "quanglnnde150066@fpt.edu.vn", "Tôi abcded", "123456789");
 //        String hash = BCrypt.hashpw("123", BCrypt.gensalt(12));
 //        System.out.println(hash);
+            System.out.println(dao.getAllPost());
     }
 
 }
