@@ -61,7 +61,6 @@ constraint fk_PostImage foreign key (postID) references Post(postID),
 constraint pk_ProductImage primary key (postID,imageURL)
 )
 
-drop table ProductImage
 create table Exchange
 (
 exchangeID int identity(1,1) NOT NULL,
