@@ -277,7 +277,8 @@ public class DAO {
 
                 rs = stm.executeQuery();
                 while (rs.next()) {
-                    list.add(new postFullList(rs.getString(3),
+                    list.add(new postFullList(rs.getInt(1),
+                            rs.getString(3),
                             rs.getString(4),
                             rs.getString(5),
                             rs.getInt(6),

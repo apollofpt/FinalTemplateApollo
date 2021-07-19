@@ -44,16 +44,16 @@ public class searchServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         DAO dao = new DAO();
         List<Post> listPostByID = null;
-        HttpSession session = request.getSession(true);
-        if (session.isNew()) {
-            // Not created yet. Now do so yourself.
+        try {
+            HttpSession session = request.getSession(false);
+            if (session != null) {
+                // Not created yet. Now do so yourself.
+                Account currentAccount = (Account) session.getAttribute("currentAccount");
+                listPostByID = dao.getPostByID(currentAccount.getAccountID());
+
+            }
+        }catch(Exception e){
             
-            
-        } else {
-            session = request.getSession();
-            Account currentAccount = (Account) session.getAttribute("currentAccount");
-            listPostByID = dao.getPostByID(currentAccount.getAccountID());
-            // Already created.
         }
         String txt = request.getParameter("searchtxt");
         List<postFullList> txtListS = dao.getAllPostSearch(txt);

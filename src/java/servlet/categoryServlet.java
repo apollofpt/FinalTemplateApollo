@@ -44,16 +44,16 @@ public class categoryServlet extends HttpServlet {
         String cid = request.getParameter("caid");
         DAO dao = new DAO();
         List<Post> listPostByID = null;
-        HttpSession session = request.getSession(true);
-       if (session.isNew()) {
-            // Not created yet. Now do so yourself.
+        try {
+            HttpSession session = request.getSession(false);
+            if (session != null) {
+                // Not created yet. Now do so yourself.
+                Account currentAccount = (Account) session.getAttribute("currentAccount");
+                listPostByID = dao.getPostByID(currentAccount.getAccountID());
+
+            }
+        }catch(Exception e){
             
-            
-        } else {
-            session = request.getSession();
-            Account currentAccount = (Account) session.getAttribute("currentAccount");
-            listPostByID = dao.getPostByID(currentAccount.getAccountID());
-            // Already created.
         }
         List<postFullList> listCA = dao.getPostByCategory(cid);
         //get all cate
