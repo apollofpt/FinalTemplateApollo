@@ -1,4 +1,5 @@
 
+<%@page import="model.Account" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -71,63 +72,63 @@
                                         <th>User Name</th>
                                         <th>Fullname</th>
                                         <th>Create Date</th>
-                                        <th>URL Facebook</th>
+                                        <th>Admin</th>
                                         <th>ID</th>
                                         <th>Option</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="thumbnail-img">
-                                            <a href="#">
-                                                <img class="img-fluid" src="images/img-pro-01.jpg" alt="" />
-                                            </a>
-                                        </td>
-                                        <td class="name-pr">
-                                            <a href="#">
-                                                Lorem ipsum dolor sit amet
-                                            </a>
-                                        </td>
-                                        <td class="price-pr">
-                                            <p>$ 80.0</p>
-                                        </td>
-                                        <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
-                                        <td class="total-pr">
-                                            <p>$ 80.0</p>
-                                        </td>
-                                        <td class="total-pr">
-                                            <p>$ 80.0</p>
-                                        </td>
-                                        <td class="total-pr">
-                                            <p>$ 80.0</p>
-                                        </td>
-                                        <td class="remove-pr">
-                                            <a href="#">
-                                                <i class="fas fa-times"></i>
-                                            </a>
-                                        </td>
-                                <c:forEach>
-                                    
+                                <c:forEach items="${listA}" var="o">
+                                    <c:if test="${currentAccount.accountID != o.accountID}">
+                                        <tr>
+                                            <td class="thumbnail-img">
+                                                <img class="img-fluid" src="${o.userImage}" alt="" />
+                                            </td>
+                                            <td class="name-pr">
+                                                <p>${o.userEmail}</p>
+                                            </td>
+                                            <td class="price-pr">
+                                                <p>${o.username}</p>
+                                            </td>
+                                            <td class="name-pr">
+                                                <p>${o.userFullname}</p>
+                                            </td>
+                                            <td class="total-pr">
+                                                <p>${o.createDate}</p>
+                                            </td>
+                                            <td class="total-pr">
+                                                <p>${o.isAdmin}</p>
+                                            </td>
+                                            <td class="total-pr">
+                                                <p>${o.accountID}</p>
+                                            </td>
+                                            <td class="remove-pr">
+                                                <a href="deleteAccount?idA=${o.accountID}">
+                                                    <i class="fas fa-times"></i>
+                                                </a>
+                                            </td>
+                                        </tr>                                             
+                                    </c:if>
+
                                 </c:forEach>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
-
                 </div>
-                <div class="container">
-                    <div class="row col-lg-12">
-                        <div class="col-lg-7 col-sm-6">
-                            <div class="update-box" style="text-align: center;">
-                                <input value="Update Cart" type="submit">
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
             </div>
-            <!-- End Cart -->
+            <div class="container">
+                <div class="row col-lg-12">
+                    <div class="col-lg-7 col-sm-6">
+                        <div class="update-box" style="text-align: center;">
+                            <input value="Update Cart" type="submit">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- End Cart -->
 
         <jsp:include page="Footer.jsp"></jsp:include>
 

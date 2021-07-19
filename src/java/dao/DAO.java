@@ -130,7 +130,17 @@ public class DAO {
 
         return false;
     }
-
+    public void deleteAccount(String id){
+        String query = "delete Account where [accountID] = ?";
+        try {
+            con = DBUtils.makeConnection();
+            stm = con.prepareStatement(query);
+            stm.setString(1, id);
+            stm.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public Account getAccountByUserName(String username) throws Exception {
         try {
             con = DBUtils.makeConnection();
@@ -974,10 +984,11 @@ public postFullList showPostDetail(String id) throws SQLException {
 //        }
         DAO dao = new DAO();
 //        dao.insertAccount("HELLO", "TEST", "CHUOI", "132");
-        List<Account> list = dao.getAllAccount();
-        for (Account account : list) {
-            System.out.println(account.toString());
-        }
+        dao.deleteAccount("7");
+//        List<Account> list = dao.getAllAccount();
+//        for (Account account : list) {
+//            System.out.println(account.toString());
+//        }
 //        System.out.println(dao.getPostByID(1));
 //            System.out.println(dao.getAccountByUserName("quang"));
 //        System.out.println(dao.getMostLike());
