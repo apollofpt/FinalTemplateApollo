@@ -1,0 +1,58 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 14, 2021, 10:13:42 PM
+    Author     : ADMIN
+*/
+#showYourListProductToExchange .modal-title{
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+    
+}
+#showYourListProductToExchange .card{
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+/* style the left-card */
+#showYourListProductToExchange  .product-img{
+    width:100%; 
+    max-height: 240px;
+    object-fit: cover !important;
+}
+#showYourListProductToExchange  .product-img img{
+    width:100%; 
+    height:100%;
+    object-fit: cover !important;
+}
+#showYourListProductToExchange  .card-body h3{
+    font-weight:600;
+}
+/* align icon clock ,progress bar for also left and right  */
+#showYourListProductToExchange  .card-body .card-text .icon-clock{
+    margin-right: 5%;
+}
+#showYourListProductToExchange  .like-progress{
+    display: flex;
+    align-items:center;
+
+}
+#showYourListProductToExchange  .like-progress .progress-bar{
+    background-color: red !important;
+
+}
+#showYourListProductToExchange  .like-progress .icon-heart{
+    font-size: 12px;
+    margin-right: 5%;
+    color: red;
+}
+
+#showYourListProductToExchange .card-body .description{
+    height: 80px;
+    overflow: hidden;
+}

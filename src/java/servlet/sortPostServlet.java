@@ -8,6 +8,7 @@ package servlet;
 import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,8 +27,8 @@ import model.postFullList;
  *
  * @author acer
  */
-@WebServlet(name = "AllProductServlet", urlPatterns = {"/AllProductServlet"})
-public class AllProductServlet extends HttpServlet {
+@WebServlet(name = "sortPostServlet", urlPatterns = {"/sortPostServlet"})
+public class sortPostServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -54,21 +55,32 @@ public class AllProductServlet extends HttpServlet {
         }catch(Exception e){
             
         }
-//        HttpSession session = request.getSession();
-
-//        System.out.println(currentAccount);
-        List<Category> listC = dao.getAllCategory();
-        List<postFullList> listP = dao.getAllPost();
+        List<postFullList> orderList = new ArrayList<>();
+        String condition = request.getParameter("value");
+        
+        //get last post
         postFullList last = dao.getlastPost();
+        
+        //get all cate
+        List<Category> listC = dao.getAllCategory();
+        
+        
+        if (condition.endsWith("popularity")) {
+            orderList = dao.getAllPostPopularity();
+            
+        } else if (condition.endsWith("AtoZ")) {
+            orderList = dao.getAllPostAtoZ();
+            
+        } else if (condition.endsWith("ZtoA")) {
+            orderList = dao.getAllPostZtoA();
+        }
         int mostLike = dao.getMostLike();
 
         request.setAttribute("listPostByID", listPostByID);
         request.setAttribute("mostLike", mostLike);
+        request.setAttribute("listP", orderList);
         request.setAttribute("listC", listC);
-        request.setAttribute("listP", listP);
         request.setAttribute("last", last);
-        System.out.println(last);
-//        request.getRequestDispatcher("AllProduct.jsp").forward(request, response);
         request.getRequestDispatcher("allProduct.jsp").forward(request, response);
     }
 
@@ -87,7 +99,7 @@ public class AllProductServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(AllProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(sortPostServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -105,7 +117,7 @@ public class AllProductServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(AllProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(sortPostServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -118,13 +130,18 @@ public class AllProductServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-//    public static void main(String[] args) throws Exception {
+//public static void main(String[] args) throws Exception {
 //        DAO dao = new DAO();
-//         List<postFullList> listP = dao.getAllPost();
-//        for (postFullList p : listP){
-//            System.out.println(p.toString());
+//        List<postFullList> orderList = new ArrayList<>();
+//        String condition = "AtoZ";
+//        if (condition.endsWith("popularity")) {
+//            orderList = dao.getAllPostPopularity();
+//        }else if (condition.endsWith("AtoZ")) {
+//            orderList = dao.getAllPostAtoZ();
+//            
+//        } else if (condition.endsWith("ZtoA")) {
+//            orderList = dao.getAllPostZtoA();
 //        }
-//        postFullList last = dao.getlastPost();
-//        System.out.println(last);
+//        System.out.println(orderList);
 //    }
 }

@@ -131,7 +131,7 @@
 			1000: {
 				items: 5,
 				nav: true,
-				loop: true
+				
 			}
 		}
 	});
@@ -141,7 +141,6 @@
 	   ................................................. */
 
 	$('.featured-products-box').owlCarousel({
-		loop: true,
 		margin: 15,
 		dots: false,
 		autoplay: true,
@@ -160,7 +159,6 @@
 			1000: {
 				items: 4,
 				nav: true,
-				loop: true
 			}
 		}
 	});
@@ -208,9 +206,9 @@
 	   NiceScroll
 	   ................................................. */
 
-//	$(".brand-box").niceScroll({
-//		cursorcolor: "#9b9b9c"
-//	});
+	$(".brand-box").niceScroll({
+		cursorcolor: "#9b9b9c",
+	});
 	
 	
 }(jQuery));

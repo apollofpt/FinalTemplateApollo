@@ -277,7 +277,8 @@ public class DAO {
 
                 rs = stm.executeQuery();
                 while (rs.next()) {
-                    list.add(new postFullList(rs.getString(3),
+                    list.add(new postFullList(rs.getInt(1),
+                            rs.getString(3),
                             rs.getString(4),
                             rs.getString(5),
                             rs.getInt(6),
@@ -609,7 +610,346 @@ public class DAO {
         }
         return 0;
     }
+    public List<postFullList> getAllPostPopularity() throws Exception {
+        List<postFullList> list = new ArrayList<>();
 
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+                String sql = "select * from [dbo].[Post] a, [dbo].[Account] b\n"
+                        + "						 where a.accountID = b.accountID order by a.postLike desc";
+
+                stm = con.prepareStatement(sql);
+
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    list.add(new postFullList(rs.getInt(1),
+                            rs.getInt(2),
+                            rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(5),
+                            rs.getInt(6),
+                            rs.getString(7),
+                            rs.getString(9),
+                            rs.getString(16)));
+
+                }
+                return list;
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return null;
+    }
+
+    public List<postFullList> getAllPostAtoZ() throws Exception {
+        List<postFullList> list = new ArrayList<>();
+
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+                String sql = "select * from [dbo].[Post] a, [dbo].[Account] b\n"
+                        + "						 where a.accountID = b.accountID order by a.postTitle asc";
+
+                stm = con.prepareStatement(sql);
+
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    list.add(new postFullList(rs.getInt(1),
+                            rs.getInt(2),
+                            rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(5),
+                            rs.getInt(6),
+                            rs.getString(7),
+                            rs.getString(9),
+                            rs.getString(16)));
+
+                }
+                return list;
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return null;
+    }
+
+    public List<postFullList> getAllPostZtoA() throws Exception {
+        List<postFullList> list = new ArrayList<>();
+
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+                String sql = "select * from [dbo].[Post] a, [dbo].[Account] b\n"
+                        + "						 where a.accountID = b.accountID order by a.postTitle desc";
+
+                stm = con.prepareStatement(sql);
+
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    list.add(new postFullList(rs.getInt(1),
+                            rs.getInt(2),
+                            rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(5),
+                            rs.getInt(6),
+                            rs.getString(7),
+                            rs.getString(9),
+                            rs.getString(16)));
+
+                }
+                return list;
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return null;
+    }
+public postFullList showPostDetail(String id) throws SQLException {
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+                String sql = "select * from [dbo].[Post] a inner join  [dbo].[CategoryPost] b on a.postID = b.postID inner join  \n"
+                        + "[dbo].[Category] c on b.categoryID = c.categoryID  inner join \n"
+                        + "Account e on e.accountID = a.accountID where a.postID = ?";
+
+                stm = con.prepareStatement(sql);
+                stm.setString(1, id);
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    return (new postFullList(rs.getInt(1),
+                            rs.getInt(2),
+                            rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(5),
+                            rs.getInt(6),
+                            rs.getString(7),
+                            rs.getString(14),
+                            rs.getString(21),
+                            rs.getInt(10),
+                            rs.getString(11)));
+                }
+                return null;
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+
+        return null;
+
+    }
+
+    public List<postFullList> suggestPostSameCategory(String name) throws SQLException {
+        List<postFullList> list = new ArrayList<>();
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+                String sql = "select top 4 * from [dbo].[Post] a inner join  [dbo].[CategoryPost] b on a.postID = b.postID \n"
+                        + "inner join  [dbo].[Category] c on b.categoryID = c.categoryID \n"
+                        + " where c.categoryName like ? order by NEWID()";
+
+                stm = con.prepareStatement(sql);
+                stm.setString(1, '%' + name + '%');
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    list.add(new postFullList(rs.getInt(1),
+                            rs.getInt(6),
+                            rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(7)));
+                }
+                return list;
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+
+        return null;
+
+    }
+
+    public List<postFullList> showCategoryPostDetail(String id) throws SQLException {
+        List<postFullList> list = new ArrayList<>();
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+                String sql = "select * from [dbo].[Post] a inner join  [dbo].[CategoryPost] b on a.postID = b.postID inner join \n"
+                        + " [dbo].[Category] c on b.categoryID = c.categoryID  inner join \n"
+                        + "Account e on e.accountID = a.accountID where a.postID = ? ";
+
+                stm = con.prepareStatement(sql);
+                stm.setString(1, id);
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    list.add(new postFullList(rs.getInt(1),
+                            rs.getInt(2),
+                            rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(5),
+                            rs.getInt(6),
+                            rs.getString(7),
+                            rs.getString(14),
+                            rs.getString(21),
+                            rs.getInt(10),
+                            rs.getString(11)));
+                }
+                return list;
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+
+        return null;
+
+    }
+
+                                         
+    public List<postFullList> getPostByCategory(String id) throws Exception {
+        List<postFullList> list = new ArrayList<>();
+
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+//                where b.categoryID = 1
+                String sql = "select * from [dbo].[Post] a inner join  [dbo].[CategoryPost] b on a.postID = b.postID \n"
+                        + "inner join  [dbo].[Category] c on b.categoryID = c.categoryID \n"
+                        + " inner join Account e on e.accountID = a.accountID where b.categoryID = ? ";
+
+                stm = con.prepareStatement(sql);
+                stm.setString(1, id);
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    list.add(new postFullList(rs.getInt(1),
+                            rs.getInt(2),
+                            rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(5),
+                            rs.getInt(6),
+                            rs.getString(7),
+                            rs.getString(14),
+                            rs.getString(21),
+                            rs.getInt(10),
+                            rs.getString(11)));
+                }
+                return list;
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return null;
+    }
+
+    public List<postFullList> getAllPostSearch(String txt) throws Exception {
+        List<postFullList> list = new ArrayList<>();
+
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+                String sql = "select * from [dbo].[Post] a, [dbo].[Account] b\n"
+                        + "						 where a.accountID = b.accountID and a.postTitle like ?";
+
+                stm = con.prepareStatement(sql);
+                stm.setString(1, '%' + txt + '%');
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    list.add(new postFullList(rs.getInt(1),
+                            rs.getInt(2),
+                            rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(5),
+                            rs.getInt(6),
+                            rs.getString(7),
+                            rs.getString(9),
+                            rs.getString(16)));
+
+                }
+                return list;
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return null;
+    }
 /////////////////////////////////////////////////////////////
 
     public static void main(String[] args) throws Exception {
@@ -644,8 +984,11 @@ public class DAO {
 //        System.out.println(dao.getAllCategory());
 //        System.out.println(dao.getlastPost());
 //        System.out.println(dao.getAllExchangeInHomePage());
-        System.out.println(dao.insertAccount("quang123", "rollroyce230501@gmail.com", "Tôi abcded", "123456789"));
+//        System.out.println(dao.insertAccount("quang123", "rollroyce230501@gmail.com", "Tôi abcded", "123456789"));
 //dao.insertAccount("quang41551",  "quanglnnde150066@fpt.edu.vn", "Tôi abcded", "123456789");
+//        String hash = BCrypt.hashpw("123", BCrypt.gensalt(12));
+//        System.out.println(hash);
+            System.out.println(dao.getAllPost());
     }
 
 }

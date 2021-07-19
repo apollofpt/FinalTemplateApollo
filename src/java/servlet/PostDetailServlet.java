@@ -8,6 +8,7 @@ package servlet;
 import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,18 +17,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Account;
-import model.Category;
-import model.Post;
 import model.postFullList;
 
 /**
  *
  * @author acer
  */
-@WebServlet(name = "AllProductServlet", urlPatterns = {"/AllProductServlet"})
-public class AllProductServlet extends HttpServlet {
+@WebServlet(name = "PostDetailServlet", urlPatterns = {"/PostDetailServlet"})
+public class PostDetailServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,37 +36,25 @@ public class AllProductServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, Exception {
+            throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
+        String postid = request.getParameter("postid");
+//        String catename = request.get
+//        String sugest = request.getParameter("scid");
         DAO dao = new DAO();
-        List<Post> listPostByID = null;
-        try {
-            HttpSession session = request.getSession(false);
-            if (session != null) {
-                // Not created yet. Now do so yourself.
-                Account currentAccount = (Account) session.getAttribute("currentAccount");
-                listPostByID = dao.getPostByID(currentAccount.getAccountID());
+        postFullList pid = dao.showPostDetail(postid);
+        List<postFullList> detailCa = dao.showCategoryPostDetail(postid);
+        String cname = detailCa.get(0).getCname();
+//        List<postFullList> suggestBycid = dao.suggestPostSameCategory(postid);
+        //get post by cateid
+        List<postFullList> getCate = dao.suggestPostSameCategory(cname);
 
-            }
-        }catch(Exception e){
-            
-        }
-//        HttpSession session = request.getSession();
+        request.setAttribute("postid", pid);
+        request.setAttribute("listcate", detailCa);
+//        request.setAttribute("scid", sugest);
 
-//        System.out.println(currentAccount);
-        List<Category> listC = dao.getAllCategory();
-        List<postFullList> listP = dao.getAllPost();
-        postFullList last = dao.getlastPost();
-        int mostLike = dao.getMostLike();
-
-        request.setAttribute("listPostByID", listPostByID);
-        request.setAttribute("mostLike", mostLike);
-        request.setAttribute("listC", listC);
-        request.setAttribute("listP", listP);
-        request.setAttribute("last", last);
-        System.out.println(last);
-//        request.getRequestDispatcher("AllProduct.jsp").forward(request, response);
-        request.getRequestDispatcher("allProduct.jsp").forward(request, response);
+        request.setAttribute("catePost", getCate);
+        request.getRequestDispatcher("product-detail.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -86,8 +71,8 @@ public class AllProductServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(AllProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(PostDetailServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -104,8 +89,8 @@ public class AllProductServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(AllProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(PostDetailServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -118,13 +103,19 @@ public class AllProductServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-//    public static void main(String[] args) throws Exception {
-//        DAO dao = new DAO();
-//         List<postFullList> listP = dao.getAllPost();
-//        for (postFullList p : listP){
+
+    public static void main(String[] args) throws SQLException {
+        DAO dao = new DAO();
+//        List<postFullList> sugg = dao.suggestPostSameCategory("1");
+//        for (postFullList p : sugg) {
 //            System.out.println(p.toString());
 //        }
-//        postFullList last = dao.getlastPost();
-//        System.out.println(last);
-//    }
+
+//        List<postFullList> detailCa = dao.showCategoryPostDetail("1");
+//        String cname = detailCa.get(0).getCname();
+//        List<postFullList> suggestBycid = dao.suggestPostSameCategory(postid);
+        //get post by cateid
+        List<postFullList> getCate = dao.suggestPostSameCategory("s");
+        System.out.println(getCate);
+    }
 }

@@ -16,7 +16,7 @@ userFullname nvarchar(70) NOT NULL,
 isAdmin bit NULL,
 createDate datetime NOT NULL,
 facebookURL nvarchar(50) NULL,
-userImage nvarchar(50) NULL,
+userImage nvarchar(50) NULL 
 constraint pk_Account primary key (accountID)
 )
 go
@@ -56,11 +56,15 @@ go
 create table ProductImage
 (
 postID int NOT NULL,
-imageURL nvarchar(200) NOT NULL,
+imageURL nvarchar(50) NOT NULL,
 constraint fk_PostImage foreign key (postID) references Post(postID),
 constraint pk_ProductImage primary key (postID,imageURL)
 )
+<<<<<<< HEAD
 
+=======
+go
+>>>>>>> e00f05118ce3b825d4949174ba70ccc75c00e510
 create table Exchange
 (
 exchangeID int identity(1,1) NOT NULL,
@@ -93,6 +97,9 @@ insert into Account(username,userPassword,userEmail,userFullname,isAdmin,createD
 
 select * from Account
 
+update Account
+set userPassword = '$2a$12$h5ig0gmoeE13KBu8Ji4wguSp1diqUKFytj5bVjJpdZom/RFNxQe4K'
+where accountID = 1
 ---------------------------------------------------Kết thúc thêm một vài bản ghi cho bảng User------------------------
 
 ---------------------------------------------------Bắt đầu thêm một vài bản ghi cho bảng Category------------------------
@@ -173,6 +180,7 @@ N'Bộ sách "Dạy con làm giàu" gồm 13 cuốn được viết bởi Robert
 269,'images/Product-images/tui-deo-cheo-di-choi-03.jpg')
 
 select * from Post
+
 ---------------------------------------------------Kết thúc thêm một vài bản ghi cho bảng Post------------------------
 
 ------------------------------Bắt đầu thêm một vài bản ghi cho bảng ProductImage------------------------
