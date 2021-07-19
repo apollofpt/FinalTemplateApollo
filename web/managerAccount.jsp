@@ -1,4 +1,5 @@
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,11 +67,13 @@
                                 <thead>
                                     <tr>
                                         <th>Images</th>
-                                        <th>Product Name</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Total</th>
-                                        <th>Remove</th>
+                                        <th>Email</th>
+                                        <th>User Name</th>
+                                        <th>Fullname</th>
+                                        <th>Create Date</th>
+                                        <th>URL Facebook</th>
+                                        <th>ID</th>
+                                        <th>Option</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -92,27 +95,9 @@
                                         <td class="total-pr">
                                             <p>$ 80.0</p>
                                         </td>
-                                        <td class="remove-pr">
-                                            <a href="#">
-                                                <i class="fas fa-times"></i>
-                                            </a>
+                                        <td class="total-pr">
+                                            <p>$ 80.0</p>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="thumbnail-img">
-                                            <a href="#">
-                                                <img class="img-fluid" src="images/img-pro-02.jpg" alt="" />
-                                            </a>
-                                        </td>
-                                        <td class="name-pr">
-                                            <a href="#">
-                                                Lorem ipsum dolor sit amet
-                                            </a>
-                                        </td>
-                                        <td class="price-pr">
-                                            <p>$ 60.0</p>
-                                        </td>
-                                        <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
                                         <td class="total-pr">
                                             <p>$ 80.0</p>
                                         </td>
@@ -121,30 +106,9 @@
                                                 <i class="fas fa-times"></i>
                                             </a>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="thumbnail-img">
-                                            <a href="#">
-                                                <img class="img-fluid" src="images/img-pro-03.jpg" alt="" />
-                                            </a>
-                                        </td>
-                                        <td class="name-pr">
-                                            <a href="#">
-                                                Lorem ipsum dolor sit amet
-                                            </a>
-                                        </td>
-                                        <td class="price-pr">
-                                            <p>$ 30.0</p>
-                                        </td>
-                                        <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
-                                        <td class="total-pr">
-                                            <p>$ 80.0</p>
-                                        </td>
-                                        <td class="remove-pr">
-                                            <a href="#">
-                                                <i class="fas fa-times"></i>
-                                            </a>
-                                        </td>
+                                <c:forEach>
+                                    
+                                </c:forEach>
                                     </tr>
                                 </tbody>
                             </table>

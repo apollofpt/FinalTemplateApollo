@@ -30,17 +30,34 @@
                             <i class="fas fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu">
-                                <li><a href="AllProductServlet">All Product</a></li>
-                                <!-- <li><a href="shop-detail.html">Shop Detail</a></li> -->
-                                <li><a href="cart.html">Cart</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
+                            <li><a href="AllProductServlet">All Product</a></li>
+                            <!-- <li><a href="shop-detail.html">Shop Detail</a></li> -->
+                            <li><a href="cart.html">Cart</a></li>
+                            <li><a href="checkout.html">Checkout</a></li>
                                 <c:if test="${currentAccount != null}">
                                 <li><a href="MyAccountServlet">My Account</a></li>
                                 </c:if>
-                                <li><a href="wishlist.html">Wishlist</a></li>
+                            <li><a href="wishlist.html">Wishlist</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Liên hệ</a></li>
+                    <c:if test="${not empty USER}">
+                        <c:if test="${currentAccount.isAdmin == 'true'}">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                    <p>MANAGER</p>
+                                    <i class="fas fa-caret-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="AllProductServlet">Account</a></li>
+                                    <li><a href="cart.html">Post</a></li>
+                                    <li><a href="checkout.html">Category</a></li>
+                                    <li><a href="wishlist.html">Exchange Post</a></li>
+                                </ul>
+                            </li>                        
+                        </c:if>                        
+                    </c:if>
+
+
                     <li class="search-item">
                         <!-- Start Top Search -->
                         <div class="search-toggle">
