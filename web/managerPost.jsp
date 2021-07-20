@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Site Metas -->
-        <title>ThewayShop - Ecommerce Bootstrap 4 HTML Template</title>
+        <title>Post Manager</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -36,11 +36,6 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <script >
-                    .name-pr{
-                    word-wrap:break-word;
-                }
-        </script>
     </head>
 
     <body>
@@ -83,13 +78,13 @@
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${listP}" var="o">
-                                    <tr>
+                                    <tr style="word-break: break-all;">
                                         <td class="thumbnail-img">
                                             <img class="img-fluid" src="${o.thumbnailURL}" alt="" />
                                         </td>
 
 
-                                        <td class="price-pr" style="border: #000000 solid; word-wrap: break-word;">
+                                        <td class="price-pr" style="overflow:auto; ">
                                             ${o.postTitle}
                                         </td>
                                         <td class="name-pr">
@@ -99,7 +94,7 @@
                                                 </c:if> 
                                             </c:forEach> 
                                         </td>
-                                        <td class="name-pr"  style="max-width: 170px; overflow: auto;">
+                                        <td class="name-pr"  style="width: 300px; overflow: auto;">
                                             <p>${o.postDescription}</p>
                                         </td>
                                         <td class="total-pr">
@@ -124,7 +119,7 @@
                 </div>
 
             </div>
-            <div class="container">
+<!--            <div class="container">
                 <div class="row col-lg-12">
                     <div class="col-lg-7 col-sm-6">
                         <div class="update-box" style="text-align: center;">
@@ -133,7 +128,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div>-->
         </div>
         <!-- End Cart -->
 

@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Site Metas -->
-        <title>ThewayShop - Ecommerce Bootstrap 4 HTML Template</title>
+        <title>Account Manager</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -129,7 +129,7 @@
                 </div>
 
             </div>
-            <div class="container">
+<!--            <div class="container">
                 <div class="row col-lg-12">
                     <div class="col-lg-7 col-sm-6">
                         <div class="update-box" style="text-align: center;">
@@ -138,7 +138,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div>-->
         </div>
         <!-- End Cart -->
 

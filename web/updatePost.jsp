@@ -20,7 +20,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Site Metas -->
-        <title>My Account - DuniExchange</title>
+        <title>Update Post - DuniExchange</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -55,8 +55,8 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="allProduct.jsp">All Products</a></li>
-                                <li class="breadcrumb-item active">My Account</li>
+                                <li class="breadcrumb-item"><a href="allProduct.jsp">Post Manager</a></li>
+                                <li class="breadcrumb-item active">Update Post</li>
                             </ul>
                         </div>
                     </div>
@@ -77,105 +77,11 @@
                 Gmail: <div class="gmail" style=" display: inline-block;">${currentAccount.userEmail}</div> <br>
                 Address: <div class="address" style=" display: inline-block;"> Hoa Hai - Ngu Hanh Son </div> <br>
                 Phone: <div class="phone" style=" display: inline-block;"> 0368569127 </div>
-                <br><button><a href="editProfile.jsp">edit profile <i class="fas fa-pencil-alt"></i></a></button>
-
             </div>
 
             <div class="mainPage">
 
                 <div class="container1">
-                    <div class="tab d-flex">
-                        <button class="tablinks">posted</button>
-                        <button class="tablinks">seen</button>
-                        <button class="tablinks active">create</button>
-                    </div>
-
-                    <div id="posted" class="tabcontent">
-                        <h3 style="text-align: center;color: rgb(219, 169, 94);">Bài đăng</h3>
-                        <!--post 1-->
-                        <c:forEach items="${listPostByID}" var="o">
-                            <div class="post" >
-                                <div class="imgp">
-                                    <img src="${o.thumbnailURL}" style="" alt="anh san pham">
-                                </div>
-                                <div class="contentp">
-                                    <a class="namesp" href="#" style=""> 
-                                        ${o.postTitle}</a>
-                                    <p class="author">
-                                        Posted by: <a href="">${currentAccount.userFullname}</a>
-                                    </p>
-                                    <p>${o.postDescription}</p>
-                                    <p class="time">
-                                        ${o.postDate}
-                                    </p>
-                                    <div class="like-progress">
-                                        <div class="icon-heart"><i class="fas fa-heart"></i></div>
-                                        <div class="progress w-75" style="height: 5px">
-                                            <div class="progress-bar bg-danger" style="width: ${o.postLike*100/mostLike}%"
-                                                 role="progressbar" style="width: 100%" aria-valuenow="50"
-                                                 aria-valuemin="0" aria-valuemax="100">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </c:forEach>
-                    </div>
-
-
-                    <div id="seen" class="tabcontent">
-                        <h3 style="text-align: center;color: rgb(219, 169, 94);"">Đã xem</h3>
-                        <div class="post" >
-                            <div class="imgp">
-                                <img src="https://dienmaythienhoa.vn/static/images/4.%20hinh%20sp/3.%20Hinh%20SP%202/laptop-asus-s330fn-ey037t-1.png" style="" alt="anh san pham">
-                            </div>
-                            <div class="contentp">
-                                <a class="namesp" href="#" style="font-size: 30px;font-weight: bold ;"> laptop-asus-s330fn-ey037t-1</a>
-                                <p class="author">
-                                    Posted by: <a href="">Uyen Trang</a>
-                                </p>
-                                <p>CPU core i51135G7; Graphic card: Intel Iris XE; Ram 8GB</p>
-                                <p class="time">
-                                    Mon, 31/05/2021
-                                <div class="like-progress">
-                                    <div class="icon-heart"><i class="fas fa-heart"></i></div>
-                                    <div class="progress w-75" style="height: 5px">
-                                        <div class="progress-bar bg-danger" style="width: 36%"
-                                             role="progressbar" style="width: 100%" aria-valuenow="50"
-                                            aria-valuemin="0" aria-valuemax="100">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--post 2-->
-                        <div class="post" >
-                            <div class="imgp">
-                                <img src="https://theme.hstatic.net/200000251697/1000655457/14/smallbanner_img1.jpg?v=273" style="" alt="anh san pham">
-                            </div>
-                            <div class="contentp">
-                                <a class="namesp" href="#" > laptop-dell</a>
-                                <p class="author">
-                                    Posted by: <a href="">Nhat Quang</a>
-                                </p>
-                                <p>CPU core i51135G7; Graphic card: Intel Iris XE; Ram 8GB</p>
-                                <p class="time">
-                                    Mon, 31/05/2021
-                                </p>
-                                <div class="like-progress">
-                                    <div class="icon-heart"><i class="fas fa-heart"></i></div>
-                                    <div class="progress w-75" style="height: 5px">
-                                        <div class="progress-bar bg-danger" style="width: 70%"
-                                             role="progressbar" style="width: 100%" aria-valuenow="70"
-                                             aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </p> 
-                    </div>
-
-
                     <div id="create" class="tabcontent">
                         <h3 style="text-align: center;color: rgb(219, 169, 94);">Đăng bài</h3>
                         <div id="form-container" class="form-container">
