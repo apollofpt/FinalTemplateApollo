@@ -216,15 +216,13 @@ select * from CategoryPost
 --(GETDATE(),17,12,0)
 
 delete from Exchange
-insert into Exchange(postExchangeDate,firstPostID,secondPostID,exchangeState) values
-(GETDATE(),14,5,1),
-(GETDATE(),7,2,0)
 
 alter table Exchange
 add exchangeState int NOT NULL
 
-alter table Exchange
-add IDPersonWaitToAccept int NOT NULL
+insert into Exchange(postExchangeDate,firstPostID,secondPostID,exchangeState) values
+(GETDATE(),14,5,1),
+(GETDATE(),7,2,0)
 
  
 select * from Exchange

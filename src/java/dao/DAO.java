@@ -130,7 +130,17 @@ public class DAO {
 
         return false;
     }
-
+    public void deleteAccount(String id){
+        String query = "delete Account where [accountID] = ?";
+        try {
+            con = DBUtils.makeConnection();
+            stm = con.prepareStatement(query);
+            stm.setString(1, id);
+            stm.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public Account getAccountByUserName(String username) throws Exception {
         try {
             con = DBUtils.makeConnection();
@@ -1115,6 +1125,7 @@ public class DAO {
 //        }
         DAO dao = new DAO();
 //        dao.insertAccount("HELLO", "TEST", "CHUOI", "132");
+        dao.deleteAccount("7");
 //        List<Account> list = dao.getAllAccount();
 //        for (Account account : list) {
 //            System.out.println(account.toString());
@@ -1129,8 +1140,12 @@ public class DAO {
 //dao.insertAccount("quang41551",  "quanglnnde150066@fpt.edu.vn", "Tôi abcded", "123456789");
 //        String hash = BCrypt.hashpw("banana", BCrypt.gensalt(12));
 //        System.out.println(hash);
+
 //        System.out.println(dao.getAllExchangeStateEqualZeroByID(1));
         System.out.println(dao.getAllPostInHomePage());
+
+//            System.out.println(dao.getAllPost());
+
     }
 
 }
