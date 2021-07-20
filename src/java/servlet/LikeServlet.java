@@ -36,7 +36,7 @@ public class LikeServlet extends HttpServlet {
             String pid = request.getParameter("pid");
             String uid = request.getParameter("uid");
             System.out.println("data at servlet, pid=" + pid + " uid=" + uid);
-            out.println("this is return from LikeServlet to JS");
+            out.println(true);
         }
     }
 
