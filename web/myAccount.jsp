@@ -64,7 +64,7 @@
 
             </div>
             <div class="Avatar" style="border-bottom: 3px solid black;">
-                <img src="https://salt.tikicdn.com/cache/w444/ts/product/26/ee/55/48b7aed353fd452bd575b4822cd85214.jpg" id="imgAva" style="margin-top: -130px;"
+                <img src="${currentAccount.userImage}" id="imgAva" style="margin-top: -130px;"
                      >
                 <p class="nameAva">${currentAccount.userFullname}</p>
         </div>
