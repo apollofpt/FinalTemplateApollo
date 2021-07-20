@@ -49,7 +49,9 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-
+        <link rel="stylesheet" href="MDBootstrap-Swal/swal-package/dist/sweetalert2.min.css">
+        <!--JQuery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     </head>
 
     <body>
@@ -438,6 +440,66 @@
             <script src="js/custom.js"></script>
             <!-- Hữu Tình - 1208.03062021 - searchbar script -->
             <script src="js/searchbar.js"></script>
+            
+            <!--swal script-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="MDBootstrap-Swal/swal-package/dist/sweetalert2.min.js"></script>
+        <!--exchange accpet or deny script-->
+        
+    <c:if test="${exchangeMess == 'accept'}">
+    <script>
+        $(window).on('load', function () {
+            Swal.fire({
+                title: 'Exchange Successfully!',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 2000
+            });
+//                setTimeout(function () {
+//                    $(document).ready(function () {
+//                        $(location).attr('href', "Login");
+//                    });
+//                }, 1200);
+        });
+    </script>
+    </c:if>  
+    <c:if test="${exchangeMess == 'deny'}">
+    <script>
+        $(window).on('load', function () {
+            Swal.fire({
+                title: 'Deny Successfully!',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 2000
+            });
+//                setTimeout(function () {
+//                    $(document).ready(function () {
+//                        $(location).attr('href', "Login");
+//                    });
+//                }, 1200);
+        });
+    </script>
+    </c:if>
+    <c:if test="${exchangeMess == 'error'}">
+        <script>
+            $(window).on('load', function () {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: 'Something went wrong! Cannot accept or deny.',
+                    icon: 'error',
+                    showConfirmButton: true,
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        $(document).ready(function () {
+                            $(location).attr('href', "HomeServlet");
+                        });
+                    }
+                })
+            });
+        </script>
+    </c:if>    
+            
     </body>
 
 </html>

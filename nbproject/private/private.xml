@@ -3,9 +3,55 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/test/test2.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/web/my-account.html</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/test/test.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/web/myAccount.jsp</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/servlet/homePage.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/servlet/categoryServlet.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/web/css/style.css</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/upload/uploadMethod.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/servlet/Login.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/servlet/RegisterServlet.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/web/css/my-account.css</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/servlet/AddPostServlet.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/helpers/DBUtils.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/servlet/LogOut.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/servlet/AllProductServlet.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/servlet/PostDetailServlet.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/web/AllProduct.jsp</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/servlet/MyAccountServlet.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/servlet/HomeServlet.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/web/product-detail.html</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/web/Footer.jsp</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/web/js/my-account.js</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/web/Header.jsp</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/web/META-INF/context.xml</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/servlet/Register.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/dao/DAO.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/model/Account.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/servlet/ValidateCodeSerlvet.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/nbproject/build-impl.xml</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/web/css/owl.carousel.min.css</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/upload/EncFormResult.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/web/css/lastestPost.css</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/web/js/like.js</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/web/index.html</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/servlet/ValidateEmailServlet.java</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/web/Register.jsp</file>
+            <file>file:/E:/NetBeansProjects/Apollo%20Git/FinalTemplateApollo/src/java/servlet/LoginServlet.java</file>
+=======
+            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/web/allProduct.jsp</file>
+            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/src/java/servlet/DeleteExchangeServlet.java</file>
             <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/src/java/dao/DAO.java</file>
-            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/src/java/model/postFullList.java</file>
-            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/src/java/model/Exchange.java</file>
+            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/web/home.jsp</file>
+            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/src/java/servlet/AccpetExchangeServlet.java</file>
+            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/src/java/model/Post.java</file>
+            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/src/java/model/Account.java</file>
+            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/web/Header.jsp</file>
+            <file>file:/F:/2021/Summer%202021%20(10-05%20to%2004-09)/PRJ301/Appolo-github/DemoProject/src/java/servlet/ExchangeServlet.java</file>
+>>>>>>> 2cfdbde5f7bbbcb50ac0b7dfb55f31f15efc299c
         </group>
     </open-files>
 </project-private>

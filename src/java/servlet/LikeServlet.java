@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Minky
  */
-@WebServlet(name = "LogOut", urlPatterns = {"/LogOut"})
-public class LogOut extends HttpServlet {
+@WebServlet(name = "LikeServlet", urlPatterns = {"/LikeServlet"})
+public class LikeServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,9 +32,12 @@ public class LogOut extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.getSession().removeAttribute("USER");
-        request.getSession().removeAttribute("currentAccount");
-        response.sendRedirect(request.getContextPath());
+        try (PrintWriter out = response.getWriter()) {
+            String pid = request.getParameter("pid");
+            String uid = request.getParameter("uid");
+            System.out.println("data at servlet, pid=" + pid + " uid=" + uid);
+            out.println("this is return from LikeServlet to JS");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
