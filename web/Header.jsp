@@ -51,8 +51,8 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="managerAccount">Account</a></li>
                                     <li><a href="managerPost">Post</a></li>
-                                    <li><a href="checkout.html">Category</a></li>
-                                    <li><a href="wishlist.html">Exchange Post</a></li>
+                                    <li><a href="ManagerCategoryServlet">Category</a></li>
+                                    <li><a href="ManagerExchangeServlet">Exchange Post</a></li>
                                 </ul>
                             </li>                        
                         </c:if>                        
