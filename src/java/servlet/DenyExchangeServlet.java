@@ -21,8 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ADMIN
  */
-@WebServlet(name = "DeleteExchangeServlet", urlPatterns = {"/DeleteExchangeServlet"})
-public class DeleteExchangeServlet extends HttpServlet {
+@WebServlet(name = "DenyExchangeServlet", urlPatterns = {"/DenyExchangeServlet"})
+public class DenyExchangeServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,7 +40,7 @@ public class DeleteExchangeServlet extends HttpServlet {
         
         String exchangeID = request.getParameter("exchangeID");
         String exchangeMess = "deny";
-        boolean row=dao.updateAcceptExchange(exchangeID);
+        boolean row=dao.deleteExchange(exchangeID);
         if(!row){
             exchangeMess = "error";
         }
@@ -63,7 +63,7 @@ public class DeleteExchangeServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(DeleteExchangeServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DenyExchangeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -81,7 +81,7 @@ public class DeleteExchangeServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(DeleteExchangeServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DenyExchangeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

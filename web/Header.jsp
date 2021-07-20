@@ -63,7 +63,7 @@
                                                                 <li style="color:white">
                                                                  <a><span style="font-weight: bold">${k.userFullname}</span> muốn đổi <span style="font-weight: bold">${n.postTitle}</span> lấy <span style="font-weight: bold"><c:out value="${firstPostTitle}"></c:out></span> với bạn!!
                                                                      <button type="button" class="btn btn-outline-warning" onclick="window.location.href = 'AccpetExchangeServlet?exchangeID=${i.exchangeID}';">Accept</button>
-                                                                        <button type="button" class="btn btn-outline-danger" onclick="window.location.href = 'DeleteExchangeServlet?exchangeID=${i.exchangeID}';">Deny</button>
+                                                                        <button type="button" class="btn btn-outline-danger" onclick="window.location.href = 'DenyExchangeServlet?exchangeID=${i.exchangeID}';">Deny</button>
                                                                  </a> 
                                                              </li>
                                                              </c:if>
