@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Site Metas -->
-        <title>Account Manager</title>
+        <title>Post Manager</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -36,7 +36,6 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-
     </head>
 
     <body>
@@ -64,64 +63,55 @@
                 <div class="container">
                     <div class="row col-lg-12">
                         <div class="table-main table-responsive">
-                            <table class="table">
+                            <table class="table" style="table-layout: fixed; width: 100%;">
                                 <thead>
                                     <tr>
                                         <th>Ảnh</th>
-                                        <th>Email</th>
-                                        <th>Tên người dùng</th>
-                                        <th>Tên đầy đủ</th>
-                                        <th>Ngày tạo</th>
-                                        <th>Admin</th>
+                                        <th>Tựa đề</th>
+                                        <th>Người đăng</th>
+                                        <th>Mô tả</th>
+                                        <th>Ngày đăng</th>
+                                        <th>Số like</th>
                                         <th>ID</th>
-                                        <th>Lựa chọn</th>
+                                        <th>Option</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${listA}" var="o">
-                                    <c:if test="${currentAccount.accountID != o.accountID}">
-                                        <tr>
-                                            <td class="thumbnail-img">
-                                                <img class="img-fluid" src="${o.userImage}" alt="" />
-                                            </td>
-                                            <td class="name-pr">
-                                                <p>${o.userEmail}</p>
-                                            </td>
-                                            <td class="price-pr">
-                                                <p>${o.username}</p>
-                                            </td>
-                                            <td class="name-pr">
-                                                <p>${o.userFullname}</p>
-                                            </td>
-                                            <td class="total-pr">
-                                                <p>${o.createDate}</p>
-                                            </td>
-                                            <td class="total-pr">
-                                                <p>${o.isAdmin}</p>
-                                                <c:if test="${o.isAdmin == true}">
-                                                    
-                                                    <a href="updateAdmin?idA=${o.accountID}&changeTo=${o.isAdmin == true ? 0:1}" style="color: red;">
-                                                        Gỡ Quyền
-                                                    </a>
-                                                </c:if>
-                                                <c:if test="${o.isAdmin != true}">
-                                                    <a href="updateAdmin?idA=${o.accountID}&changeTo=${o.isAdmin == true ? 0:1}" style="color: green;">
-                                                        Cấp quyền
-                                                    </a>
-                                                </c:if>
-                                            </td>
-                                            <td class="total-pr">
-                                                <p>${o.accountID}</p>
-                                            </td>
-                                            <td class="remove-pr">
-                                                <a href="deleteAccount?idA=${o.accountID}">
-                                                    <i class="fas fa-times"></i>
-                                                </a>
+                                <c:forEach items="${listP}" var="o">
+                                    <tr style="word-break: break-all;">
+                                        <td class="thumbnail-img">
+                                            <img class="img-fluid" src="${o.thumbnailURL}" alt="" />
+                                        </td>
 
-                                            </td>
-                                        </tr>                                             
-                                    </c:if>
 
+                                        <td class="price-pr" style="overflow:auto; ">
+                                            ${o.postTitle}
+                                        </td>
+                                        <td class="name-pr">
+                                            <c:forEach items="${listAccount}" var="i">
+                                                <c:if test="${i.accountID == o.accountID}">
+                                                    <p>${i.userFullname}</p>
+                                                </c:if> 
+                                            </c:forEach> 
+                                        </td>
+                                        <td class="name-pr"  style="width: 300px; overflow: auto;">
+                                            <p>${o.postDescription}</p>
+                                        </td>
+                                        <td class="total-pr">
+                                            <p>${o.postDate}</p>
+                                        </td>
+                                        <td class="total-pr">
+                                            <p>${o.postLike}</p>
+                                        </td>
+                                        <td class="total-pr">
+                                            <p>${o.postID}</p>
+                                        </td>
+                                        <td class="remove-pr">
+                                            <a href="deletePost?idP=${o.postID}">
+                                                <i class="fas fa-times"></i>
+                                            </a>
+                                        </td>
+                                    </tr>                                             
                                 </c:forEach>
                             </tbody>
                         </table>

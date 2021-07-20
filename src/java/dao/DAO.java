@@ -130,7 +130,8 @@ public class DAO {
 
         return false;
     }
-    public void deleteAccount(String id){
+
+    public void deleteAccount(String id) {
         String query = "delete Account where [accountID] = ?";
         try {
             con = DBUtils.makeConnection();
@@ -141,6 +142,20 @@ public class DAO {
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public void updateAdmin(String id, String isAdmin) {
+        String query = "update Account set isAdmin = ? where accountID = ?";
+        try {
+            con = DBUtils.makeConnection();
+            stm = con.prepareStatement(query);
+            stm.setString(1, isAdmin);
+            stm.setString(2, id);
+            stm.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public Account getAccountByUserName(String username) throws Exception {
         try {
             con = DBUtils.makeConnection();
@@ -181,6 +196,41 @@ public class DAO {
         return null;
     }
 
+    public void deletePost(String id) {
+        deleteCategoryPost(id);
+        deletePostImage(id);
+        String query = "delete Post where postID = ?";
+        try {
+            con = DBUtils.makeConnection();
+            stm = con.prepareStatement(query);
+            stm.setString(1, id);
+            stm.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void deleteCategoryPost(String id){
+        String query = "delete CategoryPost where postID = ?";
+        try {
+            con = DBUtils.makeConnection();
+            stm = con.prepareStatement(query);
+            stm.setString(1, id);
+            stm.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }
+    public void deletePostImage(String id){
+        String query = "delete ProductImage where postID = ?";
+        try {
+            con = DBUtils.makeConnection();
+            stm = con.prepareStatement(query);
+            stm.setString(1, id);
+            stm.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }
     public List<Post> getPostByID(int accountID) throws Exception {
         List<Post> listPostByID = new ArrayList<>();
 
@@ -1124,8 +1174,9 @@ public class DAO {
 //            System.out.println(find.toString());          
 //        }
         DAO dao = new DAO();
+        dao.updateAdmin("8", "0");
 //        dao.insertAccount("HELLO", "TEST", "CHUOI", "132");
-        dao.deleteAccount("7");
+//        dao.deleteAccount("7");
 //        List<Account> list = dao.getAllAccount();
 //        for (Account account : list) {
 //            System.out.println(account.toString());
