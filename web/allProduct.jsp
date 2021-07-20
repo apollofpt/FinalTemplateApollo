@@ -17,7 +17,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Site Metas -->
-        <title>Freshshop - Ecommerce Bootstrap 4 HTML Template</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -440,52 +439,20 @@
     <script>
         var uid = ${not empty currentAccount.accountID ? currentAccount.accountID : '""'};
     </script>
+    
     <script src="js/like.js"></script>
-=======
-        <!-- Start copyright  -->
-        <div class="footer-copyright">
-            <p class="footer-company">All Rights Reserved. &copy; 2018 <a href="#">ThewayShop</a> Design By :
-                <a href="https://html.design/">html design</a></p>
-        </div>
-        <!-- End copyright  -->
-
-        <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
-
-
-        <!-- ALL JS FILES -->
-        <script src="js/jquery-3.2.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <!-- ALL PLUGINS -->
-        <script src="js/jquery.superslides.min.js"></script>
-        <script src="js/bootstrap-select.js"></script>
-        <script src="js/inewsticker.js"></script>
-        <script src="js/bootsnav.js."></script>
-        <script src="js/images-loded.min.js"></script>
-        <script src="js/isotope.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/baguetteBox.min.js"></script>
-        <script src="js/jquery-ui.js"></script>
-        <script src="js/jquery.nicescroll.min.js"></script>
-        <script src="js/form-validator.min.js"></script>
-        <script src="js/contact-form-script.js"></script>
-        <script src="js/custom.js"></script>
-        <!-- Hữu Tình - 1208.03062021 - searchbar script -->
-        <script src="js/searchbar.js"></script>
-        <!--swal script-->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="MDBootstrap-Swal/swal-package/dist/sweetalert2.min.js"></script>
-        <!--exchange script-->
-        <script>
-            $(document).ready(function () {
-                $('div .exchange').on('click', function () {
-                    var id = $(this).parent().find("#firstPostID").val();
-                    console.log(id);
-                    $('#showYourListProductToExchange .firstPost').val(id);
-                });
+    <!-- Hữu Tình - 1239.20072021 - searchbar script -->
+    
+    <script>
+        $(document).ready(function () {
+            $('div .exchange').on('click', function () {
+                var id = $(this).parent().find("#firstPostID").val();
+                console.log(id);
+                $('#showYourListProductToExchange .firstPost').val(id);
             });
+        });
 
-        </script>
+    </script>
     <c:if test="${exchangeMess == 'true'}">
         <script>
             $(window).on('load', function () {
@@ -511,7 +478,7 @@
                     title: 'Oops...',
                     text: 'Something went wrong! Cannot exchange.',
                     icon: 'error',
-                    showConfirmButton: true,
+                    showConfirmButton: true
                 }).then((result) => {
                     /* Read more about isConfirmed, isDenied below */
                     if (result.isConfirmed) {
@@ -519,11 +486,10 @@
                             $(location).attr('href', "AllProductServlet");
                         });
                     }
-                })
+                });
             });
         </script>
     </c:if>    
->>>>>>> 2cfdbde5f7bbbcb50ac0b7dfb55f31f15efc299c:web/allProduct.jsp
 </body>
 
 </html>

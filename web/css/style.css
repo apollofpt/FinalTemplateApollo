@@ -2757,3 +2757,26 @@
 }
 /*--------------------------------------- Tình 10/7/2021 ---------------------------------------*/
 
+/*--------------------------------------- Tình 20/7/2021 ---------------------------------------*/
+/*thêm hover cho dropdown*/
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+
+.dropdown .dropdown-menu{
+    animation: growDown 300ms ease-in-out;
+    transform-origin: top center;
+}
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    80% {
+        transform: scaleY(1.1)
+    }
+    100% {
+        transform: scaleY(1)
+    }
+}
+/*--------------------------------------- Tình 20/7/2021 ---------------------------------------*/
