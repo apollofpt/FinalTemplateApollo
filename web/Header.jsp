@@ -78,7 +78,6 @@
                             </ul>                                              
                         </li>
                     </c:if>
-
                     <c:if test="${not empty USER}">
                         <c:if test="${currentAccount.isAdmin == 'true'}">
                             <li class="dropdown">
