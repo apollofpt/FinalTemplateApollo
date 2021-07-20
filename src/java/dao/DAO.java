@@ -130,7 +130,8 @@ public class DAO {
 
         return false;
     }
-    public void deleteAccount(String id){
+
+    public void deleteAccount(String id) {
         String query = "delete Account where [accountID] = ?";
         try {
             con = DBUtils.makeConnection();
@@ -141,7 +142,8 @@ public class DAO {
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void updateAdmin(String id,String isAdmin){
+
+    public void updateAdmin(String id, String isAdmin) {
         String query = "update Account set isAdmin = ? where accountID = ?";
         try {
             con = DBUtils.makeConnection();
@@ -153,6 +155,7 @@ public class DAO {
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     public Account getAccountByUserName(String username) throws Exception {
         try {
             con = DBUtils.makeConnection();
@@ -193,6 +196,41 @@ public class DAO {
         return null;
     }
 
+    public void deletePost(String id) {
+        deleteCategoryPost(id);
+        deletePostImage(id);
+        String query = "delete Post where postID = ?";
+        try {
+            con = DBUtils.makeConnection();
+            stm = con.prepareStatement(query);
+            stm.setString(1, id);
+            stm.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void deleteCategoryPost(String id){
+        String query = "delete CategoryPost where postID = ?";
+        try {
+            con = DBUtils.makeConnection();
+            stm = con.prepareStatement(query);
+            stm.setString(1, id);
+            stm.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }
+    public void deletePostImage(String id){
+        String query = "delete ProductImage where postID = ?";
+        try {
+            con = DBUtils.makeConnection();
+            stm = con.prepareStatement(query);
+            stm.setString(1, id);
+            stm.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }
     public List<Post> getPostByID(int accountID) throws Exception {
         List<Post> listPostByID = new ArrayList<>();
 
@@ -517,28 +555,30 @@ public class DAO {
         }
         return null;
     }
-    
-    public int insertPost(int accountID, String postTitle, Timestamp postDate, String postDescription, String thumbnailURL) throws Exception{
+
+    public int insertPost(int accountID, String postTitle, Timestamp postDate, String postDescription, String thumbnailURL) throws Exception {
         try {
             con = DBUtils.makeConnection();
             if (con != null) {
                 String sql = "insert into "
                         + "Post(accountID,postTitle,postDate,postDescription,postLike,thumbnailURL)"
                         + " values(?,?,?,?,0,?)";
-                stm = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+                stm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
                 stm.setInt(1, accountID);
                 stm.setString(2, postTitle);
                 stm.setTimestamp(3, postDate);
                 stm.setString(4, postDescription);
                 stm.setString(5, thumbnailURL);
-                
+
                 int row = stm.executeUpdate();
-                
-                if(row == 0) return 0;
-                
+
+                if (row == 0) {
+                    return 0;
+                }
+
                 ResultSet generatedKeys = stm.getGeneratedKeys();
-                
-                if(generatedKeys.next()){
+
+                if (generatedKeys.next()) {
                     int postID = generatedKeys.getInt(1); //get the key of the row after inserting
                     System.out.println("postID: " + postID);
                     return postID;
@@ -559,20 +599,22 @@ public class DAO {
         }
         return -1;
     }
-    
-    public int insertCategoryPost(int PostID, String[] categoriesID) throws Exception{
-        try {   
+
+    public int insertCategoryPost(int PostID, String[] categoriesID) throws Exception {
+        try {
             int successCounter = 0;
             con = DBUtils.makeConnection();
             if (con != null) {
-                for(String catID : categoriesID){
+                for (String catID : categoriesID) {
                     String sql = "insert into "
-                        + "CategoryPost(PostID,categoryID)"
-                        + " values (?,?)";
+                            + "CategoryPost(PostID,categoryID)"
+                            + " values (?,?)";
                     stm = con.prepareStatement(sql);
                     stm.setInt(1, PostID);
                     stm.setInt(2, Integer.parseInt(catID));
-                    if(stm.executeUpdate() > 0) successCounter++;
+                    if (stm.executeUpdate() > 0) {
+                        successCounter++;
+                    }
                 }
                 return successCounter;
             }
@@ -591,22 +633,24 @@ public class DAO {
         }
         return 0;
     }
-    
-    public int insertProductImage(int PostID, String[] imageURL) throws Exception{
+
+    public int insertProductImage(int PostID, String[] imageURL) throws Exception {
         try {
             int successCounter = 0;
             con = DBUtils.makeConnection();
             if (con != null) {
-                for(String imgURL : imageURL){
+                for (String imgURL : imageURL) {
                     String sql = "insert into "
                             + "ProductImage(PostID,imageURL)"
                             + " values(?,?)";
                     stm = con.prepareStatement(sql);
                     stm.setInt(1, PostID);
                     stm.setString(2, imgURL);
-                    if(stm.executeUpdate() > 0) successCounter++;
-            }
-            return successCounter;
+                    if (stm.executeUpdate() > 0) {
+                        successCounter++;
+                    }
+                }
+                return successCounter;
 //            con = DBUtils.makeConnection();
 //            if (con != null) {
 //                String sql = "insert into "
@@ -632,6 +676,7 @@ public class DAO {
         }
         return 0;
     }
+
     public List<postFullList> getAllPostPopularity() throws Exception {
         List<postFullList> list = new ArrayList<>();
 
@@ -757,7 +802,8 @@ public class DAO {
         }
         return null;
     }
-public postFullList showPostDetail(String id) throws SQLException {
+
+    public postFullList showPostDetail(String id) throws SQLException {
         try {
             con = DBUtils.makeConnection();
 
@@ -885,7 +931,6 @@ public postFullList showPostDetail(String id) throws SQLException {
 
     }
 
-                                         
     public List<postFullList> getPostByCategory(String id) throws Exception {
         List<postFullList> list = new ArrayList<>();
 

@@ -36,7 +36,11 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-
+        <script >
+                    .name-pr{
+                    word-wrap:break-word;
+                }
+        </script>
     </head>
 
     <body>
@@ -64,7 +68,7 @@
                 <div class="container">
                     <div class="row col-lg-12">
                         <div class="table-main table-responsive">
-                            <table class="table">
+                            <table class="table" style="table-layout: fixed; width: 100%;">
                                 <thead>
                                     <tr>
                                         <th>Ảnh</th>
@@ -85,8 +89,8 @@
                                         </td>
 
 
-                                        <td class="price-pr" style="max-width: 170px; padding-right: 1px; display: block">
-                                            <p style="overflow: hidden">${o.postTitle}</p>
+                                        <td class="price-pr" style="border: #000000 solid; word-wrap: break-word;">
+                                            ${o.postTitle}
                                         </td>
                                         <td class="name-pr">
                                             <c:forEach items="${listAccount}" var="i">
@@ -108,7 +112,7 @@
                                             <p>${o.postID}</p>
                                         </td>
                                         <td class="remove-pr">
-                                            <a href="deleteAccount?idA=${o.accountID}">
+                                            <a href="deletePost?idP=${o.postID}">
                                                 <i class="fas fa-times"></i>
                                             </a>
                                         </td>
