@@ -33,7 +33,7 @@ public class LogOut extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.getSession().removeAttribute("USER");
-        request.getSession().removeAttribute("USER");
+        request.getSession().removeAttribute("currentAccount");
         response.sendRedirect(request.getContextPath());
     }
 

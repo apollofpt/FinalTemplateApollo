@@ -16,11 +16,21 @@ public class Exchange {
     private int exchangeID;
     private Date postExchangeDate;
     private int firstPostID, secondPostID;
+    private int exchangeState;
     private final  SimpleDateFormat ft = new SimpleDateFormat ("dd-MM-yyyy  hh:mm  a");
 
     public Exchange() {
     }
 
+    public Exchange(int exchangeID, Date postExchangeDate, int firstPostID, int secondPostID, int exchangeState) {
+        this.exchangeID = exchangeID;
+        this.postExchangeDate = postExchangeDate;
+        this.firstPostID = firstPostID;
+        this.secondPostID = secondPostID;
+        this.exchangeState = exchangeState;
+    }
+    
+    
     public Exchange(int exchangeID, Date postExchangeDate, int firstPostID, int secondPostID) {
         this.exchangeID = exchangeID;
         this.postExchangeDate = postExchangeDate;
@@ -58,6 +68,14 @@ public class Exchange {
 
     public void setSecondPostID(int secondPostID) {
         this.secondPostID = secondPostID;
+    }
+
+    public int getExchangeState() {
+        return exchangeState;
+    }
+
+    public void setExchangeState(int exchangeState) {
+        this.exchangeState = exchangeState;
     }
 
     @Override

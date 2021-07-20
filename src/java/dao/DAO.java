@@ -467,7 +467,7 @@ public class DAO {
             con = DBUtils.makeConnection();
 
             if (con != null) {
-                String sql = "select * from Exchange";
+                String sql = "select * from Exchange where exchangeState = 1";
 
                 stm = con.prepareStatement(sql);
 
@@ -476,7 +476,8 @@ public class DAO {
                     listAllExchangeInHomePage.add(new Exchange(rs.getInt(1),
                             rs.getDate(2),
                             rs.getInt(3),
-                            rs.getInt(4)));
+                            rs.getInt(4),
+                            rs.getInt(5)));
                 }
                 return listAllExchangeInHomePage;
             }
@@ -495,28 +496,30 @@ public class DAO {
         }
         return null;
     }
-    
-    public int insertPost(int accountID, String postTitle, Timestamp postDate, String postDescription, String thumbnailURL) throws Exception{
+
+    public int insertPost(int accountID, String postTitle, Timestamp postDate, String postDescription, String thumbnailURL) throws Exception {
         try {
             con = DBUtils.makeConnection();
             if (con != null) {
                 String sql = "insert into "
                         + "Post(accountID,postTitle,postDate,postDescription,postLike,thumbnailURL)"
                         + " values(?,?,?,?,0,?)";
-                stm = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+                stm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
                 stm.setInt(1, accountID);
                 stm.setString(2, postTitle);
                 stm.setTimestamp(3, postDate);
                 stm.setString(4, postDescription);
                 stm.setString(5, thumbnailURL);
-                
+
                 int row = stm.executeUpdate();
-                
-                if(row == 0) return 0;
-                
+
+                if (row == 0) {
+                    return 0;
+                }
+
                 ResultSet generatedKeys = stm.getGeneratedKeys();
-                
-                if(generatedKeys.next()){
+
+                if (generatedKeys.next()) {
                     int postID = generatedKeys.getInt(1); //get the key of the row after inserting
                     System.out.println("postID: " + postID);
                     return postID;
@@ -537,20 +540,22 @@ public class DAO {
         }
         return -1;
     }
-    
-    public int insertCategoryPost(int PostID, String[] categoriesID) throws Exception{
-        try {   
+
+    public int insertCategoryPost(int PostID, String[] categoriesID) throws Exception {
+        try {
             int successCounter = 0;
             con = DBUtils.makeConnection();
             if (con != null) {
-                for(String catID : categoriesID){
+                for (String catID : categoriesID) {
                     String sql = "insert into "
-                        + "CategoryPost(PostID,categoryID)"
-                        + " values (?,?)";
+                            + "CategoryPost(PostID,categoryID)"
+                            + " values (?,?)";
                     stm = con.prepareStatement(sql);
                     stm.setInt(1, PostID);
                     stm.setInt(2, Integer.parseInt(catID));
-                    if(stm.executeUpdate() > 0) successCounter++;
+                    if (stm.executeUpdate() > 0) {
+                        successCounter++;
+                    }
                 }
                 return successCounter;
             }
@@ -569,22 +574,24 @@ public class DAO {
         }
         return 0;
     }
-    
-    public int insertProductImage(int PostID, String[] imageURL) throws Exception{
+
+    public int insertProductImage(int PostID, String[] imageURL) throws Exception {
         try {
             int successCounter = 0;
             con = DBUtils.makeConnection();
             if (con != null) {
-                for(String imgURL : imageURL){
+                for (String imgURL : imageURL) {
                     String sql = "insert into "
                             + "ProductImage(PostID,imageURL)"
                             + " values(?,?)";
                     stm = con.prepareStatement(sql);
                     stm.setInt(1, PostID);
                     stm.setString(2, imgURL);
-                    if(stm.executeUpdate() > 0) successCounter++;
-            }
-            return successCounter;
+                    if (stm.executeUpdate() > 0) {
+                        successCounter++;
+                    }
+                }
+                return successCounter;
 //            con = DBUtils.makeConnection();
 //            if (con != null) {
 //                String sql = "insert into "
@@ -610,6 +617,7 @@ public class DAO {
         }
         return 0;
     }
+
     public List<postFullList> getAllPostPopularity() throws Exception {
         List<postFullList> list = new ArrayList<>();
 
@@ -735,7 +743,8 @@ public class DAO {
         }
         return null;
     }
-public postFullList showPostDetail(String id) throws SQLException {
+
+    public postFullList showPostDetail(String id) throws SQLException {
         try {
             con = DBUtils.makeConnection();
 
@@ -863,7 +872,6 @@ public postFullList showPostDetail(String id) throws SQLException {
 
     }
 
-                                         
     public List<postFullList> getPostByCategory(String id) throws Exception {
         List<postFullList> list = new ArrayList<>();
 
@@ -950,6 +958,139 @@ public postFullList showPostDetail(String id) throws SQLException {
         }
         return null;
     }
+//    insert exchange but only one side (one person) accept two exchange
+//    người secondPostID là người gửi lời exchange,  người firstPostId là người quyết định accpet exchange or not,
+//    secondPostID người gửi, firstPostId người nhận quyết định
+
+    public boolean createExchangeOnlyExceptOneSide(String firstPostID, String secondPostID) throws SQLException, NamingException, Exception {
+        try {
+            con = DBUtils.makeConnection();
+            if (con != null) {
+                String sql = "insert into Exchange(postExchangeDate,firstPostID,secondPostID,exchangeState) values"
+                        + "(?,?,?,?)";
+                stm = con.prepareStatement(sql);
+                stm.setString(1, LocalDateTime.now().toString());
+                stm.setString(2, firstPostID);
+                stm.setString(3, secondPostID);
+                stm.setInt(4, 0);
+                int row = stm.executeUpdate();
+//                System.out.println(row);
+                if (row > 0) {
+                    return true;
+                }
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+
+        return false;
+    }
+//     lấy ra những post mà exchangeState là 0, là những post chưa chính thức exchange, để thông báo cho người chấp nhận để chấp nhận exchange
+// người secondPostID là người gửi lời exchange,  người firstPostId là người quyết định accept exchange or not,
+    public List<Exchange> getAllExchangeStateEqualZeroByID(int accountID) throws Exception {
+        List<Exchange> listAllExchangeStateEqualZeroByID = new ArrayList<>();
+
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+                String sql = "select a.exchangeID, a.postExchangeDate, a.firstPostID, a.secondPostID, a.exchangeState\n" +
+                            "from Exchange a, Post b\n" +
+                            "where a.exchangeState = 0 and a.firstPostID = b.postID and b.accountID = ?";
+
+                stm = con.prepareStatement(sql);
+                stm.setInt(1, accountID);
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    listAllExchangeStateEqualZeroByID.add(new Exchange(rs.getInt(1),
+                            rs.getDate(2),
+                            rs.getInt(3),
+                            rs.getInt(4),
+                            rs.getInt(5)));
+
+                }
+                return listAllExchangeStateEqualZeroByID;
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return null;
+    }
+    
+    public boolean updateAcceptExchange(String exchangeID) throws SQLException, NamingException, Exception {
+        try {
+            con = DBUtils.makeConnection();
+            if (con != null) {
+                String sql = "update Exchange set exchangeState = 1, postExchangeDate = ? where exchangeID = ?";
+                
+                stm = con.prepareStatement(sql);
+                stm.setString(1, LocalDateTime.now().toString());
+                stm.setString(2, exchangeID);
+                int row = stm.executeUpdate();
+//                System.out.println(row);
+                if (row > 0) {
+                    return true;
+                }
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+
+        return false;
+    }
+    public boolean deleteExchange(String exchangeID) throws SQLException, NamingException, Exception {
+        try {
+            con = DBUtils.makeConnection();
+            if (con != null) {
+                String sql = "delete from Exchange where exchangeID = ?";
+                
+                stm = con.prepareStatement(sql);
+                stm.setString(1, exchangeID);
+                int row = stm.executeUpdate();
+//                System.out.println(row);
+                if (row > 0) {
+                    return true;
+                }
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+
+        return false;
+    }
 /////////////////////////////////////////////////////////////
 
     public static void main(String[] args) throws Exception {
@@ -986,9 +1127,10 @@ public postFullList showPostDetail(String id) throws SQLException {
 //        System.out.println(dao.getAllExchangeInHomePage());
 //        System.out.println(dao.insertAccount("quang123", "rollroyce230501@gmail.com", "Tôi abcded", "123456789"));
 //dao.insertAccount("quang41551",  "quanglnnde150066@fpt.edu.vn", "Tôi abcded", "123456789");
-//        String hash = BCrypt.hashpw("123", BCrypt.gensalt(12));
+//        String hash = BCrypt.hashpw("banana", BCrypt.gensalt(12));
 //        System.out.println(hash);
-            System.out.println(dao.getAllPost());
+//        System.out.println(dao.getAllExchangeStateEqualZeroByID(1));
+        System.out.println(dao.getAllPostInHomePage());
     }
 
 }

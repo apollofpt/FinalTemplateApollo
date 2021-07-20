@@ -8,26 +8,21 @@ package servlet;
 import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Account;
-import model.Category;
-import model.Post;
-import model.postFullList;
 
 /**
  *
- * @author acer
+ * @author ADMIN
  */
-@WebServlet(name = "AllProductServlet", urlPatterns = {"/AllProductServlet"})
-public class AllProductServlet extends HttpServlet {
+@WebServlet(name = "DeleteExchangeServlet", urlPatterns = {"/DeleteExchangeServlet"})
+public class DeleteExchangeServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,37 +34,18 @@ public class AllProductServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, Exception {
+            throws ServletException, IOException, NamingException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         DAO dao = new DAO();
-        List<Post> listPostByID = null;
-        try {
-            HttpSession session = request.getSession(false);
-            if (session != null) {
-                // Not created yet. Now do so yourself.
-                Account currentAccount = (Account) session.getAttribute("currentAccount");
-                listPostByID = dao.getPostByID(currentAccount.getAccountID());
-                
-            }
-        }catch(Exception e){
-            
+        
+        String exchangeID = request.getParameter("exchangeID");
+        String exchangeMess = "deny";
+        boolean row=dao.updateAcceptExchange(exchangeID);
+        if(!row){
+            exchangeMess = "error";
         }
-//        HttpSession session = request.getSession();
-
-//        System.out.println(currentAccount);
-        List<Category> listC = dao.getAllCategory();
-        List<postFullList> listP = dao.getAllPost();
-        postFullList last = dao.getlastPost();
-        int mostLike = dao.getMostLike();
-
-        request.setAttribute("listPostByID", listPostByID);
-        request.setAttribute("mostLike", mostLike);
-        request.setAttribute("listC", listC);
-        request.setAttribute("listP", listP);
-        request.setAttribute("last", last);
-        System.out.println(last);
-//        request.getRequestDispatcher("AllProduct.jsp").forward(request, response);
-        request.getRequestDispatcher("allProduct.jsp").forward(request, response);
+        request.setAttribute("exchangeMess", exchangeMess);
+        request.getRequestDispatcher("HomeServlet").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -87,7 +63,7 @@ public class AllProductServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(AllProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeleteExchangeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -105,7 +81,7 @@ public class AllProductServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(AllProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeleteExchangeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -118,13 +94,5 @@ public class AllProductServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-//    public static void main(String[] args) throws Exception {
-//        DAO dao = new DAO();
-//         List<postFullList> listP = dao.getAllPost();
-//        for (postFullList p : listP){
-//            System.out.println(p.toString());
-//        }
-//        postFullList last = dao.getlastPost();
-//        System.out.println(last);
-//    }
+
 }
