@@ -41,14 +41,23 @@ constraint pk_Post primary key (postID),
 constraint fk_PostAccount foreign key (accountID) references Account(accountID)
 )
 
+
+create table PostLikeUsers(
+postID int not null,
+accountID int not null,
+constraint pk_PostLikeUsers primary key (postID, accountID),
+constraint fk_PostLikeUsers_Post foreign key (postID) references Post(postID),
+constraint fk_PostLikeUsers_Account foreign key (accountID) references Account(accountID)
+)
+
 go
 create table CategoryPost
 (
 postID int NOT NULL,
 categoryID int NOT NULL,
 constraint pk_CategoryPost primary key (postID,categoryID),
-constraint fk_Post foreign key (postID) references Post(postID),
-constraint fk_Category foreign key (categoryID) references Category(categoryID)
+constraint fk_CategoryPost_Post foreign key (postID) references Post(postID),
+constraint fk_CategoryPost_Category foreign key (categoryID) references Category(categoryID)
 )
 go
 
@@ -57,7 +66,7 @@ create table ProductImage
 (
 postID int NOT NULL,
 imageURL nvarchar(50) NOT NULL,
-constraint fk_PostImage foreign key (postID) references Post(postID),
+constraint fk_Post_PostImage foreign key (postID) references Post(postID),
 constraint pk_ProductImage primary key (postID,imageURL)
 )
 <<<<<<< HEAD
@@ -100,6 +109,19 @@ select * from Account
 update Account
 set userPassword = '$2a$12$h5ig0gmoeE13KBu8Ji4wguSp1diqUKFytj5bVjJpdZom/RFNxQe4K'
 where accountID = 1
+
+update Account
+set userPassword = '$2a$12$HKf98jZ2JPg5CDCLH7/GuuPO4tRP0JAhe/jmakU.1JnO8Rz.sTJui'
+where username = 'minky'
+
+update Account
+set userPassword = '$2a$12$1cToWae4Tl/QYvUbaEmJ.u3A3SuTMU5mImKYoLibz9EY4y17S.3TO'
+where username = 'trang'
+
+update Account
+set userPassword = '$2a$12$BFtT6wdESrTNT4JMhROjnO83hDnCEIwCG1K4sIHCWx6kh2IwO0M06'
+where username = 'khoi'
+
 ---------------------------------------------------Kết thúc thêm một vài bản ghi cho bảng User------------------------
 
 ---------------------------------------------------Bắt đầu thêm một vài bản ghi cho bảng Category------------------------

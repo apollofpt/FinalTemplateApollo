@@ -109,7 +109,7 @@
                                                                 <ul>
                                                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Like"><i class="far fa-heart"></i></a></li>
+                                                                    <li><a class="like-button" id="${lp.postid}~post" data-toggle="tooltip" data-placement="right" title="Like"><i class="far fa-heart"></i></a></li>
                                                                 </ul>
                                                                 <a class="cart" href="#showYourListProductToExchange" data-toggle="modal"> Exchange now!!</a>
                                                             </div>
@@ -147,7 +147,7 @@
                                                                     <ul>
                                                                         <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                                                         <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Like"><i class="far fa-heart"></i></a></li>
+                                                                        <li><a class="like-button" id="${lp.postid}~post" data-toggle="tooltip" data-placement="right" title="Like"><i class="far fa-heart"></i></a></li>
                                                                     </ul>
 
                                                                 </div>
@@ -408,7 +408,9 @@
     <script src="js/jquery.superslides.min.js"></script>
     <script src="js/bootstrap-select.js"></script>
     <script src="js/inewsticker.js"></script>
-    <script src="js/bootsnav.js."></script>
+    <!--404 error-->
+    <!--<script src="js/bootsnav.js."></script>--> 
+    <!--404 error-->
     <script src="js/images-loded.min.js"></script>
     <script src="js/isotope.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
@@ -420,6 +422,11 @@
     <script src="js/custom.js"></script>
     <!-- Hữu Tình - 1208.03062021 - searchbar script -->
     <script src="js/searchbar.js"></script>
+    <!-- Hữu Tình - 1239.20072021 - searchbar script -->
+    <script>
+        var uid = ${not empty currentAccount.accountID ? currentAccount.accountID : '""'};
+    </script>
+    <script src="js/like.js"></script>
 </body>
 
 </html>

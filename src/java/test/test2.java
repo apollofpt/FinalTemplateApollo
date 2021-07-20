@@ -14,10 +14,10 @@ import org.mindrot.jbcrypt.BCrypt;
 public class test2 {
 
     public static void main(String[] args) {
-        String password = "stackjava.com";
+        String password = "abcd";
         String hash = BCrypt.hashpw(password, BCrypt.gensalt(12));
         System.out.println("Bcrypt hash: " + hash);
-        boolean valuate = BCrypt.checkpw(password, "$2a$12$.OtYNVRvF9kHYGEt.Oh6PecU3GJ20LcQGidCndMWSYna5SqFOfWZe");
+        boolean valuate = BCrypt.checkpw(password, hash);
         System.out.println(valuate);
     }
 }
