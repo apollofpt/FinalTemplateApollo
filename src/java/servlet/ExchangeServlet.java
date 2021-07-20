@@ -8,26 +8,19 @@ package servlet;
 import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Account;
-import model.Category;
-import model.Post;
-import model.postFullList;
 
 /**
  *
- * @author acer
+ * @author ADMIN
  */
-@WebServlet(name = "AllProductServlet", urlPatterns = {"/AllProductServlet"})
-public class AllProductServlet extends HttpServlet {
+@WebServlet(name = "ExchangeServlet", urlPatterns = {"/ExchangeServlet"})
+public class ExchangeServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,37 +32,35 @@ public class AllProductServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, Exception {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        boolean exchangeMess = true;
         DAO dao = new DAO();
-        List<Post> listPostByID = null;
-        try {
-            HttpSession session = request.getSession(false);
-            if (session != null) {
-                // Not created yet. Now do so yourself.
-                Account currentAccount = (Account) session.getAttribute("currentAccount");
-                listPostByID = dao.getPostByID(currentAccount.getAccountID());
+        //    người secondPostID là người gửi lời exchange,  người firstPostId là người quyết định accpet exchange or not,
+        String firstPostID = request.getParameter("firstPostID");
+        String secondPostID = request.getParameter("secondPostID");
+        if (firstPostID.equalsIgnoreCase(secondPostID)) {
+            exchangeMess = false;
+        } else {
+            try {
+                HttpSession session = request.getSession();
+
+                if (session.getAttribute("currentAccount") != null) {
+//                  out.print("abc");
+                    boolean row = dao.createExchangeOnlyExceptOneSide(firstPostID, secondPostID);
+                    if (!row) {
+                        exchangeMess = false;
+                    }
+                }
+
+            } catch (Exception e) {
                 
             }
-        }catch(Exception e){
-            
         }
-//        HttpSession session = request.getSession();
-
-//        System.out.println(currentAccount);
-        List<Category> listC = dao.getAllCategory();
-        List<postFullList> listP = dao.getAllPost();
-        postFullList last = dao.getlastPost();
-        int mostLike = dao.getMostLike();
-
-        request.setAttribute("listPostByID", listPostByID);
-        request.setAttribute("mostLike", mostLike);
-        request.setAttribute("listC", listC);
-        request.setAttribute("listP", listP);
-        request.setAttribute("last", last);
-        System.out.println(last);
-//        request.getRequestDispatcher("AllProduct.jsp").forward(request, response);
-        request.getRequestDispatcher("allProduct.jsp").forward(request, response);
+        request.setAttribute("exchangeMess", exchangeMess);
+        request.getRequestDispatcher("AllProductServlet").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -84,11 +75,7 @@ public class AllProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(AllProductServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -102,11 +89,7 @@ public class AllProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(AllProductServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -118,13 +101,5 @@ public class AllProductServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-//    public static void main(String[] args) throws Exception {
-//        DAO dao = new DAO();
-//         List<postFullList> listP = dao.getAllPost();
-//        for (postFullList p : listP){
-//            System.out.println(p.toString());
-//        }
-//        postFullList last = dao.getlastPost();
-//        System.out.println(last);
-//    }
+
 }

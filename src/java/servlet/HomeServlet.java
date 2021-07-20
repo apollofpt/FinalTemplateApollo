@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Account;
 import model.Exchange;
 import model.Post;
@@ -46,7 +47,19 @@ public class HomeServlet extends HttpServlet {
         List<Post> listAllPostInHomePage = dao.getAllPostInHomePage();
         List<Exchange> listAllExchangeInHomePage = dao.getAllExchangeInHomePage();
         List<Account> listAccount = dao.getAllAccount();
-
+        List<Exchange> listAllExchangeStateEqualZeroByID = null;
+         try {
+            HttpSession session = request.getSession(false);
+            if (session != null) {
+                // Not created yet. Now do so yourself.
+                Account currentAccount = (Account) session.getAttribute("currentAccount");
+                listAllExchangeStateEqualZeroByID = dao.getAllExchangeStateEqualZeroByID(currentAccount.getAccountID());
+//                listAllExchangeStateEqualZeroByID = dao.getAllExchangeStateEqualZeroByID(10);
+            }
+        }catch(Exception e){
+            
+        }
+        
         request.setAttribute("listLastestPostInHomePage", listLastestPostInHomePage);
         request.setAttribute("listTopLikePostInHomePage", listTopLikePostInHomePage);
         request.setAttribute("listAllPostInHomePage", listAllPostInHomePage);
@@ -54,7 +67,8 @@ public class HomeServlet extends HttpServlet {
         System.out.println(listAllExchangeInHomePage);
         request.setAttribute("listAccount", listAccount);
         request.setAttribute("mostLike", mostLike);
-//        System.out.println(listAllPostInHomePage);
+        request.setAttribute("listAllExchangeStateEqualZeroByID", listAllExchangeStateEqualZeroByID);
+        System.out.println(listAllExchangeStateEqualZeroByID);
         request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 

@@ -40,6 +40,45 @@
                             <li><a href="wishlist.html">Wishlist</a></li>
                         </ul>
                     </li>
+
+                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Liên hệ</a></li>
+                    <c:if test="${currentAccount != null}">
+                        <li class="dropdown " >
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                <p><i class="fas fa-bell"></i></p>
+                                    <c:if test="${not empty listAllExchangeStateEqualZeroByID}">
+                                    <span class="badge badge-warning">New</span>
+                                      </c:if>
+                            </a>
+                                <!--tìm ra id của second exchange post-->
+                            <ul class="dropdown-menu" style="width: 300px !important">
+                                <c:forEach items="${listAllExchangeStateEqualZeroByID}" var="i">     
+                                        <c:forEach items="${listAllPostInHomePage}" var="o">
+                                            <c:if test="${o.postID == i.firstPostID}">
+                                                <c:set var="firstPostTitle" value="${o.postTitle}"></c:set>
+                                                <c:forEach items="${listAllPostInHomePage}" var="n">
+                                                    <c:if test="${n.postID == i.secondPostID}">
+                                                        <c:forEach items="${listAccount}" var="k">
+                                                            <c:if test="${k.accountID == n.accountID}">
+                                                                <li style="color:white">
+                                                                 <a><span style="font-weight: bold">${k.userFullname}</span> muốn đổi <span style="font-weight: bold">${n.postTitle}</span> lấy <span style="font-weight: bold"><c:out value="${firstPostTitle}"></c:out></span> với bạn!!
+                                                                     <button type="button" class="btn btn-outline-warning" onclick="window.location.href = 'AccpetExchangeServlet?exchangeID=${i.exchangeID}';">Accept</button>
+                                                                        <button type="button" class="btn btn-outline-danger" onclick="window.location.href = 'DeleteExchangeServlet?exchangeID=${i.exchangeID}';">Deny</button>
+                                                                 </a> 
+                                                             </li>
+                                                             </c:if>
+                                                        </c:forEach>                                           
+                                                    </c:if>
+                                                </c:forEach>
+                                                <!--<script>console.log(firstPostTitle)</script>-->
+                                            </c:if>
+                                            
+                                    </c:forEach>
+                                </c:forEach>
+                            </ul>                                              
+                        </li>
+                    </c:if>
+
                     <c:if test="${not empty USER}">
                         <c:if test="${currentAccount.isAdmin == 'true'}">
                             <li class="dropdown">
@@ -56,6 +95,7 @@
                             </li>                        
                         </c:if>                        
                     </c:if>
+
 
 
                     <li class="search-item">
