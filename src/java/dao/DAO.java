@@ -141,6 +141,18 @@ public class DAO {
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void updateAdmin(String id,String isAdmin){
+        String query = "update Account set isAdmin = ? where accountID = ?";
+        try {
+            con = DBUtils.makeConnection();
+            stm = con.prepareStatement(query);
+            stm.setString(1, isAdmin);
+            stm.setString(2, id);
+            stm.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public Account getAccountByUserName(String username) throws Exception {
         try {
             con = DBUtils.makeConnection();
@@ -983,8 +995,9 @@ public postFullList showPostDetail(String id) throws SQLException {
 //            System.out.println(find.toString());          
 //        }
         DAO dao = new DAO();
+        dao.updateAdmin("8", "0");
 //        dao.insertAccount("HELLO", "TEST", "CHUOI", "132");
-        dao.deleteAccount("7");
+//        dao.deleteAccount("7");
 //        List<Account> list = dao.getAllAccount();
 //        for (Account account : list) {
 //            System.out.println(account.toString());
