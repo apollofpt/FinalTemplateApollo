@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,10 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Minky
+ * @author acer
  */
-@WebServlet(name = "LikeServlet", urlPatterns = {"/LikeServlet"})
-public class LikeServlet extends HttpServlet {
+@WebServlet(name = "deleteCategory", urlPatterns = {"/deleteCategory"})
+public class deleteCategory extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,13 +33,13 @@ public class LikeServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String pid = request.getParameter("pid");
-            String uid = request.getParameter("uid");
-            System.out.println("data at servlet, pid=" + pid + " uid=" + uid);
-            out.println(true);
+        String id = request.getParameter("idC");
+        System.out.println("ID la" +id);
+        DAO dao = new DAO();
+        dao.deleteCategory(id);
+        response.sendRedirect("ManagerCategoryServlet");
         }
-    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

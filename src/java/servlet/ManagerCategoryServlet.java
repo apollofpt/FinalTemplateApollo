@@ -5,20 +5,26 @@
  */
 package servlet;
 
+import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Account;
+import model.Category;
+import model.Post;
 
 /**
  *
- * @author Minky
+ * @author acer
  */
-@WebServlet(name = "LikeServlet", urlPatterns = {"/LikeServlet"})
-public class LikeServlet extends HttpServlet {
+@WebServlet(name = "ManagerCategoryServlet", urlPatterns = {"/ManagerCategoryServlet"})
+public class ManagerCategoryServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,12 +38,27 @@ public class LikeServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String pid = request.getParameter("pid");
-            String uid = request.getParameter("uid");
-            System.out.println("data at servlet, pid=" + pid + " uid=" + uid);
-            out.println(true);
+     DAO dao = new DAO();
+        List<Post> listPostByID = null;
+        try {
+            HttpSession session = request.getSession(false);
+            if (session != null) {
+                // Not created yet. Now do so yourself.
+                Account currentAccount = (Account) session.getAttribute("currentAccount");
+                listPostByID = dao.getPostByID(currentAccount.getAccountID());
+
+            }
+        }catch(Exception e){
+            
         }
+
+        List<Category> listC = dao.getAllCategory();
+
+        request.setAttribute("listPostByID", listPostByID);
+
+        request.setAttribute("listC", listC);
+
+        request.getRequestDispatcher("managerCategory.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

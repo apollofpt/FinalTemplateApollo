@@ -130,6 +130,30 @@ public class DAO {
 
         return false;
     }
+ public void AddCategory(String name, String url) {
+        String query = "insert into Category(categoryName,categoryIcon) values\n"
+                + "(?,?)";
+        try {
+            con = DBUtils.makeConnection();
+            stm = con.prepareStatement(query);
+            stm.setString(1, name);
+            stm.setString(2, url);
+            stm.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+public void deleteCategory(String id) {
+        String query = "delete Category where [categoryID] = ?";
+        try {
+            con = DBUtils.makeConnection();
+            stm = con.prepareStatement(query);
+            stm.setString(1, id);
+            stm.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public void deleteAccount(String id) {
         String query = "delete Account where [accountID] = ?";
@@ -596,7 +620,42 @@ public class DAO {
         }
         return null;
     }
+public List<Exchange> getAllExchangeInManager() throws Exception {
+        List<Exchange> listAllExchangeInHomePage = new ArrayList<>();
 
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+                String sql = "select * from Exchange where exchangeState = 1";
+
+                stm = con.prepareStatement(sql);
+
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    listAllExchangeInHomePage.add(new Exchange(rs.getInt(1),
+                            rs.getDate(2),
+                            rs.getInt(3),
+                            rs.getInt(4),
+                            rs.getInt(5)));
+                }
+                return listAllExchangeInHomePage;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return null;
+    }
     public List<Exchange> getAllExchangeInHomePage() throws Exception {
         List<Exchange> listAllExchangeInHomePage = new ArrayList<>();
 

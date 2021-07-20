@@ -5,20 +5,27 @@
  */
 package servlet;
 
+import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Account;
+import model.Exchange;
+import model.Post;
 
 /**
  *
- * @author Minky
+ * @author acer
  */
-@WebServlet(name = "LikeServlet", urlPatterns = {"/LikeServlet"})
-public class LikeServlet extends HttpServlet {
+@WebServlet(name = "ManagerExchangeServlet", urlPatterns = {"/ManagerExchangeServlet"})
+public class ManagerExchangeServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,14 +37,18 @@ public class LikeServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String pid = request.getParameter("pid");
-            String uid = request.getParameter("uid");
-            System.out.println("data at servlet, pid=" + pid + " uid=" + uid);
-            out.println(true);
-        }
+        DAO dao = new DAO();
+        List<Exchange> listAllExchangeInHomePage = dao.getAllExchangeInHomePage();
+
+        List<Account> listAccount = dao.getAllAccount();
+        List<Post> listAllPostInHomePage = dao.getAllPostInHomePage();
+        request.setAttribute("listAllExchangeInHomePage", listAllExchangeInHomePage);
+        request.setAttribute("listAccount", listAccount);
+        request.setAttribute("listAllPostInHomePage", listAllPostInHomePage);
+        request.getRequestDispatcher("managerExchange.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -52,7 +63,11 @@ public class LikeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(ManagerExchangeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -66,7 +81,11 @@ public class LikeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(ManagerExchangeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -78,5 +97,12 @@ public class LikeServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
+public static void main(String[] args) throws Exception {
+        DAO dao = new DAO();
+        List<Exchange> listAllExchangeInHomePage = dao.getAllExchangeInHomePage();
+        
+        for(Exchange a : listAllExchangeInHomePage){
+            a.toString();
+        }
+    }
 }

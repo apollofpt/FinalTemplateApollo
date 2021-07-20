@@ -5,8 +5,12 @@
  */
 package servlet;
 
+import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,10 +19,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Minky
+ * @author ADMIN
  */
-@WebServlet(name = "LikeServlet", urlPatterns = {"/LikeServlet"})
-public class LikeServlet extends HttpServlet {
+@WebServlet(name = "DenyExchangeServlet", urlPatterns = {"/DenyExchangeServlet"})
+public class DenyExchangeServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,14 +34,18 @@ public class LikeServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, NamingException, Exception {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String pid = request.getParameter("pid");
-            String uid = request.getParameter("uid");
-            System.out.println("data at servlet, pid=" + pid + " uid=" + uid);
-            out.println(true);
+        DAO dao = new DAO();
+        
+        String exchangeID = request.getParameter("exchangeID");
+        String exchangeMess = "deny";
+        boolean row=dao.updateAcceptExchange(exchangeID);
+        if(!row){
+            exchangeMess = "error";
         }
+        request.setAttribute("exchangeMess", exchangeMess);
+        request.getRequestDispatcher("HomeServlet").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -52,7 +60,11 @@ public class LikeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(DenyExchangeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -66,7 +78,11 @@ public class LikeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(DenyExchangeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
