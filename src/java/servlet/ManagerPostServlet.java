@@ -5,20 +5,26 @@
  */
 package servlet;
 
+import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Account;
+import model.Post;
 
 /**
  *
- * @author Minky
+ * @author truon
  */
-@WebServlet(name = "LikeServlet", urlPatterns = {"/LikeServlet"})
-public class LikeServlet extends HttpServlet {
+@WebServlet(name = "ManagerPostServlet", urlPatterns = {"/managerPost"})
+public class ManagerPostServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,11 +38,15 @@ public class LikeServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String pid = request.getParameter("pid");
-            String uid = request.getParameter("uid");
-            System.out.println("data at servlet, pid=" + pid + " uid=" + uid);
-            out.println(true);
+        DAO dao = new DAO();
+        List<Account> listA = dao.getAllAccount();
+        request.setAttribute("listAccount", listA);
+        try {
+            List<Post> listP = dao.getAllPostInHomePage();
+            request.setAttribute("listP", listP);
+            request.getRequestDispatcher("managerPost.jsp").forward(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(ManagerPostServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

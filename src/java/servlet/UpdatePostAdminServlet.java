@@ -5,20 +5,24 @@
  */
 package servlet;
 
+import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Post;
 
 /**
  *
- * @author Minky
+ * @author truon
  */
-@WebServlet(name = "LikeServlet", urlPatterns = {"/LikeServlet"})
-public class LikeServlet extends HttpServlet {
+@WebServlet(name = "UpdatePostAdminServlet", urlPatterns = {"/updatePostAdmin"})
+public class UpdatePostAdminServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,11 +36,14 @@ public class LikeServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String pid = request.getParameter("pid");
-            String uid = request.getParameter("uid");
-            System.out.println("data at servlet, pid=" + pid + " uid=" + uid);
-            out.println(true);
+        String id = request.getParameter("idP");
+        DAO dao = new DAO();
+        try {
+            Post post = dao.getPostByPostID(id);
+            request.setAttribute("post", post);
+            request.getRequestDispatcher("updatePost.jsp").forward(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(UpdatePostAdminServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
