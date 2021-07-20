@@ -107,6 +107,9 @@
                                             <p>${o.postID}</p>
                                         </td>
                                         <td class="remove-pr">
+                                            <a href="updatePostAdmin?idP=${o.postID}" style="padding-right: 3%;" alt="Chỉnh Sửa">
+                                                <i class="far fa-edit"></i>
+                                            </a>
                                             <a href="deletePost?idP=${o.postID}">
                                                 <i class="fas fa-times"></i>
                                             </a>

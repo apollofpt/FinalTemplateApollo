@@ -271,7 +271,43 @@ public class DAO {
         return null;
 
     }
+    public Post getPostByPostID(String accountID) throws Exception {
+        try {
+            con = DBUtils.makeConnection();
 
+            if (con != null) {
+                String sql = "select * from Post where postID = ?";
+
+                stm = con.prepareStatement(sql);
+                stm.setString(1, accountID);
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    return(new Post(rs.getInt(1),
+                            rs.getInt(2),
+                            rs.getString(3),
+                            rs.getDate(4),
+                            rs.getString(5),
+                            rs.getInt(6),
+                            rs.getString(7)));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+
+        return null;
+
+    }
     public int getMostLike() throws Exception {
         try {
             con = DBUtils.makeConnection();
@@ -1174,7 +1210,9 @@ public class DAO {
 //            System.out.println(find.toString());          
 //        }
         DAO dao = new DAO();
-        dao.updateAdmin("8", "0");
+//        dao.updateAdmin("8", "0");
+        Post temp = dao.getPostByPostID("1");
+        System.out.println(temp.toString());
 //        dao.insertAccount("HELLO", "TEST", "CHUOI", "132");
 //        dao.deleteAccount("7");
 //        List<Account> list = dao.getAllAccount();
@@ -1193,7 +1231,7 @@ public class DAO {
 //        System.out.println(hash);
 
 //        System.out.println(dao.getAllExchangeStateEqualZeroByID(1));
-        System.out.println(dao.getAllPostInHomePage());
+//        System.out.println(dao.getAllPostInHomePage());
 
 //            System.out.println(dao.getAllPost());
 

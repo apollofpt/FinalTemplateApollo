@@ -65,8 +65,8 @@
             </div>
             <div class="Avatar" style="border-bottom: 3px solid black;">
                 <img src="${currentAccount.userImage}" id="imgAva" style="margin-top: -130px;"
-                     >
-                <p class="nameAva">${currentAccount.userFullname}</p>
+                 >
+            <p class="nameAva">${currentAccount.userFullname}</p>
         </div>
         <!-- End All Title Box -->
 
@@ -83,43 +83,50 @@
 
                 <div class="container1">
                     <div id="create" class="tabcontent">
-                        <h3 style="text-align: center;color: rgb(219, 169, 94);">Đăng bài</h3>
+                        <h3 style="text-align: center;color: rgb(219, 169, 94);">Cập nhật</h3>
                         <div id="form-container" class="form-container">
-                            <form action="AddPostServlet" method="post" enctype='multipart/form-data' onsubmit="return validate()">
+                            <form action="confirmUpdatePostAdmin" method="post" enctype='multipart/form-data' onsubmit="return validate()">
+                                <div id="title-container" class="form-group input-container">
+                                    <label for="idPost" class="create-label">ID:</label>
+                                    <input type="text" readonly=""  name="title" id="idPost" class="form-control" value="${post.postID}">                                    
+                                </div>
                                 <div id="title-container" class="form-group input-container">
                                     <label for="title" class="create-label">Tiêu đề:</label>
-                                    <input type="text" name="title" id="title" class="form-control">                                    
+                                    <input type="text" name="title" id="title" class="form-control" value="${post.postTitle}">                                    
                                 </div>
                                 <div id="img-container" class="form-group input-container">
                                     <label for="custom-file" class="create-label">Ảnh đính kèm:</label>
-                                    <div class="custom-file">
-                                        <input accept="image/*" type="file" class="custom-file-input" id="img" name="img" id="img" multiple onchange="loadFile(event)">
-                                        <label class="custom-file-label" for="img" id="custom-file-label">Chọn tệp</label>
+                                    <div class="custom-file" style="width: 200px;">
+                                        <img class="img-fluid" src="${post.thumbnailURL}" alt="" width="150px"/>
                                     </div>
-                                    <div id="preview-upload" class="preview-upload"></div>
                                 </div>
+                                <br><br>
                                 <div id="category-container" class="form-group input-container">
                                     <label for="category-items" class="create-label">Phân loại:</label>
                                     <div id="category-items" class="category-items">
                                         <sql:setDataSource var="db" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"  
-                                            url="jdbc:sqlserver://localhost:1433;databaseName=DuniExchange"  
-                                            user="sa"  password="admin"/>  
+                                                           url="jdbc:sqlserver://localhost:1433;databaseName=DuniExchange"  
+                                                           user="sa"  password="admin"/>  
                                         <sql:query dataSource="${db}" var="rs">  
-                                        select * from Category;  
+                                            select * from Category;  
+                                        </sql:query>
+                                        <sql:query dataSource="${db}" var="cgp">  
+                                            select * from CategoryPost where postID = ${post.postID};  
                                         </sql:query>
                                         <c:forEach var="cat" items="${rs.rows}" varStatus="count">  
                                             <div id="category-item-${count.index + 1}" class="category-item">
                                                 <label for="category">${cat.categoryName}</label>
-                                                <input type="checkbox" name="category" value="${cat.categoryID}">
+                                                <input <c:forEach var="temp" items="${cgp.rows}"> <c:if test="${temp.categoryID == cat.categoryID}">checked=""</c:if> </c:forEach>
+                                                type="checkbox" name="category" value="${cat.categoryID}">
                                             </div>
                                         </c:forEach>  
                                     </div>
                                 </div>
                                 <div id="decription-container" class="form-group input-container">
                                     <label for="decription" class="create-label">Mô tả:</label>
-                                    <input type="text" id="decription" name="decription" id="decription" class="form-control">
+                                    <input type="text" id="decription" name="decription" id="decription" class="form-control" value="${post.postDescription}">
                                 </div>
-                                <input type="submit" value="Đăng" class="mr-auto btn btn-primary">
+                                <input type="submit" value="Sửa" class="mr-auto btn btn-primary">
                             </form>
                         </div>
                     </div>
@@ -162,115 +169,118 @@
 <script src="js/custom.js"></script>
 </body>
 <script type="text/javascript">
-    var buttons = document.getElementsByClassName('tablinks');
-    var contents = document.getElementsByClassName('tabcontent');
-    function showContent(id) {
-        if(id === null) return;
-        for (var i = 0; i < contents.length; i++) {
-            contents[i].style.display = 'none';
-        }
-        var content = document.getElementById(id);
-        content.style.display = 'block';
-    }
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener("click", function () {
-            var id = this.textContent;
-            for (var i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove("active");
-            }
-            this.className += " active";
-            showContent(id);
-        });
-    }
-    showContent('create');
+                                var buttons = document.getElementsByClassName('tablinks');
+                                var contents = document.getElementsByClassName('tabcontent');
+                                function showContent(id) {
+                                    if (id === null)
+                                        return;
+                                    for (var i = 0; i < contents.length; i++) {
+                                        contents[i].style.display = 'none';
+                                    }
+                                    var content = document.getElementById(id);
+                                    content.style.display = 'block';
+                                }
+                                for (var i = 0; i < buttons.length; i++) {
+                                    buttons[i].addEventListener("click", function () {
+                                        var id = this.textContent;
+                                        for (var i = 0; i < buttons.length; i++) {
+                                            buttons[i].classList.remove("active");
+                                        }
+                                        this.className += " active";
+                                        showContent(id);
+                                    });
+                                }
+                                showContent('create');
 </script>
 
 <script type="text/javascript">
-    var loadFile = function(event) {
+    var loadFile = function (event) {
         var preview = document.getElementById('preview-upload');
         var label = document.getElementById("custom-file-label");
         preview.innerHTML = "";
         var files = event.target.files;
         var fileNames = "";
         var n = 0;
-        
-        if(files.length > 0){
+
+        if (files.length > 0) {
             destroyError("img-container");
         } else {
             label.innerHTML = "Chọn tệp";
             return;
         }
-        for(const file of files){
+        for (const file of files) {
             n++;
-            fileNames += '"' +  file.name + '"' + ', ';
-            preview.innerHTML += '<img id="output-'+ n +'"></img>';
+            fileNames += '"' + file.name + '"' + ', ';
+            preview.innerHTML += '<img id="output-' + n + '"></img>';
             var output = document.getElementById("output-" + n);
             output.src = URL.createObjectURL(file);
         }
-        fileNames = fileNames.substring(0, fileNames.length-2);
+        fileNames = fileNames.substring(0, fileNames.length - 2);
         label.innerHTML = fileNames;
-        output.onload = function() {
-           URL.revokeObjectURL(output.src); // free memory
+        output.onload = function () {
+            URL.revokeObjectURL(output.src); // free memory
         }
     };
 </script>
 
 <script type="text/javascript">
     var isError = false;
-    
-    function insertError(container, msg){
+
+    function insertError(container, msg) {
         isError = true;
         console.log(container.getAttribute("id"));
-        var font = document.createElement('font');                       
+        var font = document.createElement('font');
         font.innerHTML = msg;
         font.setAttribute("color", "red");
-        font.setAttribute("id", container.id +"-error");
+        font.setAttribute("id", container.id + "-error");
         container.appendChild(font);
     }
-    
-    function destroyError(containerID){
+
+    function destroyError(containerID) {
         var container = document.getElementById(containerID);
-        
+
         console.log("container: " + container.id);
-        
+
         var error = document.getElementById(container.id + "-error");
-        if(error === null) return;
-        console.log("remove " + error.id + " at "  + container.tagName + " id="+ container.id);
+        if (error === null)
+            return;
+        console.log("remove " + error.id + " at " + container.tagName + " id=" + container.id);
         container.removeChild(error);
     }
-    
-    function destroyAllError(){
+
+    function destroyAllError() {
         var inputContainers = document.getElementsByClassName("input-container");
-        
+
         console.log("eLen: " + inputContainers.length);
-        
-        for(const ip of inputContainers){
+
+        for (const ip of inputContainers) {
             var error = document.getElementById(ip.id + "-error");
-            if(error === null) continue;
-            console.log("remove " + error.id + " at "  + ip.tagName + " id="+ ip.id);
+            if (error === null)
+                continue;
+            console.log("remove " + error.id + " at " + ip.tagName + " id=" + ip.id);
             ip.removeChild(error);
         }
     }
-    
-    function validate(){
+
+    function validate() {
         destroyAllError();
         isError = false;
         var title = document.getElementById("title");
         var img = document.getElementById("img");
         var descr = document.getElementById("decription");
-       
-        if(title.value === "" || title.value === null){
+
+        if (title.value === "" || title.value === null) {
             insertError(document.getElementById("title-container"), "Must fill this field");
         }
-        
-        if(img.files.length === 0){
+
+        if (img.files.length === 0) {
             insertError(document.getElementById("img-container"), "Must choose file");
         }
-        
-        if(descr.value === "" || descr.value === null){
+
+        if (descr.value === "" || descr.value === null) {
             insertError(document.getElementById("decription-container"), "Must fill this field");
         }
-        
+
         return !isError;
     }
 </script>
