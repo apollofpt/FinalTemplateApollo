@@ -5,8 +5,12 @@
  */
 package servlet;
 
+import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,17 +36,59 @@ public class ConfirmUpdatePostAdminServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ConfirmUpdatePostAdminServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ConfirmUpdatePostAdminServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        request.setCharacterEncoding("UTF-8");
+        String id = request.getParameter("idPost");
+        String title = request.getParameter("title");
+        String[] temp = request.getParameterValues("category");
+
+        String decription = request.getParameter("decription");
+        DAO dao = new DAO();
+        ArrayList<String> category = new ArrayList<>();
+        
+        for (String string : temp) {
+            category.add(string);
+        }
+        ArrayList<String> listC = dao.getCategoryByPostID(id);
+//            System.out.println("Truoc khi xoa");
+//
+//        for (String string : listC) {
+//            System.out.println("Listc: "+string);
+//        }
+//        for (String string : category) {
+//            System.out.println("List nhap : "+string);
+//        }
+        for (int i = 0; i < listC.size(); i++) {
+            for (int j = 0; j < category.size(); j++) {
+                if (listC.get(i).trim().equals(category.get(j).trim())) {
+                    category.remove(j);
+                    listC.remove(i);
+//                    i--;
+                    j--;
+                }                
+            }
+        }
+//        System.out.println("SAu khi xoa");
+//        for (String string : listC) {
+//            System.out.println("Listc: "+string);
+//        }
+//        for (String string : category) {
+//            System.out.println("List nhap : "+string);
+//        }
+//        
+        try {
+            dao.insertCategoryPost(Integer.parseInt(id), category);
+        } catch (Exception ex) {
+            Logger.getLogger(ConfirmUpdatePostAdminServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            //Hoan thanh insert cai chua co
+        
+        dao.deleteCategoryByPost(id, listC);
+            
+        try {
+            dao.updatePost(id, title, decription);
+            response.sendRedirect("managerPost");
+        } catch (Exception ex) {
+            Logger.getLogger(ConfirmUpdatePostAdminServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
