@@ -287,9 +287,9 @@
                                         <form action="ExchangeServlet">  
                                             <input type="submit" class="btn btn-danger" value="Exchange">
                                             <!--postID của họ-->
-                                            <input type="hidden" name="firstPostID" id="firstPostID">
+                                            <input type="hidden" name="firstPostID" class="firstPost">
                                             <!--postID của mềnh-->
-                                            <input type="hidden" name="secondPostID" id="secondPostID" value="${o.postID}">
+                                            <input type="hidden" name="secondPostID" value="${o.postID}">
                                         </form>
                                     </div>
                                 </div>
@@ -481,7 +481,7 @@
                 $('div .exchange').on('click', function () {
                     var id = $(this).parent().find("#firstPostID").val();
                     console.log(id);
-                    $('#showYourListProductToExchange #firstPostID').val(id);
+                    $('#showYourListProductToExchange .firstPost').val(id);
                 });
             });
 

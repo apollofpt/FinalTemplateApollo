@@ -69,11 +69,9 @@ imageURL nvarchar(50) NOT NULL,
 constraint fk_Post_PostImage foreign key (postID) references Post(postID),
 constraint pk_ProductImage primary key (postID,imageURL)
 )
-<<<<<<< HEAD
 
-=======
 go
->>>>>>> e00f05118ce3b825d4949174ba70ccc75c00e510
+
 create table Exchange
 (
 exchangeID int identity(1,1) NOT NULL,
@@ -109,7 +107,7 @@ select * from Account
 update Account
 set userPassword = '$2a$12$h5ig0gmoeE13KBu8Ji4wguSp1diqUKFytj5bVjJpdZom/RFNxQe4K'
 where accountID = 1
-<<<<<<< HEAD
+
 
 update Account
 set userPassword = '$2a$12$HKf98jZ2JPg5CDCLH7/GuuPO4tRP0JAhe/jmakU.1JnO8Rz.sTJui'
@@ -123,12 +121,12 @@ update Account
 set userPassword = '$2a$12$BFtT6wdESrTNT4JMhROjnO83hDnCEIwCG1K4sIHCWx6kh2IwO0M06'
 where username = 'khoi'
 
-=======
+
 --banana Trang
 update Account
 set userPassword = '$2a$12$uEAYVuMEuSu6MhbIjHX.M.yWpt/Pd23O91LHXIlOdcbdl69hdw2xS'
 where accountID = 3
->>>>>>> 2cfdbde5f7bbbcb50ac0b7dfb55f31f15efc299c
+
 ---------------------------------------------------Kết thúc thêm một vài bản ghi cho bảng User------------------------
 
 ---------------------------------------------------Bắt đầu thêm một vài bản ghi cho bảng Category------------------------

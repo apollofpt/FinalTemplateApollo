@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Site Metas -->
-        <title>ThewayShop - Ecommerce Bootstrap 4 HTML Template</title>
+        <title>Account Manager</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -67,14 +67,14 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Images</th>
+                                        <th>Ảnh</th>
                                         <th>Email</th>
-                                        <th>User Name</th>
-                                        <th>Fullname</th>
-                                        <th>Create Date</th>
+                                        <th>Tên người dùng</th>
+                                        <th>Tên đầy đủ</th>
+                                        <th>Ngày tạo</th>
                                         <th>Admin</th>
                                         <th>ID</th>
-                                        <th>Option</th>
+                                        <th>Lựa chọn</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -98,6 +98,17 @@
                                             </td>
                                             <td class="total-pr">
                                                 <p>${o.isAdmin}</p>
+                                                <c:if test="${o.isAdmin == true}">
+                                                    
+                                                    <a href="updateAdmin?idA=${o.accountID}&changeTo=${o.isAdmin == true ? 0:1}" style="color: red;">
+                                                        Gỡ Quyền
+                                                    </a>
+                                                </c:if>
+                                                <c:if test="${o.isAdmin != true}">
+                                                    <a href="updateAdmin?idA=${o.accountID}&changeTo=${o.isAdmin == true ? 0:1}" style="color: green;">
+                                                        Cấp quyền
+                                                    </a>
+                                                </c:if>
                                             </td>
                                             <td class="total-pr">
                                                 <p>${o.accountID}</p>
@@ -106,6 +117,7 @@
                                                 <a href="deleteAccount?idA=${o.accountID}">
                                                     <i class="fas fa-times"></i>
                                                 </a>
+
                                             </td>
                                         </tr>                                             
                                     </c:if>
@@ -117,7 +129,7 @@
                 </div>
 
             </div>
-            <div class="container">
+<!--            <div class="container">
                 <div class="row col-lg-12">
                     <div class="col-lg-7 col-sm-6">
                         <div class="update-box" style="text-align: center;">
@@ -126,7 +138,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div>-->
         </div>
         <!-- End Cart -->
 
