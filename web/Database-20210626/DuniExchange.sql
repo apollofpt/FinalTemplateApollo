@@ -109,6 +109,7 @@ select * from Account
 update Account
 set userPassword = '$2a$12$h5ig0gmoeE13KBu8Ji4wguSp1diqUKFytj5bVjJpdZom/RFNxQe4K'
 where accountID = 1
+<<<<<<< HEAD
 
 update Account
 set userPassword = '$2a$12$HKf98jZ2JPg5CDCLH7/GuuPO4tRP0JAhe/jmakU.1JnO8Rz.sTJui'
@@ -122,6 +123,12 @@ update Account
 set userPassword = '$2a$12$BFtT6wdESrTNT4JMhROjnO83hDnCEIwCG1K4sIHCWx6kh2IwO0M06'
 where username = 'khoi'
 
+=======
+--banana Trang
+update Account
+set userPassword = '$2a$12$uEAYVuMEuSu6MhbIjHX.M.yWpt/Pd23O91LHXIlOdcbdl69hdw2xS'
+where accountID = 3
+>>>>>>> 2cfdbde5f7bbbcb50ac0b7dfb55f31f15efc299c
 ---------------------------------------------------Kết thúc thêm một vài bản ghi cho bảng User------------------------
 
 ---------------------------------------------------Bắt đầu thêm một vài bản ghi cho bảng Category------------------------
@@ -227,13 +234,33 @@ select * from CategoryPost
 
 
 ------------------------------Bắt đầu thêm một vài bản ghi cho bảng Exchange------------------------
-insert into Exchange(postExchangeDate,firstPostID,secondPostID) values
-(GETDATE(),1,9),
-(GETDATE(),8,3),
-(GETDATE(),10,5),
-(GETDATE(),2,7)
+--insert into Exchange(postExchangeDate,firstPostID,secondPostID,exchangeState) values
+--(GETDATE(),1,9,1),
+--(GETDATE(),8,3,0),
+--(GETDATE(),14,5,1),
+--(GETDATE(),7,2,0),
+--(GETDATE(),9,13,0),
+--(GETDATE(),16,10,0),
+--(GETDATE(),1002,18,0),
+--(GETDATE(),17,12,0)
 
+delete from Exchange
+
+alter table Exchange
+add exchangeState int NOT NULL
+
+insert into Exchange(postExchangeDate,firstPostID,secondPostID,exchangeState) values
+(GETDATE(),14,5,1),
+(GETDATE(),7,2,0)
+
+ 
 select * from Exchange
+
+update Exchange set exchangeState = 1, postExchangeDate ='2021-07-20 01:30:31.940' where exchangeID = 1029
+
+select a.exchangeID, a.postExchangeDate, a.firstPostID, a.secondPostID, a.exchangeState
+from Exchange a, Post b
+where a.exchangeState = 0 and a.firstPostID = b.postID and b.accountID = 1
 ------------------------------Kết thúc thêm một vài bản ghi cho bảng Exchange------------------------
 
 -----------------------------------------------------Tạo view và Trigger-----------------------------------------------

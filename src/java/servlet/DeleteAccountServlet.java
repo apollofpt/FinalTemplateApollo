@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,10 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Minky
+ * @author truon
  */
-@WebServlet(name = "LogOut", urlPatterns = {"/LogOut"})
-public class LogOut extends HttpServlet {
+@WebServlet(name = "DeleteAccountServlet", urlPatterns = {"/deleteAccount"})
+public class DeleteAccountServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,9 +33,11 @@ public class LogOut extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.getSession().removeAttribute("USER");
-        request.getSession().removeAttribute("currentAccount");
-        response.sendRedirect(request.getContextPath());
+        String id = request.getParameter("idA");
+        System.out.println("ID la" +id);
+        DAO dao = new DAO();
+        dao.deleteAccount(id);
+        response.sendRedirect("managerAccount");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
