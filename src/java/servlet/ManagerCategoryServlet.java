@@ -8,21 +8,23 @@ package servlet;
 import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Account;
+import model.Category;
+import model.Post;
 
 /**
  *
- * @author truon
+ * @author acer
  */
-@WebServlet(name = "ConfirmUpdatePostAdminServlet", urlPatterns = {"/confirmUpdatePostAdmin"})
-public class ConfirmUpdatePostAdminServlet extends HttpServlet {
+@WebServlet(name = "ManagerCategoryServlet", urlPatterns = {"/ManagerCategoryServlet"})
+public class ManagerCategoryServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,60 +38,27 @@ public class ConfirmUpdatePostAdminServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        String id = request.getParameter("idPost");
-        String title = request.getParameter("title");
-        String[] temp = request.getParameterValues("category");
+     DAO dao = new DAO();
+        List<Post> listPostByID = null;
+        try {
+            HttpSession session = request.getSession(false);
+            if (session != null) {
+                // Not created yet. Now do so yourself.
+                Account currentAccount = (Account) session.getAttribute("currentAccount");
+                listPostByID = dao.getPostByID(currentAccount.getAccountID());
 
-        String decription = request.getParameter("decription");
-        DAO dao = new DAO();
-        ArrayList<String> category = new ArrayList<>();
-        
-        for (String string : temp) {
-            category.add(string);
-        }
-        ArrayList<String> listC = dao.getCategoryByPostID(id);
-//            System.out.println("Truoc khi xoa");
-//
-//        for (String string : listC) {
-//            System.out.println("Listc: "+string);
-//        }
-//        for (String string : category) {
-//            System.out.println("List nhap : "+string);
-//        }
-        for (int i = 0; i < listC.size(); i++) {
-            for (int j = 0; j < category.size(); j++) {
-                if (listC.get(i).trim().equals(category.get(j).trim())) {
-                    category.remove(j);
-                    listC.remove(i);
-//                    i--;
-                    j--;
-                }                
             }
-        }
-//        System.out.println("SAu khi xoa");
-//        for (String string : listC) {
-//            System.out.println("Listc: "+string);
-//        }
-//        for (String string : category) {
-//            System.out.println("List nhap : "+string);
-//        }
-//        
-        try {
-            dao.insertCategoryPost(Integer.parseInt(id), category);
-        } catch (Exception ex) {
-            Logger.getLogger(ConfirmUpdatePostAdminServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            //Hoan thanh insert cai chua co
-        
-        dao.deleteCategoryByPost(id, listC);
+        }catch(Exception e){
             
-        try {
-            dao.updatePost(id, title, decription);
-            response.sendRedirect("managerPost");
-        } catch (Exception ex) {
-            Logger.getLogger(ConfirmUpdatePostAdminServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        List<Category> listC = dao.getAllCategory();
+
+        request.setAttribute("listPostByID", listPostByID);
+
+        request.setAttribute("listC", listC);
+
+        request.getRequestDispatcher("managerCategory.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

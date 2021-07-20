@@ -130,6 +130,30 @@ public class DAO {
 
         return false;
     }
+ public void AddCategory(String name, String url) {
+        String query = "insert into Category(categoryName,categoryIcon) values\n"
+                + "(?,?)";
+        try {
+            con = DBUtils.makeConnection();
+            stm = con.prepareStatement(query);
+            stm.setString(1, name);
+            stm.setString(2, url);
+            stm.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+public void deleteCategory(String id) {
+        String query = "delete Category where [categoryID] = ?";
+        try {
+            con = DBUtils.makeConnection();
+            stm = con.prepareStatement(query);
+            stm.setString(1, id);
+            stm.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public void deleteAccount(String id) {
         String query = "delete Account where [accountID] = ?";
@@ -209,7 +233,8 @@ public class DAO {
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void deleteCategoryPost(String id){
+
+    public void deleteCategoryPost(String id) {
         String query = "delete CategoryPost where postID = ?";
         try {
             con = DBUtils.makeConnection();
@@ -218,9 +243,27 @@ public class DAO {
             stm.executeUpdate();
         } catch (Exception ex) {
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+        }
     }
-    public void deletePostImage(String id){
+
+    public void deleteCategoryByPost(String id, ArrayList<String> list) {
+
+        try {
+            con = DBUtils.makeConnection();
+            for (String string : list) {
+                String query = "delete CategoryPost where postID = ? and categoryID = ?";
+                stm = con.prepareStatement(query);
+                stm.setString(1, id);
+                stm.setString(2, string);
+                stm.executeUpdate();
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void deletePostImage(String id) {
         String query = "delete ProductImage where postID = ?";
         try {
             con = DBUtils.makeConnection();
@@ -229,8 +272,9 @@ public class DAO {
             stm.executeUpdate();
         } catch (Exception ex) {
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+        }
     }
+
     public List<Post> getPostByID(int accountID) throws Exception {
         List<Post> listPostByID = new ArrayList<>();
 
@@ -271,6 +315,7 @@ public class DAO {
         return null;
 
     }
+
     public Post getPostByPostID(String accountID) throws Exception {
         try {
             con = DBUtils.makeConnection();
@@ -282,7 +327,7 @@ public class DAO {
                 stm.setString(1, accountID);
                 rs = stm.executeQuery();
                 while (rs.next()) {
-                    return(new Post(rs.getInt(1),
+                    return (new Post(rs.getInt(1),
                             rs.getInt(2),
                             rs.getString(3),
                             rs.getDate(4),
@@ -308,6 +353,7 @@ public class DAO {
         return null;
 
     }
+
     public int getMostLike() throws Exception {
         try {
             con = DBUtils.makeConnection();
@@ -351,6 +397,25 @@ public class DAO {
                 list.add(new Category(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3)));
+            }
+            con.close();
+        } catch (Exception ex) {
+            Logger.getLogger(DAO.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    public ArrayList<String> getCategoryByPostID(String id) {
+        ArrayList<String> list = new ArrayList<>();
+        String query = "select categoryID from CategoryPost where postID = ?";
+        try {
+            con = DBUtils.makeConnection();
+            stm = con.prepareStatement(query);
+            stm.setString(1, id);
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                list.add(rs.getString(1));
             }
             con.close();
         } catch (Exception ex) {
@@ -555,7 +620,42 @@ public class DAO {
         }
         return null;
     }
+public List<Exchange> getAllExchangeInManager() throws Exception {
+        List<Exchange> listAllExchangeInHomePage = new ArrayList<>();
 
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+                String sql = "select * from Exchange where exchangeState = 1";
+
+                stm = con.prepareStatement(sql);
+
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    listAllExchangeInHomePage.add(new Exchange(rs.getInt(1),
+                            rs.getDate(2),
+                            rs.getInt(3),
+                            rs.getInt(4),
+                            rs.getInt(5)));
+                }
+                return listAllExchangeInHomePage;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return null;
+    }
     public List<Exchange> getAllExchangeInHomePage() throws Exception {
         List<Exchange> listAllExchangeInHomePage = new ArrayList<>();
 
@@ -671,6 +771,40 @@ public class DAO {
         return 0;
     }
 
+    public int insertCategoryPost(int PostID, ArrayList<String> categoriesID) throws Exception {
+        try {
+            int successCounter = 0;
+            con = DBUtils.makeConnection();
+            if (con != null) {
+                for (String catID : categoriesID) {
+                    String sql = "insert into "
+                            + "CategoryPost(PostID,categoryID)"
+                            + " values (?,?)";
+                    stm = con.prepareStatement(sql);
+                    stm.setInt(1, PostID);
+                    stm.setInt(2, Integer.parseInt(catID));
+                    if (stm.executeUpdate() > 0) {
+                        successCounter++;
+                    }
+                }
+                return successCounter;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return 0;
+    }
+
     public int insertProductImage(int PostID, String[] imageURL) throws Exception {
         try {
             int successCounter = 0;
@@ -712,6 +846,32 @@ public class DAO {
             }
         }
         return 0;
+    }
+
+    public void updatePost(String postID, String postTitle, String postDescription) throws Exception {
+        try {
+            con = DBUtils.makeConnection();
+            if (con != null) {
+                String sql = "update Post set postTitle = ? , postDescription = ? where postID = ?";
+                stm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+                stm.setString(1, postTitle);
+                stm.setString(2, postDescription);
+                stm.setString(3, postID);
+                stm.executeQuery();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
     }
 
     public List<postFullList> getAllPostPopularity() throws Exception {
@@ -1091,6 +1251,7 @@ public class DAO {
     }
 //     lấy ra những post mà exchangeState là 0, là những post chưa chính thức exchange, để thông báo cho người chấp nhận để chấp nhận exchange
 // người secondPostID là người gửi lời exchange,  người firstPostId là người quyết định accept exchange or not,
+
     public List<Exchange> getAllExchangeStateEqualZeroByID(int accountID) throws Exception {
         List<Exchange> listAllExchangeStateEqualZeroByID = new ArrayList<>();
 
@@ -1098,9 +1259,9 @@ public class DAO {
             con = DBUtils.makeConnection();
 
             if (con != null) {
-                String sql = "select a.exchangeID, a.postExchangeDate, a.firstPostID, a.secondPostID, a.exchangeState\n" +
-                            "from Exchange a, Post b\n" +
-                            "where a.exchangeState = 0 and a.firstPostID = b.postID and b.accountID = ?";
+                String sql = "select a.exchangeID, a.postExchangeDate, a.firstPostID, a.secondPostID, a.exchangeState\n"
+                        + "from Exchange a, Post b\n"
+                        + "where a.exchangeState = 0 and a.firstPostID = b.postID and b.accountID = ?";
 
                 stm = con.prepareStatement(sql);
                 stm.setInt(1, accountID);
@@ -1129,13 +1290,13 @@ public class DAO {
         }
         return null;
     }
-    
+
     public boolean updateAcceptExchange(String exchangeID) throws SQLException, NamingException, Exception {
         try {
             con = DBUtils.makeConnection();
             if (con != null) {
                 String sql = "update Exchange set exchangeState = 1, postExchangeDate = ? where exchangeID = ?";
-                
+
                 stm = con.prepareStatement(sql);
                 stm.setString(1, LocalDateTime.now().toString());
                 stm.setString(2, exchangeID);
@@ -1159,12 +1320,13 @@ public class DAO {
 
         return false;
     }
+
     public boolean deleteExchange(String exchangeID) throws SQLException, NamingException, Exception {
         try {
             con = DBUtils.makeConnection();
             if (con != null) {
                 String sql = "delete from Exchange where exchangeID = ?";
-                
+
                 stm = con.prepareStatement(sql);
                 stm.setString(1, exchangeID);
                 int row = stm.executeUpdate();
@@ -1210,9 +1372,13 @@ public class DAO {
 //            System.out.println(find.toString());          
 //        }
         DAO dao = new DAO();
+//        ArrayList<String> temp = dao.getCategoryByPostID("19");
+//        for (String string : temp) {
+//            System.out.println(string);
+//        }
 //        dao.updateAdmin("8", "0");
-        Post temp = dao.getPostByPostID("1");
-        System.out.println(temp.toString());
+//        Post temp = dao.getPostByPostID("1");
+//        System.out.println(temp.toString());
 //        dao.insertAccount("HELLO", "TEST", "CHUOI", "132");
 //        dao.deleteAccount("7");
 //        List<Account> list = dao.getAllAccount();
@@ -1232,9 +1398,7 @@ public class DAO {
 
 //        System.out.println(dao.getAllExchangeStateEqualZeroByID(1));
 //        System.out.println(dao.getAllPostInHomePage());
-
 //            System.out.println(dao.getAllPost());
-
     }
 
 }
