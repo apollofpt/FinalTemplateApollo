@@ -112,7 +112,7 @@
                                                                 <img src="${lp.thumbnail}" class="img-fluid1" alt="Image">
                                                                 <div class="mask-icon">
                                                                     <ul>
-                                                                        <li><a class="view-button post-button" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                                                        <li><a href="PostDetailServlet?postid=${lp.postid}" class="view-button post-button" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                                                         <li><a class="compare-button post-button" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
                                                                         <li><a class="like-button post-button" id="${lp.postid}-post" data-toggle="tooltip" data-placement="right" title="Like"><i class="${not empty liked && fn:contains(liked, lp.postid) ? 'fas' : 'far'} fa-heart"></i></a></li>
                                                                     </ul>
@@ -151,7 +151,7 @@
                                                                     <img src="${lp.thumbnail}" class="img-fluid1" alt="Image">
                                                                     <div class="mask-icon">
                                                                         <ul>
-                                                                            <li><a data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                                                            <li><a href="PostDetailServlet?postid=${lp.postid}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                                                             <li><a data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
                                                                             <li><a class="like-button" id="${lp.postid}-post" data-toggle="tooltip" data-placement="right" title="Like"><i class="far fa-heart"></i></a></li>
                                                                         </ul>

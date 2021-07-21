@@ -53,7 +53,7 @@
                     <div class="col-lg-12">
                         <h2>Chi tiết sản phẩm</h2>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Product</a></li>
+                            <li class="breadcrumb-item"><a href="AllProductServlet">Product</a></li>
                             <li class="breadcrumb-item active">Chi tiết sản phẩm</li>
                         </ul>
                     </div>
