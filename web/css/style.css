@@ -2779,4 +2779,9 @@
         transform: scaleY(1)
     }
 }
+
+/*sửa style của button*/
+a:not([href]):not([tabindex]){
+    color: #ffffff;
+}
 /*--------------------------------------- Tình 20/7/2021 ---------------------------------------*/

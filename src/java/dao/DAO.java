@@ -1331,10 +1331,7 @@ public List<Exchange> getAllExchangeInManager() throws Exception {
                 stm.setString(1, exchangeID);
                 int row = stm.executeUpdate();
 //                System.out.println(row);
-                if (row > 0) {
-                    return true;
-                }
-
+                return row > 0;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1348,6 +1345,116 @@ public List<Exchange> getAllExchangeInManager() throws Exception {
         }
 
         return false;
+    }
+    
+    public String modifyPostLikeUser(int pid, int uid) throws SQLException{
+                try {
+            con = DBUtils.makeConnection();
+            if (con != null) {
+                String check = "select * from PostLikeUsers where postID=? and accountID=?";
+                System.out.println("pid=" + pid + " uid=" + uid);
+                stm = con.prepareStatement(check);
+                stm.setInt(1, pid);
+                stm.setInt(2, uid);
+                
+                if(!stm.executeQuery().next()){
+                    String sql = "insert into PostLikeUsers(postID, accountID) values (?,?)";
+                    stm = con.prepareStatement(sql);
+                    stm.setInt(1, pid);
+                    stm.setInt(2, uid);
+                    
+                    int row = stm.executeUpdate();
+                    return row > 0 ? "like true" : "like false";
+                } else {
+                    String sql = "delete from PostLikeUsers where postID=? and accountID=?";
+                    stm = con.prepareStatement(sql);
+                    stm.setInt(1, pid);
+                    stm.setInt(2, uid);
+                    
+                    int row = stm.executeUpdate();
+                    return row > 0 ? "unlike true" : "unlike false";
+                }
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return "";
+    }
+    
+    public int countLike(int pid) throws SQLException{
+        try {
+            con = DBUtils.makeConnection();
+            if (con != null) {
+                String sql = "select count(*) from PostLikeUsers where postID=?";
+                stm = con.prepareStatement(sql);
+                stm.setInt(1, pid);
+                
+                rs = stm.executeQuery();
+                if(rs.next()){
+                    int realLike = rs.getInt(1);
+                    sql = "select postLike from Post where postID=?";
+                    stm = con.prepareStatement(sql);
+                    stm.setInt(1, pid);
+                    rs = stm.executeQuery();
+                    
+                    rs.next();
+                    int fakeLike = rs.getInt(1);
+                    System.out.println("fakeLike = " + fakeLike);
+                    return realLike + fakeLike;
+                } else {
+                    return -1;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return -1;
+    }
+    
+     public List<Integer> getLikedPostByID(int uid) throws SQLException{
+        try {
+            System.out.println("uid: " + uid);
+            con = DBUtils.makeConnection();
+            List<Integer> result = new ArrayList();
+            if (con != null) {
+                String sql = "select postID from PostLikeUsers where accountID=?";
+                stm = con.prepareStatement(sql);
+                stm.setInt(1, uid);
+                
+                rs = stm.executeQuery();
+                
+                while(rs.next()){
+                    result.add(rs.getInt(1));
+                    System.out.println("have next" + result.get(result.size()-1));
+                }
+                return result;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return null;
     }
 /////////////////////////////////////////////////////////////
 

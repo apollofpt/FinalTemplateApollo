@@ -5,8 +5,12 @@
  */
 package servlet;
 
+import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,15 +32,21 @@ public class LikeServlet extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * @throws java.sql.SQLException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String pid = request.getParameter("pid");
-            String uid = request.getParameter("uid");
-            System.out.println("data at servlet, pid=" + pid + " uid=" + uid);
-            out.println(true);
+            String operation = request.getParameter("operation");
+            int pid = Integer.parseInt(request.getParameter("pid"));
+            DAO dao = new DAO();
+            if(operation.equals("dolike")){
+                int uid = Integer.parseInt(request.getParameter("uid"));
+                out.println(dao.modifyPostLikeUser(pid, uid) + " " + dao.countLike(pid));
+            } else if (operation.equals("getlike")){
+                out.println(dao.countLike(pid));
+            }
         }
     }
 
@@ -52,7 +62,11 @@ public class LikeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(LikeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -66,7 +80,11 @@ public class LikeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(LikeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

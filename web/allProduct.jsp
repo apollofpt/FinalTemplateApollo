@@ -4,7 +4,9 @@
    Author     : acer
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -42,6 +44,8 @@
         <![endif]-->
         <!--swal-->
         <link rel="stylesheet" href="MDBootstrap-Swal/swal-package/dist/sweetalert2.min.css">
+        <!--like css-->
+        <link rel="stylesheet" href="css/like.css">
         <!--JQuery-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     </head>
@@ -49,8 +53,6 @@
     <body>
 
         <jsp:include page="Header.jsp"></jsp:include>
-
-
             <!-- Start All Title Box -->
             <div class="all-title-box">
                 <div class="container">
@@ -99,89 +101,90 @@
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane fade show active" id="grid-view">
                                             <div class="row">
-                                            <c:forEach items="${listP}" var="lp">
-                                                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                                                    <div class="products-single fix">
-                                                        <div class="box-img-hover">
-                                                            <div class="type-lb1">
-                                                                <p class="sale"></p>
-                                                            </div>
-                                                            <img src="${lp.thumbnail}" class="img-fluid1" alt="Image">
-                                                            <div class="mask-icon">
-                                                                <ul>
-                                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                                                    <li><a class="like-button" id="${lp.postid}~post" data-toggle="tooltip" data-placement="right" title="Like"><i class="far fa-heart"></i></a></li>
-                                                                </ul>
-                                                                <a class="cart exchange" href="#showYourListProductToExchange" data-toggle="modal"> Exchange now!!</a>
-                                                                <input type="hidden"  id="firstPostID" value="${lp.postid}">
-                                                            </div>
-                                                        </div>
-                                                        <div class="why-text">
-                                                            <h4><a href="PostDetailServlet?postid=${lp.postid}">  ${lp.title}</a></h4>
-                                                            <p style="float: right;"><i class="fas fa-heart" ></i> ${lp.like} </p>
-                                                            <div class="Avatar">
-                                                                <img src="${lp.avatar}" id="imgAva" 
-                                                                     >
-                                                                <p class="nameAva"><a href="my-account.html"> ${lp.username}</a></p>
-                                                            </div>
-                                                            <p class="time">
-                                                                ${lp.date}
-                                                            </p>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </c:forEach>
-                                        </div>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="list-view">
-                                        <div class="list-view-box">
-                                            <c:forEach items="${listP}" var="lp">
-                                                <div class="row">
+                                                <c:set var="liked" value="${likedPostID}"/>
+                                                <c:forEach items="${listP}" var="lp">
                                                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                                         <div class="products-single fix">
                                                             <div class="box-img-hover">
                                                                 <div class="type-lb1">
-                                                                    <p class="new"></p>
+                                                                    <p class="sale"></p>
                                                                 </div>
                                                                 <img src="${lp.thumbnail}" class="img-fluid1" alt="Image">
                                                                 <div class="mask-icon">
                                                                     <ul>
-                                                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                                                        <li><a class="like-button" id="${lp.postid}~post" data-toggle="tooltip" data-placement="right" title="Like"><i class="far fa-heart"></i></a></li>
+                                                                        <li><a class="view-button post-button" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                                                        <li><a class="compare-button post-button" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                                                        <li><a class="like-button post-button" id="${lp.postid}-post" data-toggle="tooltip" data-placement="right" title="Like"><i class="${not empty liked && fn:contains(liked, lp.postid) ? 'fas' : 'far'} fa-heart"></i></a></li>
                                                                     </ul>
+                                                                    <a class="cart exchange" href="#showYourListProductToExchange" data-toggle="modal"> Exchange now!!</a>
+                                                                    <input type="hidden"  id="firstPostID" value="${lp.postid}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="why-text">
+                                                                <h4><a href="PostDetailServlet?postid=${lp.postid}">  ${lp.title}</a></h4>
+                                                                <p style="float: right;"><i class="fas fa-heart" ></i> <span class="like-count" id="${lp.postid}-like">${lp.like}</span> </p>
+                                                                <div class="Avatar">
+                                                                    <img src="${lp.avatar}" id="imgAva" 
+                                                                         >
+                                                                    <p class="nameAva"><a href="my-account.html"> ${lp.username}</a></p>
+                                                                </div>
+                                                                <p class="time">
+                                                                    ${lp.date}
+                                                                </p>
 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </c:forEach>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="list-view">
+                                            <div class="list-view-box">
+                                                <c:forEach items="${listP}" var="lp">
+                                                    <div class="row">
+                                                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                                                            <div class="products-single fix">
+                                                                <div class="box-img-hover">
+                                                                    <div class="type-lb1">
+                                                                        <p class="new"></p>
+                                                                    </div>
+                                                                    <img src="${lp.thumbnail}" class="img-fluid1" alt="Image">
+                                                                    <div class="mask-icon">
+                                                                        <ul>
+                                                                            <li><a data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                                                            <li><a data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                                                            <li><a class="like-button" id="${lp.postid}-post" data-toggle="tooltip" data-placement="right" title="Like"><i class="far fa-heart"></i></a></li>
+                                                                        </ul>
+
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-sm-6 col-md-6 col-lg-8 col-xl-8">
-                                                        <div class="why-text full-width">
-                                                            <h4><a href="PostDetailServlet?postid=${lp.postid}" style="color: rgb(219, 169, 94);">${lp.title}</a></h4>
-                                                            <p>${lp.description}</p>
-                                                            <p style="float: right;"><i class="fas fa-heart" ></i> ${lp.like} </p>
-                                                            <div class="Avatar">
-                                                                <img src="${lp.avatar}" id="imgAva" 
-                                                                     >
-                                                                <p class="nameAva" ><a href="my-account.html" style="color: rgb(219, 169, 94);"> ${lp.username}</a></p>
+                                                        <div class="col-sm-6 col-md-6 col-lg-8 col-xl-8">
+                                                            <div class="why-text full-width">
+                                                                <h4><a href="PostDetailServlet?postid=${lp.postid}" style="color: rgb(219, 169, 94);">${lp.title}</a></h4>
+                                                                <p>${lp.description}</p>
+                                                                <p style="float: right;"><i class="fas fa-heart" ></i><span id="${lp.postid}-like">${lp.like}</span></p>
+                                                                <div class="Avatar">
+                                                                    <img src="${lp.avatar}" id="imgAva" 
+                                                                         >
+                                                                    <p class="nameAva" ><a href="my-account.html" style="color: rgb(219, 169, 94);"> ${lp.username}</a></p>
+                                                                </div>
+                                                                <p class="time">
+                                                                    ${lp.date}
+                                                                </p>
+                                                                <a class="btn hvr-hover exchange" href="#showYourListProductToExchange" data-toggle="modal">Exchange now!!</a>
+                                                                <input type="hidden"  id="firstPostID" value="${lp.postid}">
                                                             </div>
-                                                            <p class="time">
-                                                                ${lp.date}
-                                                            </p>
-                                                            <a class="btn hvr-hover exchange" href="#showYourListProductToExchange" data-toggle="modal">Exchange now!!</a>
-                                                            <input type="hidden"  id="firstPostID" value="${lp.postid}">
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </c:forEach>
+                                                </c:forEach>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <div class="col-xl-3 col-lg-3 col-sm-12 col-xs-12 sidebar-shop-left">
                         <div class="product-categori">
                             <div class="search-product">
@@ -401,8 +404,6 @@
 
     <jsp:include page="Footer.jsp"></jsp:include>
 
-
-<<<<<<< HEAD:web/AllProduct.jsp
     <!-- Start copyright  -->
     <div class="footer-copyright">
         <p class="footer-company">All Rights Reserved. &copy; 2018 <a href="#">ThewayShop</a> Design By :
@@ -436,11 +437,13 @@
     <!-- Hữu Tình - 1208.03062021 - searchbar script -->
     <script src="js/searchbar.js"></script>
     <!-- Hữu Tình - 1239.20072021 - searchbar script -->
-    <script>
-        var uid = ${not empty currentAccount.accountID ? currentAccount.accountID : '""'};
-    </script>
-    
-    <script src="js/like.js"></script>
+    <c:if test="${not empty currentAccount}">
+        <script>
+            var uid = ${currentAccount.accountID};
+        </script>
+
+        <script src="js/like.js"></script>
+    </c:if>
     <!-- Hữu Tình - 1239.20072021 - searchbar script -->
     
     <script>
