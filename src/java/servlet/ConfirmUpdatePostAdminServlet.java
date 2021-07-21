@@ -59,11 +59,9 @@ public class ConfirmUpdatePostAdminServlet extends HttpServlet {
 //        }
         for (int i = 0; i < listC.size(); i++) {
             for (int j = 0; j < category.size(); j++) {
-                if (listC.get(i).trim().equals(category.get(j).trim())) {
+                if (listC.get(i).equals(category.get(j))) {
                     category.remove(j);
                     listC.remove(i);
-//                    i--;
-                    j--;
                 }                
             }
         }

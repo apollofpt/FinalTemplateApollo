@@ -41,7 +41,7 @@
                         </ul>
                     </li>
 
-                    <c:if test="${not empty USER}">
+                    <c:if test="${not empty currentAccount}">
                         <c:if test="${currentAccount.isAdmin == 'true'}">
                             <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
@@ -117,17 +117,15 @@
             </div>
             <!-- /.navbar-collapse -->
             <div id="login">
-                <c:if test="${not empty USER}">
+                <c:if test="${not empty currentAccount}">
                     <ul>
-                        <li><h1>Welcome, ${sessionScope.USER}</h1></li>
+                        <li><h1>Welcome, ${currentAccount.username}</h1></li>
                         <li><a class="nav-link" href="LogOut">Đăng xuất</a></li>
-
-
                     </ul>
 
                 </c:if>
 
-                <c:if test="${empty USER}">
+                <c:if test="${empty currentAccount}">
                     <a class="nav-link" href="Login">Đăng nhập</a>/<a class="nav-link" href="validate">Đăng ký</a>
                 </c:if>
             </div>
