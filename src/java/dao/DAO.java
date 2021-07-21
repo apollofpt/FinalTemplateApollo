@@ -130,7 +130,8 @@ public class DAO {
 
         return false;
     }
- public void AddCategory(String name, String url) {
+
+    public void AddCategory(String name, String url) {
         String query = "insert into Category(categoryName,categoryIcon) values\n"
                 + "(?,?)";
         try {
@@ -143,7 +144,8 @@ public class DAO {
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-public void deleteCategory(String id) {
+
+    public void deleteCategory(String id) {
         String query = "delete Category where [categoryID] = ?";
         try {
             con = DBUtils.makeConnection();
@@ -620,7 +622,8 @@ public void deleteCategory(String id) {
         }
         return null;
     }
-public List<Exchange> getAllExchangeInManager() throws Exception {
+
+    public List<Exchange> getAllExchangeInManager() throws Exception {
         List<Exchange> listAllExchangeInHomePage = new ArrayList<>();
 
         try {
@@ -656,6 +659,7 @@ public List<Exchange> getAllExchangeInManager() throws Exception {
         }
         return null;
     }
+
     public List<Exchange> getAllExchangeInHomePage() throws Exception {
         List<Exchange> listAllExchangeInHomePage = new ArrayList<>();
 
@@ -871,6 +875,22 @@ public List<Exchange> getAllExchangeInManager() throws Exception {
             if (con != null) {
                 con.close();
             }
+        }
+    }
+
+    public void updateCategory(String cid, String cname, String cic) throws Exception {
+
+        String sql = "update Category set categoryName=?, categoryIcon = ? where  categoryID = ?";
+        try {
+            con = DBUtils.makeConnection();
+            stm = con.prepareStatement(sql);
+            stm.setString(1, cname);
+            stm.setString(2, cic);
+            stm.setString(3, cid);
+            stm.executeQuery();
+            stm.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -1346,9 +1366,9 @@ public List<Exchange> getAllExchangeInManager() throws Exception {
 
         return false;
     }
-    
-    public String modifyPostLikeUser(int pid, int uid) throws SQLException{
-                try {
+
+    public String modifyPostLikeUser(int pid, int uid) throws SQLException {
+        try {
             con = DBUtils.makeConnection();
             if (con != null) {
                 String check = "select * from PostLikeUsers where postID=? and accountID=?";
@@ -1356,13 +1376,13 @@ public List<Exchange> getAllExchangeInManager() throws Exception {
                 stm = con.prepareStatement(check);
                 stm.setInt(1, pid);
                 stm.setInt(2, uid);
-                
-                if(!stm.executeQuery().next()){
+
+                if (!stm.executeQuery().next()) {
                     String sql = "insert into PostLikeUsers(postID, accountID) values (?,?)";
                     stm = con.prepareStatement(sql);
                     stm.setInt(1, pid);
                     stm.setInt(2, uid);
-                    
+
                     int row = stm.executeUpdate();
                     return row > 0 ? "like true" : "like false";
                 } else {
@@ -1370,11 +1390,11 @@ public List<Exchange> getAllExchangeInManager() throws Exception {
                     stm = con.prepareStatement(sql);
                     stm.setInt(1, pid);
                     stm.setInt(2, uid);
-                    
+
                     int row = stm.executeUpdate();
                     return row > 0 ? "unlike true" : "unlike false";
                 }
-                
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1388,23 +1408,23 @@ public List<Exchange> getAllExchangeInManager() throws Exception {
         }
         return "";
     }
-    
-    public int countLike(int pid) throws SQLException{
+
+    public int countLike(int pid) throws SQLException {
         try {
             con = DBUtils.makeConnection();
             if (con != null) {
                 String sql = "select count(*) from PostLikeUsers where postID=?";
                 stm = con.prepareStatement(sql);
                 stm.setInt(1, pid);
-                
+
                 rs = stm.executeQuery();
-                if(rs.next()){
+                if (rs.next()) {
                     int realLike = rs.getInt(1);
                     sql = "select postLike from Post where postID=?";
                     stm = con.prepareStatement(sql);
                     stm.setInt(1, pid);
                     rs = stm.executeQuery();
-                    
+
                     rs.next();
                     int fakeLike = rs.getInt(1);
                     System.out.println("fakeLike = " + fakeLike);
@@ -1425,8 +1445,8 @@ public List<Exchange> getAllExchangeInManager() throws Exception {
         }
         return -1;
     }
-    
-     public List<Integer> getLikedPostByID(int uid) throws SQLException{
+
+    public List<Integer> getLikedPostByID(int uid) throws SQLException {
         try {
             System.out.println("uid: " + uid);
             con = DBUtils.makeConnection();
@@ -1435,12 +1455,12 @@ public List<Exchange> getAllExchangeInManager() throws Exception {
                 String sql = "select postID from PostLikeUsers where accountID=?";
                 stm = con.prepareStatement(sql);
                 stm.setInt(1, uid);
-                
+
                 rs = stm.executeQuery();
-                
-                while(rs.next()){
+
+                while (rs.next()) {
                     result.add(rs.getInt(1));
-                    System.out.println("have next" + result.get(result.size()-1));
+                    System.out.println("have next" + result.get(result.size() - 1));
                 }
                 return result;
             }
@@ -1454,6 +1474,39 @@ public List<Exchange> getAllExchangeInManager() throws Exception {
                 con.close();
             }
         }
+        return null;
+    }
+
+    public Category ShowCategoryByID(String id) throws SQLException {
+        try {
+            con = DBUtils.makeConnection();
+
+            if (con != null) {
+                String sql = "select * from Category where categoryID = ?";
+
+                stm = con.prepareStatement(sql);
+                stm.setString(1, id);
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    return (new Category(rs.getInt(1),
+                            rs.getString(2),
+                            rs.getString(3)));
+                }
+                return null;
+            }
+        } catch (Exception e) {
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+
         return null;
     }
 /////////////////////////////////////////////////////////////
@@ -1506,6 +1559,8 @@ public List<Exchange> getAllExchangeInManager() throws Exception {
 //        System.out.println(dao.getAllExchangeStateEqualZeroByID(1));
 //        System.out.println(dao.getAllPostInHomePage());
 //            System.out.println(dao.getAllPost());
+//        System.out.println(dao.ShowCategoryByID("1"));
+        dao.updateCategory("20", "a", "111");
     }
 
 }

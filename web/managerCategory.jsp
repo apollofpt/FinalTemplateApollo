@@ -76,22 +76,26 @@
                                 <tbody>
                                 <c:forEach items="${listC}" var="o">
                                     <%--<c:if test="${currentAccount.accountID != o.accountID}">--%>
-                                        <tr>
-                                            <td class="name-pr">
-                                                <p>${o.cid}</p>
-                                            </td>
-                                            <td class="price-pr">
-                                                <p>${o.cname}</p>
-                                            </td>
-                                            <td class="name-pr">
-                                                <p>${o.cic}</p>
-                                            </td>
-                                            <td class="remove-pr">
-                                                <a href="deleteCategory?idC=${o.cid}">
-                                                    <i class="fas fa-times"></i>
-                                                </a>
-                                            </td>
-                                        </tr>                                             
+                                    <tr>
+                                        <td class="name-pr">
+                                            <p>${o.cid}</p>
+                                        </td>
+                                        <td class="price-pr">
+                                            <p>${o.cname}</p>
+                                        </td>
+                                        <td class="name-pr">
+                                            <p>${o.cic}</p>
+                                            <i class="${o.cic}"></i>
+                                        </td>
+                                        <td class="remove-pr">
+                                            <a href="updateCategoryAdmin?ucid=${o.cid}" style="padding-right: 3%;" alt="Chỉnh Sửa">
+                                                <i class="far fa-edit"></i>
+                                            </a>
+                                            <a href="deleteCategory?idC=${o.cid}">
+                                                <i class="fas fa-times"></i>
+                                            </a>
+                                        </td>
+                                    </tr>                                             
                                     <%--</c:if>--%>
 
                                 </c:forEach>
