@@ -57,14 +57,14 @@ public class ConfirmUpdatePostAdminServlet extends HttpServlet {
 //        for (String string : category) {
 //            System.out.println("List nhap : "+string);
 //        }
-        for (int i = 0; i < listC.size(); i++) {
-            for (int j = 0; j < category.size(); j++) {
-                if (listC.get(i).equals(category.get(j))) {
-                    category.remove(j);
-                    listC.remove(i);
-                }                
-            }
-        }
+//        for (int i = 0; i < listC.size(); i++) {
+//            for (int j = 0; j < category.size(); j++) {
+//                if (listC.get(i).equals(category.get(j))) {
+//                    category.remove(j);
+//                    listC.remove(i);
+//                }                
+//            }
+//        }
 //        System.out.println("SAu khi xoa");
 //        for (String string : listC) {
 //            System.out.println("Listc: "+string);
@@ -73,14 +73,15 @@ public class ConfirmUpdatePostAdminServlet extends HttpServlet {
 //            System.out.println("List nhap : "+string);
 //        }
 //        
-        try {
+        dao.deleteCategoryByPost(id, listC);
+
+try {
             dao.insertCategoryPost(Integer.parseInt(id), category);
         } catch (Exception ex) {
             Logger.getLogger(ConfirmUpdatePostAdminServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
             //Hoan thanh insert cai chua co
         
-        dao.deleteCategoryByPost(id, listC);
             
         try {
             dao.updatePost(id, title, decription);
