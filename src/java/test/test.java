@@ -10,6 +10,8 @@ import java.util.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -32,5 +34,7 @@ public class test {
 //        
 //        System.out.println(dao.insertCategoryPost(key, new String[]{"1","2","3"}));
 //        System.out.println(dao.insertProductImage(22, new String[]{"test/2","test/3"}));
+        
+        
     }
 }

@@ -1,5 +1,5 @@
 
-<%@page import="model.Account" %>
+<%@page import="model.Category" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Site Metas -->
-        <title>Post Manager</title>
+        <title>Manager all category</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -36,6 +36,7 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+
     </head>
 
     <body>
@@ -63,58 +64,40 @@
                 <div class="container">
                     <div class="row col-lg-12">
                         <div class="table-main table-responsive">
-                            <table class="table" style="table-layout: fixed; width: 100%;">
+                            <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Ảnh</th>
-                                        <th>Tựa đề</th>
-                                        <th>Người đăng</th>
-                                        <th>Mô tả</th>
-                                        <th>Ngày đăng</th>
-                                        <th>Số like</th>
                                         <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Icon</th>
                                         <th>Option</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${listP}" var="o">
-                                    <tr style="word-break: break-all;">
-                                        <td class="thumbnail-img">
-                                            <img class="img-fluid" src="${o.thumbnailURL}" alt="" />
+                                <c:forEach items="${listC}" var="o">
+                                    <%--<c:if test="${currentAccount.accountID != o.accountID}">--%>
+                                    <tr>
+                                        <td class="name-pr">
+                                            <p>${o.cid}</p>
                                         </td>
-
-
-                                        <td class="price-pr" style="overflow:auto; ">
-                                            ${o.postTitle}
+                                        <td class="price-pr">
+                                            <p>${o.cname}</p>
                                         </td>
                                         <td class="name-pr">
-                                            <c:forEach items="${listAccount}" var="i">
-                                                <c:if test="${i.accountID == o.accountID}">
-                                                    <p>${i.userFullname}</p>
-                                                </c:if> 
-                                            </c:forEach> 
-                                        </td>
-                                        <td class="name-pr"  style="width: 300px; overflow: auto;">
-                                            <p>${o.postDescription}</p>
-                                        </td>
-                                        <td class="total-pr">
-                                            <p>${o.postDate}</p>
-                                        </td>
-                                        <td class="total-pr">
-                                            <p>${o.postLike}</p>
-                                        </td>
-                                        <td class="total-pr">
-                                            <p>${o.postID}</p>
+                                            <p>${o.cic}</p>
+                                            <i class="${o.cic}"></i>
                                         </td>
                                         <td class="remove-pr">
-                                            <a href="updatePostAdmin?idP=${o.postID}" style="padding-right: 3%;" alt="Chỉnh Sửa">
+                                            <a href="updateCategoryAdmin?ucid=${o.cid}" style="padding-right: 3%;" alt="Chỉnh Sửa">
                                                 <i class="far fa-edit"></i>
                                             </a>
-                                            <a href="deletePost?idP=${o.postID}">
+                                            <a href="deleteCategory?idC=${o.cid}">
                                                 <i class="fas fa-times"></i>
                                             </a>
                                         </td>
                                     </tr>                                             
+                                    <%--</c:if>--%>
+
                                 </c:forEach>
                             </tbody>
                         </table>
@@ -122,16 +105,16 @@
                 </div>
 
             </div>
-<!--            <div class="container">
+            <div class="container">
                 <div class="row col-lg-12">
                     <div class="col-lg-7 col-sm-6">
                         <div class="update-box" style="text-align: center;">
-                            <input value="Update Cart" type="submit">
+                            <a href="addCategory.jsp"><input value="Add new Category" type="submit"></a>
                         </div>
                     </div>
                 </div>
 
-            </div>-->
+            </div>
         </div>
         <!-- End Cart -->
 

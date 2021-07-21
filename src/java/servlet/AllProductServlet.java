@@ -43,13 +43,14 @@ public class AllProductServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         DAO dao = new DAO();
         List<Post> listPostByID = null;
+        List<Integer> likedPostID = null;
         try {
             HttpSession session = request.getSession(false);
             if (session != null) {
                 // Not created yet. Now do so yourself.
                 Account currentAccount = (Account) session.getAttribute("currentAccount");
                 listPostByID = dao.getPostByID(currentAccount.getAccountID());
-                
+                likedPostID = dao.getLikedPostByID(currentAccount.getAccountID());
             }
         }catch(Exception e){
             
@@ -63,6 +64,8 @@ public class AllProductServlet extends HttpServlet {
         int mostLike = dao.getMostLike();
 
         request.setAttribute("listPostByID", listPostByID);
+        request.setAttribute("likedPostID", likedPostID);
+        System.out.println("likedPostID: " + request.getParameter("likedPostID"));
         request.setAttribute("mostLike", mostLike);
         request.setAttribute("listC", listC);
         request.setAttribute("listP", listP);

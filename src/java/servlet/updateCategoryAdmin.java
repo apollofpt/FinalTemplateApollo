@@ -16,13 +16,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Category;
 
 /**
  *
- * @author Minky
+ * @author acer
  */
-@WebServlet(name = "LikeServlet", urlPatterns = {"/LikeServlet"})
-public class LikeServlet extends HttpServlet {
+@WebServlet(name = "updateCategoryAdmin", urlPatterns = {"/updateCategoryAdmin"})
+public class updateCategoryAdmin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,22 +33,17 @@ public class LikeServlet extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     * @throws java.sql.SQLException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String operation = request.getParameter("operation");
-            int pid = Integer.parseInt(request.getParameter("pid"));
-            DAO dao = new DAO();
-            if(operation.equals("dolike")){
-                int uid = Integer.parseInt(request.getParameter("uid"));
-                out.println(dao.modifyPostLikeUser(pid, uid) + " " + dao.countLike(pid));
-            } else if (operation.equals("getlike")){
-                out.println(dao.countLike(pid));
-            }
-        }
+        String id = request.getParameter("ucid");
+        DAO dao = new DAO();
+        Category c = dao.ShowCategoryByID(id);
+        System.out.println(c);
+        request.setAttribute("ctgr", c);
+        request.getRequestDispatcher("editCategory.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -65,7 +61,7 @@ public class LikeServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(LikeServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(updateCategoryAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -83,7 +79,7 @@ public class LikeServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(LikeServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(updateCategoryAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -96,5 +92,10 @@ public class LikeServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
+public static void main(String[] args) throws SQLException {
+        DAO dao = new DAO();
+                Category c = dao.ShowCategoryByID("1");
+    System.out.println(c);
+//        System.out.println(dao.ShowCategoryByID("1"));
+    }
 }

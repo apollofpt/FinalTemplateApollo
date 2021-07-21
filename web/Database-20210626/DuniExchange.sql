@@ -50,6 +50,8 @@ constraint fk_PostLikeUsers_Post foreign key (postID) references Post(postID),
 constraint fk_PostLikeUsers_Account foreign key (accountID) references Account(accountID)
 )
 
+select postID from PostLikeUsers where accountID=2;
+
 go
 create table CategoryPost
 (

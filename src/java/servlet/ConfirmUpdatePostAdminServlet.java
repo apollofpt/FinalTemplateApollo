@@ -8,9 +8,9 @@ package servlet;
 import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,10 +19,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author ADMIN
+ * @author truon
  */
-@WebServlet(name = "DenyExchangeServlet", urlPatterns = {"/DenyExchangeServlet"})
-public class DenyExchangeServlet extends HttpServlet {
+@WebServlet(name = "ConfirmUpdatePostAdminServlet", urlPatterns = {"/confirmUpdatePostAdmin"})
+public class ConfirmUpdatePostAdminServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,21 +34,60 @@ public class DenyExchangeServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, NamingException, Exception {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        String id = request.getParameter("idPost");
+        String title = request.getParameter("title");
+        String[] temp = request.getParameterValues("category");
+
+        String decription = request.getParameter("decription");
         DAO dao = new DAO();
+        ArrayList<String> category = new ArrayList<>();
         
-        String exchangeID = request.getParameter("exchangeID");
-        String exchangeMess = "deny";
-
-        boolean row=dao.deleteExchange(exchangeID);
-
-
-        if(!row){
-            exchangeMess = "error";
+        for (String string : temp) {
+            category.add(string);
         }
-        request.setAttribute("exchangeMess", exchangeMess);
-        request.getRequestDispatcher("HomeServlet").forward(request, response);
+        ArrayList<String> listC = dao.getCategoryByPostID(id);
+//            System.out.println("Truoc khi xoa");
+//
+//        for (String string : listC) {
+//            System.out.println("Listc: "+string);
+//        }
+//        for (String string : category) {
+//            System.out.println("List nhap : "+string);
+//        }
+        for (int i = 0; i < listC.size(); i++) {
+            for (int j = 0; j < category.size(); j++) {
+                if (listC.get(i).equals(category.get(j))) {
+                    category.remove(j);
+                    listC.remove(i);
+                }                
+            }
+        }
+//        System.out.println("SAu khi xoa");
+//        for (String string : listC) {
+//            System.out.println("Listc: "+string);
+//        }
+//        for (String string : category) {
+//            System.out.println("List nhap : "+string);
+//        }
+//        
+        try {
+            dao.insertCategoryPost(Integer.parseInt(id), category);
+        } catch (Exception ex) {
+            Logger.getLogger(ConfirmUpdatePostAdminServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            //Hoan thanh insert cai chua co
+        
+        dao.deleteCategoryByPost(id, listC);
+            
+        try {
+            dao.updatePost(id, title, decription);
+            response.sendRedirect("managerPost");
+        } catch (Exception ex) {
+            Logger.getLogger(ConfirmUpdatePostAdminServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -63,11 +102,7 @@ public class DenyExchangeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(DenyExchangeServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -81,11 +116,7 @@ public class DenyExchangeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(DenyExchangeServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

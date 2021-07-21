@@ -44,67 +44,7 @@
 
     </head>
     <body>
-
-        <!-- Start Main Top -->
-        <header class="main-header">
-            <!-- Start Navigation -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
-                <div class="container">
-                    <!-- Start Header Navigation -->
-                    <div class="navbar-header">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                        <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="logo" alt=""></a>
-                    </div>
-                    <!-- End Header Navigation -->
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="navbar-menu">
-                        <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                            <li class="nav-item active"><a class="nav-link" href="index.html">Trang chủ</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                                    <p>SHOP</p>
-                                    <i class="fas fa-caret-down"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="shop.html">Sidebar Shop</a></li>
-                                    <!-- <li><a href="shop-detail.html">Shop Detail</a></li> -->
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="my-account.html">My Account</a></li>
-                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="contact-us.html">Liên hệ</a></li>
-                            <li class="search-item">
-                                <!-- Start Top Search -->
-                                <div class="search-toggle">
-                                    <div class="container">
-                                        <div id="search-group" class="search-group close-search">
-                                            <div class="toggle-target-container">
-                                                <div class="toggle-target"><input type="text" class="search-text" placeholder="Search"></div>
-                                            </div>
-                                            <div class="search-button-container">
-                                                <span class="input-group-addon search-button"><i class="fa fa-search" id="search-icon"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Top Search -->                            
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.navbar-collapse -->
-                    <div id="login">
-                        <a class="nav-link" href="login.html">Đăng nhập</a>/<a class="nav-link" href="register.html">Đăng ký</a>
-                    </div>
-                </div>
-            </nav>
-            <!-- End Navigation -->
-        </header>
-        <!-- End Main Top -->
+        <jsp:include page="Header.jsp"></jsp:include>
 
         <!-- Start All Title Box -->	
         <div class="all-title-box">
@@ -113,7 +53,7 @@
                     <div class="col-lg-12">
                         <h2>Chi tiết sản phẩm</h2>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Product</a></li>
+                            <li class="breadcrumb-item"><a href="AllProductServlet">Product</a></li>
                             <li class="breadcrumb-item active">Chi tiết sản phẩm</li>
                         </ul>
                     </div>
@@ -227,82 +167,8 @@
 
         <!--End main section of Product detail-->
 
-
-        <!-- Start Footer  -->
-        <footer>
-            <div class="footer-main">
-                <div class="container">
-                    <div class="row mr-3 col-lg-5">
-                        <div class="col-lg-6 col-md-12 col-sm-12">
-                            <div class="footer-top-box">
-                                <h3>Nhận tin tức</h3>
-                                <form class="newsletter-box">
-                                    <div class="form-group">
-                                        <input class="p-1" type="email" name="Email" placeholder="Email Address*" />
-                                        <i class="fa fa-envelope"></i>
-                                    </div>
-                                    <button class="btn hvr-hover" type="submit">Submit</button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12 col-sm-12">
-                            <div class="footer-top-box">
-                                <h3>Mạng xã hội</h3>
-                                <p>Biết thêm về chúng tôi tại</p>
-                                <ul>
-                                    <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-lg-4 col-md-12 col-sm-12">
-                            <div class="footer-widget">
-                                <h4>Về DuniExchange</h4>
-                                <p>Đây là một trong web dành cho trao đổi các vật phẩm của trường FPT</p> 
-                                <p>Những vật phẩm được trao đổi với nhau thông qua sự đồng ý giao dịch của 2 bên, trang web chỉ hỗ trợ tìm kiếm giao dịch, không tham gia vào quá trình giao dịch.</p>                          
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-12 col-sm-12">
-                            <div class="footer-link">
-                                <h4>Information</h4>
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-angle-right"></i> Về chúng tôi</a></li>
-                                    <li><a href="#"><i class="fas fa-angle-right"></i> Dịch vụ khách hàng</a></li>
-                                    <li><a href="#"><i class="fas fa-angle-right"></i> Điều khoản &amp; Điều kiện</a></li>
-                                    <li><a href="#"><i class="fas fa-angle-right"></i> Chính sách bảo mật</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-12 col-sm-12">
-                            <div class="footer-link-contact">
-                                <h4>Contact Us</h4>
-                                <ul>
-                                    <li>
-                                        <p><i class="fas fa-map-marker-alt"></i>Địa chỉ: Trường Đại học FPT Đà Nẵng, Khu đô thị FPT City, Phường Hòa Hải, Quận Ngũ Hành Sơn, TP Đà Nẵng.
-                                    </li>
-                                    <li>
-                                        <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+1-888705770">+1-888 705 770</a></p>
-                                    </li>
-                                    <li>
-                                        <p><i class="fas fa-envelope"></i>Email: <a href="mailto:apolloteamproject@gmail.com">apolloteamproject@gmail.com</a></p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- End Footer  -->
-
+        <jsp:include page="Footer.jsp"></jsp:include>
+ 
         <!-- Start copyright  -->
         <div class="footer-copyright">
             <p class="footer-company">All Rights Reserved. &copy; 2018 <a href="#">ThewayShop</a> Design By :

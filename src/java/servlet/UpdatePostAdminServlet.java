@@ -8,7 +8,6 @@ package servlet;
 import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -16,13 +15,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Post;
 
 /**
  *
- * @author Minky
+ * @author truon
  */
-@WebServlet(name = "LikeServlet", urlPatterns = {"/LikeServlet"})
-public class LikeServlet extends HttpServlet {
+@WebServlet(name = "UpdatePostAdminServlet", urlPatterns = {"/updatePostAdmin"})
+public class UpdatePostAdminServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,21 +32,18 @@ public class LikeServlet extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     * @throws java.sql.SQLException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String operation = request.getParameter("operation");
-            int pid = Integer.parseInt(request.getParameter("pid"));
-            DAO dao = new DAO();
-            if(operation.equals("dolike")){
-                int uid = Integer.parseInt(request.getParameter("uid"));
-                out.println(dao.modifyPostLikeUser(pid, uid) + " " + dao.countLike(pid));
-            } else if (operation.equals("getlike")){
-                out.println(dao.countLike(pid));
-            }
+        String id = request.getParameter("idP");
+        DAO dao = new DAO();
+        try {
+            Post post = dao.getPostByPostID(id);
+            request.setAttribute("post", post);
+            request.getRequestDispatcher("updatePost.jsp").forward(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(UpdatePostAdminServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -62,11 +59,7 @@ public class LikeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(LikeServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -80,11 +73,7 @@ public class LikeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(LikeServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
