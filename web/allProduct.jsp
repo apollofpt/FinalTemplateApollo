@@ -437,6 +437,9 @@
     <!-- Hữu Tình - 1208.03062021 - searchbar script -->
     <script src="js/searchbar.js"></script>
     <!-- Hữu Tình - 1239.20072021 - searchbar script -->
+    
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="MDBootstrap-Swal//swal-package/dist/sweetalert2.min.js"></script>
     <c:if test="${not empty currentAccount}">
         <script>
             var uid = ${currentAccount.accountID};
